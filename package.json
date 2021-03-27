@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server.js",
-    "start1": "parcel build ./static && node ./server.js",
-    "dev": "./node_modules/.bin/parcel index.html",
+    "start": "parcel ./static/* --port 3000",
+    "dev": "parcel build ./static/* && node ./server.js",
     "build": "./node_modules/.bin/parcel build index.html"
   },
   "author": "",
@@ -15,6 +14,8 @@
     "parcel-bundler": "^1.12.5"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "pug": "^3.0.2"
   }
 }
