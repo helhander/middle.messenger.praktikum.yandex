@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./static/* --port 3000",
+    "start": "parcel ./static/* --port 3000 --no-cache",
     "dev": "parcel build ./static/* && node ./server.js",
-    "build": "./node_modules/.bin/parcel build index.html"
+    "build": "parcel build ./static/* && node ./server.js"
   },
   "author": "",
   "license": "ISC",
