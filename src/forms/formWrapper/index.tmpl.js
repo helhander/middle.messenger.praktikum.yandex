@@ -1,4 +1,3 @@
 export default `
-div
-`;
+div`;
 //div(class="wrapper-form")

@@ -1,0 +1,26 @@
+.content-wrapper {
+    display: flex;
+    height: 100vw;
+  }
+
+.login-form-wrapper {
+  display: flex;
+  margin: auto;
+  width: 340px;
+  height: 450px;
+  background-color: bisque;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin: 50px 0px 0px 0px;/* width: 340px; *//* height: 450px; */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  flex-grow: 1;
+}

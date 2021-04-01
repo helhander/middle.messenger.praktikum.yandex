@@ -1,1 +1,1 @@
-{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA","file":"style.css","sourceRoot":"../static","sourcesContent":[".field-input label,\n.button-link,\n.button {\n  display: block;\n  margin: 5px;\n}"]}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"style.css","sourceRoot":"../static"}

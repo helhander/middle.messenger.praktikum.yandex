@@ -5,4 +5,4 @@ const pug = require('pug');
 const templateFunc = pug.compile(template);
 const compiledTemplate = templateFunc({});
 
-export default compiledTemplate;
+export default template;
