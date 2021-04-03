@@ -1,0 +1,42 @@
+@import '../../base.scss';
+
+.login-form-link {
+  display: block;
+  text-align: center;
+  margin: 5px 0px;
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.login-form-wrapper {
+  display: flex;
+  margin: auto;
+  width: 340px;
+  min-height: 450px;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  flex-grow: 1;
+}
+
+.form-header {
+  text-align: center;
+  margin-top: 50px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: Inter;
+}

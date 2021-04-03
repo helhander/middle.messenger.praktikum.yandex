@@ -11,10 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.32.8"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "form.css": "^1.1.0",
     "fs": "^0.0.1-security",
     "pug": "^3.0.2"
   }

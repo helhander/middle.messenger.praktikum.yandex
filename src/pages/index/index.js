@@ -1,33 +1,41 @@
-//import { sum } from '../../modules/sum';
-import template from './index.tmpl';
-import Wrapper from '../../components/wrapper/wrapper';
-import Form from '../../components/form/form';
-/*const wrapper = new Wrapper().get();
-let innerPage = wrapper;
-const inputs = [
+import Form from '../../components/form/index';
+const elems = [
     {
-        name: 'Логин',
+        tag: 'input',
         attrs: {
+            label: 'Логин',
             name: 'login',
             type: 'text',
-            id: 'login-form-login'
+            id: 'login-form-login',
+            classes: 'login-form-input'
         }
     },
     {
-        name: 'Пароль',
+        tag: 'input',
         attrs: {
+            label: 'Пароль',
             name: 'password',
             type: 'password',
-            id: 'login-form-password'
+            id: 'login-form-password',
+            classes: 'login-form-input',
+            divClasses: 'login-form-input-wrapper login-form-input-space'
+        }
+    },
+    {   
+        tag: 'input',
+        attrs: {
+            value: 'Авторизоваться',
+            type: 'submit',
+            classes: 'login-form-button'
+        }
+    },
+    {
+        tag: 'link',
+        attrs: {
+            href: 'signin.html',
+            label: 'Нет аккаунта?',
         }
     },
 ];
-const loginForm = new Form('Login', inputs).get();
-innerPage.appendChild(loginForm);
-//console.log(wrapper);
-document.body.appendChild(innerPage);*/
-const pug = require('pug');
-const root = document.body;
-const loginTemplateFunc = pug.compile(template);
-const loginCompiled = loginTemplateFunc({});
-root.innerHTML = loginCompiled;
+const loginForm = new Form('Вход', elems).get();
+document.body.innerHTML = loginForm;

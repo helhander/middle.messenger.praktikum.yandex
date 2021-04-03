@@ -11,5 +11,5 @@ div(class="content-wrapper")
         input(class="login-form-input" type="password" name="password" id="login-password")
       div(class="login-form-input-wrapper")
         input(class="login-form-button" type="submit" value="Авторизоваться")
-      a(class="login-form-link" href="signin") Нет аккаунта?
+      a(class="login-form-link" href="signin.html") Нет аккаунта?
   `;

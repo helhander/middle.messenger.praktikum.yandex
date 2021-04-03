@@ -1,30 +1,25 @@
-export default class Form {
-    constructor(formName, inputs, buttons) {
-        const form = document.createElement('form');
-        for (let input of inputs) {
-            const inputDiv = document.createElement('div');
-
-            const inputLabel = document.createElement('label');
-            inputLabel.setAttribute('for', input.attrs.id);
-            inputLabel.innerHTML=input.name;
-
-            inputDiv.appendChild(inputLabel);
-
-            const inputElement = document.createElement('input');
-            Object.entries(input.attrs).forEach(attr => {
-                inputElement.setAttribute(attr[0], attr[1]);
-            });
-            inputElement.classList.add(...(input.classes || []));
-            
-            inputDiv.appendChild(inputElement);
-            form.appendChild(inputDiv);
-            //name attributes classes
+import Input from '../input/index';
+import Link from '../link/index';
+import template from './index.tmpl';
+import PugTemplate from '../../pugTemplate';
+import './form.scss';
+export default class Form extends PugTemplate {
+    constructor(name, elems) {
+        let formTemplate = template;
+        for (let elem of elems) {
+            switch (elem.tag) {
+                case 'input':
+                    const input = new Input(elem.attrs);
+                    formTemplate += input.get();
+                    break;
+                case 'link':
+                    const link = new Link(elem.attrs);
+                    formTemplate += link.get();
+                    break;
+                default:
+                    break;
+            }
         }
-        this._form = form;
-        console.log(form);
-    }
-
-    get() {
-        return this._form;
+        super(formTemplate, { name });
     }
 }

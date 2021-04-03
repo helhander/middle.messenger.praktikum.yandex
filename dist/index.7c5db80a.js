@@ -117,16 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../src/forms/loginForm/index.tmpl.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = "\ndiv(class=\"content-wrapper\")\n  div(class=\"login-form-wrapper\")\n    h1(class=\"form-header\") \u0412\u0445\u043E\u0434\n    form(class=\"login-form\" action=\"\" method=\"post\")\n      div(class=\"login-form-input-wrapper\")\n        label(class=\"login-form-input-label\" for=\"login-login\") \u041B\u043E\u0433\u0438\u043D\n        input(class=\"login-form-input\" type=\"text\" name=\"login\" id=\"login-login\")\n      div(class=\"login-form-input-wrapper login-form-input-last\")\n        label(class=\"login-form-input-label\" for=\"login-password\") \u041F\u0430\u0440\u043E\u043B\u044C\n        input(class=\"login-form-input\" type=\"password\" name=\"password\" id=\"login-password\")\n      div(class=\"login-form-input-wrapper\")\n        input(class=\"login-form-button\" type=\"submit\" value=\"\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F\")\n      a(class=\"login-form-link\" href=\"signin\") \u041D\u0435\u0442 \u0430\u043A\u043A\u0430\u0443\u043D\u0442\u0430?\n  ";
-exports.default = _default;
-},{}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -193,12 +184,22 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../src/forms/loginForm/index.css":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../src/components/input/input.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/input/input.tmpl.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = "\ndiv(class= divClasses || 'login-form-input-wrapper')\n  if label\n    label(class=\"login-form-input-label\" for= id) #{label}\n  input(\n    class= classes\n    type= type\n    name= name\n    value= value\n    id= id)\n"; //div(class="wrapper-form")
+
+exports.default = _default;
+},{}],"../node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
 
 },{}],"../node_modules/process/browser.js":[function(require,module,exports) {
 
@@ -55131,99 +55132,13 @@ exports.__express = function (path, options, fn) {
 
   exports.renderFile(path, options, fn);
 };
-},{"fs":"../node_modules/parcel-bundler/src/builtins/_empty.js","path":"../node_modules/path-browserify/index.js","pug-lexer":"../node_modules/pug-lexer/index.js","pug-strip-comments":"../node_modules/pug-strip-comments/index.js","pug-parser":"../node_modules/pug-parser/index.js","pug-load":"../node_modules/pug-load/index.js","pug-filters":"../node_modules/pug-filters/index.js","pug-linker":"../node_modules/pug-linker/index.js","pug-code-gen":"../node_modules/pug-code-gen/index.js","pug-runtime":"../node_modules/pug-runtime/index.js","pug-runtime/wrap":"../node_modules/pug-runtime/wrap.js","buffer":"../node_modules/buffer/index.js"}],"../src/forms/loginForm/index.js":[function(require,module,exports) {
+},{"fs":"../node_modules/parcel-bundler/src/builtins/_empty.js","path":"../node_modules/path-browserify/index.js","pug-lexer":"../node_modules/pug-lexer/index.js","pug-strip-comments":"../node_modules/pug-strip-comments/index.js","pug-parser":"../node_modules/pug-parser/index.js","pug-load":"../node_modules/pug-load/index.js","pug-filters":"../node_modules/pug-filters/index.js","pug-linker":"../node_modules/pug-linker/index.js","pug-code-gen":"../node_modules/pug-code-gen/index.js","pug-runtime":"../node_modules/pug-runtime/index.js","pug-runtime/wrap":"../node_modules/pug-runtime/wrap.js","buffer":"../node_modules/buffer/index.js"}],"../src/pugTemplate.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _index = _interopRequireDefault(require("./index.tmpl"));
-
-require("./index.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//import { sum } from '../../modules/sum';
-var pug = require('pug');
-
-var templateFunc = pug.compile(_index.default);
-var compiledTemplate = templateFunc({});
-var _default = compiledTemplate;
-exports.default = _default;
-},{"./index.tmpl":"../src/forms/loginForm/index.tmpl.js","./index.css":"../src/forms/loginForm/index.css","pug":"../node_modules/pug/lib/index.js"}],"../src/forms/formWrapper/index.tmpl.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = "\ndiv"; //div(class="wrapper-form")
-
-exports.default = _default;
-},{}],"../src/forms/formWrapper/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _index = _interopRequireDefault(require("./index.tmpl"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//import { sum } from '../../modules/sum';
-var pug = require('pug');
-
-var templateFunc = pug.compile(_index.default);
-var compiledTemplate = templateFunc({});
-var _default = _index.default;
-exports.default = _default;
-},{"./index.tmpl":"../src/forms/formWrapper/index.tmpl.js","pug":"../node_modules/pug/lib/index.js"}],"../src/pages/index/index.tmpl.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _index = _interopRequireDefault(require("../../forms/loginForm/index"));
-
-var _index2 = _interopRequireDefault(require("../../forms/formWrapper/index"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = "\n".concat(_index.default);
-
-exports.default = _default;
-},{"../../forms/loginForm/index":"../src/forms/loginForm/index.js","../../forms/formWrapper/index":"../src/forms/formWrapper/index.js"}],"../src/components/wrapper/wrapper.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/wrapper/wrapper.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("./wrapper.css");
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -55231,31 +55146,30 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Wrapper = /*#__PURE__*/function () {
-  function Wrapper() {
-    var classNames = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+var PugTemplate = /*#__PURE__*/function () {
+  function PugTemplate(template, attrs) {
+    _classCallCheck(this, PugTemplate);
 
-    _classCallCheck(this, Wrapper);
+    var pug = require('pug');
 
-    this._classNames = classNames;
-    var wrapper = document.createElement('div');
-    var classList = wrapper.classList;
-    classList.add.apply(classList, ['wrapper'].concat(_toConsumableArray(classNames)));
-    this._wrapper = wrapper; //console.log('class',wrapper);
+    var templateFunc = pug.compile(template);
+    this._templateFunc = templateFunc;
+    var compiledTemplate = templateFunc(attrs);
+    this._compiledTemplate = compiledTemplate; //console.log('class',wrapper);
   }
 
-  _createClass(Wrapper, [{
+  _createClass(PugTemplate, [{
     key: "get",
     value: function get() {
-      return this._wrapper;
+      return this._compiledTemplate;
     }
   }]);
 
-  return Wrapper;
+  return PugTemplate;
 }();
 
-exports.default = Wrapper;
-},{"./wrapper.css":"../src/components/wrapper/wrapper.css"}],"../src/components/form/form.js":[function(require,module,exports) {
+exports.default = PugTemplate;
+},{"pug":"../node_modules/pug/lib/index.js"}],"../src/components/input/input.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55263,13 +55177,178 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+require("./input.scss");
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+var _input2 = _interopRequireDefault(require("./input.tmpl"));
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Input = /*#__PURE__*/function (_PugTemplate) {
+  _inherits(Input, _PugTemplate);
+
+  var _super = _createSuper(Input);
+
+  function Input(attrs) {
+    _classCallCheck(this, Input);
+
+    return _super.call(this, _input2.default, attrs);
+  }
+
+  return Input;
+}(_pugTemplate.default);
+
+exports.default = Input;
+},{"./input.scss":"../src/components/input/input.scss","./input.tmpl":"../src/components/input/input.tmpl.js","../../pugTemplate":"../src/pugTemplate.js"}],"../src/components/input/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _input.default;
+  }
+});
+
+var _input = _interopRequireDefault(require("./input"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./input":"../src/components/input/input.js"}],"../src/components/link/link.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/link/link.tmpl.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = "\na(class=\"login-form-link\" href= href) #{label}\n"; //div(class="wrapper-form")
+
+exports.default = _default;
+},{}],"../src/components/link/link.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./link.scss");
+
+var _link2 = _interopRequireDefault(require("./link.tmpl"));
+
+var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Link = /*#__PURE__*/function (_PugTemplate) {
+  _inherits(Link, _PugTemplate);
+
+  var _super = _createSuper(Link);
+
+  function Link(attrs) {
+    _classCallCheck(this, Link);
+
+    return _super.call(this, _link2.default, attrs);
+  }
+
+  return Link;
+}(_pugTemplate.default);
+
+exports.default = Link;
+},{"./link.scss":"../src/components/link/link.scss","./link.tmpl":"../src/components/link/link.tmpl.js","../../pugTemplate":"../src/pugTemplate.js"}],"../src/components/link/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _link.default;
+  }
+});
+
+var _link = _interopRequireDefault(require("./link"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./link":"../src/components/link/link.js"}],"../src/components/form/index.tmpl.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = "\ndiv(class=\"content-wrapper\")\n  div(class=\"login-form-wrapper\")\n    h1(class=\"form-header\") #{name}\n    form(class=\"login-form\" action=\"\" method=\"post\")\n      ";
+exports.default = _default;
+},{}],"../src/components/form/form.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/form/form.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../input/index"));
+
+var _index2 = _interopRequireDefault(require("../link/index"));
+
+var _index3 = _interopRequireDefault(require("./index.tmpl"));
+
+var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
+
+require("./form.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -55279,42 +55358,51 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var Form = /*#__PURE__*/function () {
-  function Form(formName, inputs, buttons) {
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Form = /*#__PURE__*/function (_PugTemplate) {
+  _inherits(Form, _PugTemplate);
+
+  var _super = _createSuper(Form);
+
+  function Form(name, elems) {
     _classCallCheck(this, Form);
 
-    var form = document.createElement('form');
+    var formTemplate = _index3.default;
 
-    var _iterator = _createForOfIteratorHelper(inputs),
+    var _iterator = _createForOfIteratorHelper(elems),
         _step;
 
     try {
-      var _loop = function _loop() {
-        var _inputElement$classLi;
-
-        var input = _step.value;
-        var inputDiv = document.createElement('div');
-        var inputLabel = document.createElement('label');
-        inputLabel.setAttribute('for', input.attrs.id);
-        inputLabel.innerHTML = input.name;
-        inputDiv.appendChild(inputLabel);
-        var inputElement = document.createElement('input');
-        Object.entries(input.attrs).forEach(function (attr) {
-          inputElement.setAttribute(attr[0], attr[1]);
-        });
-
-        (_inputElement$classLi = inputElement.classList).add.apply(_inputElement$classLi, _toConsumableArray(input.classes || []));
-
-        inputDiv.appendChild(inputElement);
-        form.appendChild(inputDiv); //name attributes classes
-      };
-
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        _loop();
+        var elem = _step.value;
+
+        switch (elem.tag) {
+          case 'input':
+            var input = new _index.default(elem.attrs);
+            formTemplate += input.get();
+            break;
+
+          case 'link':
+            var link = new _index2.default(elem.attrs);
+            formTemplate += link.get();
+            break;
+
+          default:
+            break;
+        }
       }
     } catch (err) {
       _iterator.e(err);
@@ -55322,65 +55410,74 @@ var Form = /*#__PURE__*/function () {
       _iterator.f();
     }
 
-    this._form = form;
-    console.log(form);
+    return _super.call(this, formTemplate, {
+      name: name
+    });
   }
 
-  _createClass(Form, [{
-    key: "get",
-    value: function get() {
-      return this._form;
-    }
-  }]);
-
   return Form;
-}();
+}(_pugTemplate.default);
 
 exports.default = Form;
-},{}],"../src/pages/index/index.js":[function(require,module,exports) {
+},{"../input/index":"../src/components/input/index.js","../link/index":"../src/components/link/index.js","./index.tmpl":"../src/components/form/index.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./form.scss":"../src/components/form/form.scss"}],"../src/components/form/index.js":[function(require,module,exports) {
 "use strict";
 
-var _index = _interopRequireDefault(require("./index.tmpl"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _form.default;
+  }
+});
 
-var _wrapper = _interopRequireDefault(require("../../components/wrapper/wrapper"));
+var _form = _interopRequireDefault(require("./form"));
 
-var _form = _interopRequireDefault(require("../../components/form/form"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./form":"../src/components/form/form.js"}],"../src/pages/index/index.js":[function(require,module,exports) {
+"use strict";
+
+var _index = _interopRequireDefault(require("../../components/form/index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import { sum } from '../../modules/sum';
-
-/*const wrapper = new Wrapper().get();
-let innerPage = wrapper;
-const inputs = [
-    {
-        name: 'Логин',
-        attrs: {
-            name: 'login',
-            type: 'text',
-            id: 'login-form-login'
-        }
-    },
-    {
-        name: 'Пароль',
-        attrs: {
-            name: 'password',
-            type: 'password',
-            id: 'login-form-password'
-        }
-    },
-];
-const loginForm = new Form('Login', inputs).get();
-innerPage.appendChild(loginForm);
-//console.log(wrapper);
-document.body.appendChild(innerPage);*/
-var pug = require('pug');
-
-var root = document.body;
-var loginTemplateFunc = pug.compile(_index.default);
-var loginCompiled = loginTemplateFunc({});
-root.innerHTML = loginCompiled;
-},{"./index.tmpl":"../src/pages/index/index.tmpl.js","../../components/wrapper/wrapper":"../src/components/wrapper/wrapper.js","../../components/form/form":"../src/components/form/form.js","pug":"../node_modules/pug/lib/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var elems = [{
+  tag: 'input',
+  attrs: {
+    label: 'Логин',
+    name: 'login',
+    type: 'text',
+    id: 'login-form-login',
+    classes: 'login-form-input'
+  }
+}, {
+  tag: 'input',
+  attrs: {
+    label: 'Пароль',
+    name: 'password',
+    type: 'password',
+    id: 'login-form-password',
+    classes: 'login-form-input',
+    divClasses: 'login-form-input-wrapper login-form-input-space'
+  }
+}, {
+  tag: 'input',
+  attrs: {
+    value: 'Авторизоваться',
+    type: 'submit',
+    classes: 'login-form-button'
+  }
+}, {
+  tag: 'link',
+  attrs: {
+    href: 'signin.html',
+    label: 'Нет аккаунта?'
+  }
+}];
+var loginForm = new _index.default('Вход', elems).get();
+document.body.innerHTML = loginForm;
+},{"../../components/form/index":"../src/components/form/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -55408,7 +55505,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54031" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51230" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

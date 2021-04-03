@@ -4,6 +4,6 @@ import './index.css';
 
 const pug = require('pug');
 const templateFunc = pug.compile(template);
-const compiledTemplate = templateFunc({});
+const compiledTemplate = templateFunc({name:'<div>strgAAA</div>'});
 
 export default compiledTemplate;
