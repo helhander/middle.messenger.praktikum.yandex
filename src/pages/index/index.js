@@ -21,7 +21,7 @@ const elems = [
             divClasses: 'login-form-input-wrapper login-form-input-space'
         }
     },
-    {   
+    {
         tag: 'input',
         attrs: {
             value: 'Авторизоваться',
@@ -34,6 +34,7 @@ const elems = [
         attrs: {
             href: 'signin.html',
             label: 'Нет аккаунта?',
+            classes: 'login-form-link'
         }
     },
 ];

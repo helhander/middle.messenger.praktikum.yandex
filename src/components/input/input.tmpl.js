@@ -7,6 +7,7 @@ div(class= divClasses || 'login-form-input-wrapper')
     type= type
     name= name
     value= value
+    placeholder= placeholder
     id= id)
 `;
 //div(class="wrapper-form")

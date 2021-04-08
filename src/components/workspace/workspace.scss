@@ -1,0 +1,8 @@
+@import '../../base.scss';
+
+.workspace-layout {
+  display: grid;
+  font-family: Inter;
+  grid-template-columns: 310px auto;
+  height: 100vh;
+}

@@ -1,0 +1,58 @@
+@import '../../base.scss';
+$content-height: 47px;
+
+.chat-image {
+  width: 47px;
+  height: $content-height;
+  margin-right: 10px;
+}
+
+.chat-wrapper {
+  display: flex;
+  border: solid #eaeaea;
+  border-width: 1px 0px 0px 0px;
+  margin: 0px 10px;
+  padding: 12px 0px;
+
+  &:last-child {
+    border-width: 1px 0px 1px 0px;
+  }
+}
+
+.chat-content {
+  height: $content-height;
+  width: calc(100% - 97px);
+
+  &__name {
+    font-size: 13px;
+    line-height: 13px;
+    margin-bottom: 4px;
+  }
+
+  &__last-msg {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #999999;
+  }
+}
+
+.chat-info {
+  height: $content-height;
+  width: 50px;
+  text-align: right;
+
+  &__last-date {
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 13px;
+    color: #999999;
+    margin-bottom: 18px;
+  }
+
+  &__unread-number {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 12px;
+  }
+}

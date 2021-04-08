@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel build ./static/* && parcel ./static/index.pug --port 3000 --no-cache",
+    "start": "parcel build ./static/* && parcel build ./static/images/* --out-dir dist/images && parcel ./static/chats.pug --port 3000 --no-cache",
     "dev": "parcel build ./static/* && node ./server.js",
     "build": "parcel build ./static/* && node ./server.js"
   },

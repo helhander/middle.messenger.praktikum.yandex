@@ -1,0 +1,44 @@
+@import '../../base.scss';
+
+.chat-space {
+  display: flex;
+  height: 100vh;
+  font-family: Inter;
+  /*   align-items: center;
+  justify-content: center; */
+  &__contents{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+  }
+}
+
+.content__init-msg {
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  color: $label-color;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-header {
+  display: flex;
+  margin: 10px 10px 10px 20px;
+  padding-bottom: 10px;
+  align-items: center;
+  width: 100%;
+  border: solid #eaeaea;
+  border-width: 0px 0px 1px 0px;
+  &__avatar {
+    margin: 0px 10px 0px 0px;
+    height: 34px;
+  }
+  &__name {
+    margin: auto;
+    flex-grow: 1;
+  }
+}
+
+

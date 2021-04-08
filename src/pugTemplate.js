@@ -1,5 +1,5 @@
 export default class PugTemplate {
-  constructor(template, attrs) {
+  constructor(template, attrs={}) {
       const pug = require('pug');
       const templateFunc = pug.compile(template);
       this._templateFunc = templateFunc;
@@ -7,7 +7,7 @@ export default class PugTemplate {
       this._compiledTemplate = compiledTemplate;
       //console.log('class',wrapper);
   }
-  
+
   get() {
       return this._compiledTemplate;
   }

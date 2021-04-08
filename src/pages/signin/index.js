@@ -76,7 +76,7 @@ const elems = [
         attrs: {
             value: 'Зарегистрироваться',
             type: 'submit',
-            classes: 'login-form-button login-form-button-space '
+            classes: 'login-form-button login-form-button-space'
         }
     },
     {
@@ -84,6 +84,7 @@ const elems = [
         attrs: {
             href: 'index.html',
             label: 'Войти',
+            classes: 'login-form-link'
         }
     },
 ];

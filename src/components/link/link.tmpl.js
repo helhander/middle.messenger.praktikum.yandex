@@ -1,4 +1,4 @@
 export default `
-a(class="login-form-link" href= href) #{label}
+a(class= classes href= href) #{label}
 `;
 //div(class="wrapper-form")

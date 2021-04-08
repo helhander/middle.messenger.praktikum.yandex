@@ -1,6 +1,6 @@
 import Input from '../input/index';
 import Link from '../link/index';
-import template from './index.tmpl';
+import template from './form.tmpl';
 import PugTemplate from '../../pugTemplate';
 import './form.scss';
 export default class Form extends PugTemplate {
