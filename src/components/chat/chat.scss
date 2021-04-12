@@ -56,3 +56,9 @@ $content-height: 47px;
     line-height: 12px;
   }
 }
+
+.chat-sidebar {
+  overflow: auto;
+  display: block;
+  height: calc(100vh - 100px);
+}

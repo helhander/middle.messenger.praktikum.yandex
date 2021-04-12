@@ -3,6 +3,7 @@ import Link from '../link/index';
 import Chat from '../chat/index';
 import Button from '../button/index';
 import Image from '../image/index';
+import Message from '../message/index';
 import divTemplate from './div.tmpl';
 import spanTemplate from './span.tmpl';
 import PugTemplate from '../../pugTemplate';
@@ -32,6 +33,16 @@ export default class Wrapper extends PugTemplate {
                 case 'image':
                     const image = new Image(elem.attrs);
                     formTemplate += image.get();
+                    break;
+                case 'span':
+                case 'div':
+                    const pug = require('pug');
+                    const templateFunc = pug.compile((tag == 'div') ? divTemplate : spanTemplate);
+                    formTemplate += templateFunc(elem.attrs);
+                    break;
+                case 'message':
+                    const message = new Message(elem.attrs);
+                    formTemplate += message.get();
                     break;
                 default:
                     break;

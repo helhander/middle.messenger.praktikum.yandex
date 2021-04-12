@@ -55556,14 +55556,93 @@ Object.defineProperty(exports, "default", {
 var _image = _interopRequireDefault(require("./image"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./image":"../src/components/image/image.js"}],"../src/components/wrapper/div.tmpl.js":[function(require,module,exports) {
+},{"./image":"../src/components/image/image.js"}],"../src/components/message/message.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/message/message.tmpl.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _default = "\ndiv(class= classes)\n  ";
+var _default = "\ndiv(class= classes)\n  div #{inner}\n    if imgSrc\n      img(class= imgClasses src= imgSrc alt= imgAlt)\n  if status=='read'\n    div(class=\"message__status\")\n      div(class=\"message__status_read\")\n      div(class= timeClasses) #{time}\n  else\n    div(class= timeClasses) #{time}\n";
+exports.default = _default;
+},{}],"../src/components/message/message.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("./message.scss");
+
+var _message2 = _interopRequireDefault(require("./message.tmpl"));
+
+var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Message = /*#__PURE__*/function (_PugTemplate) {
+  _inherits(Message, _PugTemplate);
+
+  var _super = _createSuper(Message);
+
+  function Message(attrs) {
+    _classCallCheck(this, Message);
+
+    return _super.call(this, _message2.default, attrs);
+  }
+
+  return Message;
+}(_pugTemplate.default);
+
+exports.default = Message;
+},{"./message.scss":"../src/components/message/message.scss","./message.tmpl":"../src/components/message/message.tmpl.js","../../pugTemplate":"../src/pugTemplate.js"}],"../src/components/message/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _message.default;
+  }
+});
+
+var _message = _interopRequireDefault(require("./message"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./message":"../src/components/message/message.js"}],"../src/components/wrapper/div.tmpl.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = "\ndiv(class= classes) #{inner}\n  ";
 exports.default = _default;
 },{}],"../src/components/wrapper/span.tmpl.js":[function(require,module,exports) {
 "use strict";
@@ -55596,6 +55675,8 @@ var _index3 = _interopRequireDefault(require("../chat/index"));
 var _index4 = _interopRequireDefault(require("../button/index"));
 
 var _index5 = _interopRequireDefault(require("../image/index"));
+
+var _index6 = _interopRequireDefault(require("../message/index"));
 
 var _div = _interopRequireDefault(require("./div.tmpl"));
 
@@ -55677,6 +55758,19 @@ var Wrapper = /*#__PURE__*/function (_PugTemplate) {
             formTemplate += image.get();
             break;
 
+          case 'span':
+          case 'div':
+            var pug = require('pug');
+
+            var templateFunc = pug.compile(tag == 'div' ? _div.default : _span.default);
+            formTemplate += templateFunc(elem.attrs);
+            break;
+
+          case 'message':
+            var message = new _index6.default(elem.attrs);
+            formTemplate += message.get();
+            break;
+
           default:
             break;
         }
@@ -55703,7 +55797,7 @@ var Wrapper = /*#__PURE__*/function (_PugTemplate) {
 }(_pugTemplate.default);
 
 exports.default = Wrapper;
-},{"../input/index":"../src/components/input/index.js","../link/index":"../src/components/link/index.js","../chat/index":"../src/components/chat/index.js","../button/index":"../src/components/button/index.js","../image/index":"../src/components/image/index.js","./div.tmpl":"../src/components/wrapper/div.tmpl.js","./span.tmpl":"../src/components/wrapper/span.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./wrapper.scss":"../src/components/wrapper/wrapper.scss"}],"../src/components/wrapper/index.js":[function(require,module,exports) {
+},{"../input/index":"../src/components/input/index.js","../link/index":"../src/components/link/index.js","../chat/index":"../src/components/chat/index.js","../button/index":"../src/components/button/index.js","../image/index":"../src/components/image/index.js","../message/index":"../src/components/message/index.js","./div.tmpl":"../src/components/wrapper/div.tmpl.js","./span.tmpl":"../src/components/wrapper/span.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./wrapper.scss":"../src/components/wrapper/wrapper.scss","pug":"../node_modules/pug/lib/index.js"}],"../src/components/wrapper/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55860,21 +55954,21 @@ Object.defineProperty(exports, "default", {
 var _sidebar = _interopRequireDefault(require("./sidebar"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./sidebar":"../src/components/sidebar/sidebar.js"}],"../src/components/chatSpace/chatSpace.tmpl.js":[function(require,module,exports) {
+},{"./sidebar":"../src/components/sidebar/sidebar.js"}],"../src/components/chatHeader/chatHeader.tmpl.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _default = "\ndiv(class=\"chat-space\")\n  div(class=\"chat-space__contents\")\n    if isEmpty\n      div(class=\"content__init-msg\") \u0412\u0430\u0431\u0435\u0440\u0438\u0442\u0435 \u0447\u0430\u0442 \u0447\u0442\u043E\u0431\u044B \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435\n    else\n      div(class=\"chat-header\")        \n        ";
+var _default = "\ndiv(class=\"chat-header\")        \n  ";
 exports.default = _default;
-},{}],"../src/components/chatSpace/chatSpace.scss":[function(require,module,exports) {
+},{}],"../src/components/chatHeader/chatHeader.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/chatSpace/chatSpace.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/chatHeader/chatHeader.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55894,11 +55988,11 @@ var _index5 = _interopRequireDefault(require("../wrapper/index"));
 
 var _index6 = _interopRequireDefault(require("../image/index"));
 
-var _chatSpace = _interopRequireDefault(require("./chatSpace.tmpl"));
+var _chatHeader = _interopRequireDefault(require("./chatHeader.tmpl"));
 
 var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
 
-require("./chatSpace.scss");
+require("./chatHeader.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55936,7 +56030,7 @@ var ChatSpace = /*#__PURE__*/function (_PugTemplate) {
 
     _classCallCheck(this, ChatSpace);
 
-    var formTemplate = _chatSpace.default;
+    var formTemplate = _chatHeader.default;
 
     var _iterator = _createForOfIteratorHelper(elems),
         _step;
@@ -55994,7 +56088,433 @@ var ChatSpace = /*#__PURE__*/function (_PugTemplate) {
 }(_pugTemplate.default);
 
 exports.default = ChatSpace;
-},{"../input/index":"../src/components/input/index.js","../link/index":"../src/components/link/index.js","../chat/index":"../src/components/chat/index.js","../button/index":"../src/components/button/index.js","../wrapper/index":"../src/components/wrapper/index.js","../image/index":"../src/components/image/index.js","./chatSpace.tmpl":"../src/components/chatSpace/chatSpace.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./chatSpace.scss":"../src/components/chatSpace/chatSpace.scss"}],"../src/components/chatSpace/index.js":[function(require,module,exports) {
+},{"../input/index":"../src/components/input/index.js","../link/index":"../src/components/link/index.js","../chat/index":"../src/components/chat/index.js","../button/index":"../src/components/button/index.js","../wrapper/index":"../src/components/wrapper/index.js","../image/index":"../src/components/image/index.js","./chatHeader.tmpl":"../src/components/chatHeader/chatHeader.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./chatHeader.scss":"../src/components/chatHeader/chatHeader.scss"}],"../src/components/chatHeader/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _chatHeader.default;
+  }
+});
+
+var _chatHeader = _interopRequireDefault(require("./chatHeader"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./chatHeader":"../src/components/chatHeader/chatHeader.js"}],"../src/components/chatDialog/chatDialog.tmpl.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = "\ndiv(class=\"message-list__wrapper\")        \n  ";
+exports.default = _default;
+},{}],"../src/components/chatDialog/chatDialog.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/chatDialog/chatDialog.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../input/index"));
+
+var _index2 = _interopRequireDefault(require("../link/index"));
+
+var _index3 = _interopRequireDefault(require("../chat/index"));
+
+var _index4 = _interopRequireDefault(require("../button/index"));
+
+var _index5 = _interopRequireDefault(require("../wrapper/index"));
+
+var _index6 = _interopRequireDefault(require("../image/index"));
+
+var _message = _interopRequireDefault(require("../message"));
+
+var _chatDialog = _interopRequireDefault(require("./chatDialog.tmpl"));
+
+var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
+
+require("./chatDialog.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ChatDialog = /*#__PURE__*/function (_PugTemplate) {
+  _inherits(ChatDialog, _PugTemplate);
+
+  var _super = _createSuper(ChatDialog);
+
+  function ChatDialog() {
+    var elems = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+    _classCallCheck(this, ChatDialog);
+
+    var formTemplate = _chatDialog.default;
+
+    var _iterator = _createForOfIteratorHelper(elems),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var elem = _step.value;
+
+        switch (elem.tag) {
+          case 'input':
+            var input = new _index.default(elem.attrs);
+            formTemplate += input.get();
+            break;
+
+          case 'link':
+            var link = new _index2.default(elem.attrs);
+            formTemplate += link.get();
+            break;
+
+          case 'button':
+            var button = new _index4.default(elem.attrs);
+            formTemplate += button.get();
+            break;
+
+          case 'chat':
+            var chat = new _index3.default(elem.attrs);
+            formTemplate += chat.get();
+            break;
+
+          case 'span':
+          case 'div':
+            var wrapper = new _index5.default(elem.tag, elem.classes, elem.elems, elem.inner);
+            formTemplate += wrapper.get();
+            break;
+
+          case 'image':
+            var image = new _index6.default(elem.attrs);
+            formTemplate += image.get();
+            break;
+
+          case 'message':
+            var message = new _message.default(elem.attrs);
+            formTemplate += message.get();
+            break;
+
+          default:
+            break;
+        }
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    return _super.call(this, formTemplate);
+  }
+
+  return ChatDialog;
+}(_pugTemplate.default);
+
+exports.default = ChatDialog;
+},{"../input/index":"../src/components/input/index.js","../link/index":"../src/components/link/index.js","../chat/index":"../src/components/chat/index.js","../button/index":"../src/components/button/index.js","../wrapper/index":"../src/components/wrapper/index.js","../image/index":"../src/components/image/index.js","../message":"../src/components/message/index.js","./chatDialog.tmpl":"../src/components/chatDialog/chatDialog.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./chatDialog.scss":"../src/components/chatDialog/chatDialog.scss"}],"../src/components/chatDialog/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _chatDialog.default;
+  }
+});
+
+var _chatDialog = _interopRequireDefault(require("./chatDialog"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./chatDialog":"../src/components/chatDialog/chatDialog.js"}],"../src/modules/getElemsHTML.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getElemsHTML;
+
+var _input = _interopRequireDefault(require("../components/input"));
+
+var _link = _interopRequireDefault(require("../components/link"));
+
+var _chat = _interopRequireDefault(require("../components/chat"));
+
+var _button = _interopRequireDefault(require("../components/button"));
+
+var _wrapper = _interopRequireDefault(require("../components/wrapper"));
+
+var _image = _interopRequireDefault(require("../components/image"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function getElemsHTML(elems) {
+  var elemsHTML = '';
+
+  var _iterator = _createForOfIteratorHelper(elems),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var elem = _step.value;
+
+      switch (elem.tag) {
+        case 'input':
+          var input = new _input.default(elem.attrs);
+          elemsHTML += input.get();
+          break;
+
+        case 'link':
+          var link = new _link.default(elem.attrs);
+          elemsHTML += link.get();
+          break;
+
+        case 'button':
+          var button = new _button.default(elem.attrs);
+          elemsHTML += button.get();
+          break;
+
+        case 'chat':
+          var chat = new _chat.default(elem.attrs);
+          elemsHTML += chat.get();
+          break;
+
+        case 'span':
+        case 'div':
+          var wrapper = new _wrapper.default(elem.tag, elem.classes, elem.elems, elem.inner);
+          elemsHTML += wrapper.get();
+          break;
+
+        case 'image':
+          var image = new _image.default(elem.attrs);
+          elemsHTML += image.get();
+          break;
+
+        default:
+          break;
+      }
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  return elemsHTML;
+}
+},{"../components/input":"../src/components/input/index.js","../components/link":"../src/components/link/index.js","../components/chat":"../src/components/chat/index.js","../components/button":"../src/components/button/index.js","../components/wrapper":"../src/components/wrapper/index.js","../components/image":"../src/components/image/index.js"}],"../src/components/chatFooter/chatFooter.tmpl.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = "\ndiv(class=\"chat-footer\")        \n  ";
+exports.default = _default;
+},{}],"../src/components/chatFooter/chatFooter.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/chatFooter/chatFooter.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _getElemsHTML = _interopRequireDefault(require("../../modules/getElemsHTML"));
+
+var _chatFooter = _interopRequireDefault(require("./chatFooter.tmpl"));
+
+var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
+
+require("./chatFooter.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ChatFooter = /*#__PURE__*/function (_PugTemplate) {
+  _inherits(ChatFooter, _PugTemplate);
+
+  var _super = _createSuper(ChatFooter);
+
+  function ChatFooter() {
+    var elems = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+    _classCallCheck(this, ChatFooter);
+
+    var elemsHTML = (0, _getElemsHTML.default)(elems);
+    var formTemplate = _chatFooter.default + elemsHTML;
+    return _super.call(this, formTemplate);
+  }
+
+  return ChatFooter;
+}(_pugTemplate.default);
+
+exports.default = ChatFooter;
+},{"../../modules/getElemsHTML":"../src/modules/getElemsHTML.js","./chatFooter.tmpl":"../src/components/chatFooter/chatFooter.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./chatFooter.scss":"../src/components/chatFooter/chatFooter.scss"}],"../src/components/chatFooter/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _chatFooter.default;
+  }
+});
+
+var _chatFooter = _interopRequireDefault(require("./chatFooter"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./chatFooter":"../src/components/chatFooter/chatFooter.js"}],"../src/components/chatSpace/chatSpace.tmpl.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = "\ndiv(class=\"chat-space\")\n  div(class=\"chat-space__contents\")\n    if isEmpty\n      div(class=\"content__init-msg\") \u0412\u0430\u0431\u0435\u0440\u0438\u0442\u0435 \u0447\u0430\u0442 \u0447\u0442\u043E\u0431\u044B \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435      \n    ";
+exports.default = _default;
+},{}],"../src/components/chatSpace/chatSpace.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/components/chatSpace/chatSpace.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _chatHeader = _interopRequireDefault(require("../chatHeader"));
+
+var _chatDialog = _interopRequireDefault(require("../chatDialog"));
+
+var _chatFooter = _interopRequireDefault(require("../chatFooter"));
+
+var _chatSpace = _interopRequireDefault(require("./chatSpace.tmpl"));
+
+var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
+
+require("./chatSpace.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var ChatSpace = /*#__PURE__*/function (_PugTemplate) {
+  _inherits(ChatSpace, _PugTemplate);
+
+  var _super = _createSuper(ChatSpace);
+
+  function ChatSpace(headerElems) {
+    var dialogElems = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    var footerElems = arguments.length > 2 ? arguments[2] : undefined;
+
+    _classCallCheck(this, ChatSpace);
+
+    var formTemplate = _chatSpace.default;
+    var isEmpty = dialogElems.length === 0;
+
+    if (!isEmpty) {
+      var chatHeader = new _chatHeader.default(headerElems);
+      formTemplate += chatHeader.get();
+      var chatDialog = new _chatDialog.default(dialogElems);
+      formTemplate += chatDialog.get();
+      var chatFooter = new _chatFooter.default(footerElems);
+      formTemplate += chatFooter.get();
+    }
+
+    return _super.call(this, formTemplate, {
+      isEmpty: isEmpty
+    });
+  }
+
+  return ChatSpace;
+}(_pugTemplate.default);
+
+exports.default = ChatSpace;
+},{"../chatHeader":"../src/components/chatHeader/index.js","../chatDialog":"../src/components/chatDialog/index.js","../chatFooter":"../src/components/chatFooter/index.js","./chatSpace.tmpl":"../src/components/chatSpace/chatSpace.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./chatSpace.scss":"../src/components/chatSpace/chatSpace.scss"}],"../src/components/chatSpace/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56049,6 +56569,8 @@ var _pugTemplate = _interopRequireDefault(require("../../pugTemplate"));
 
 require("./workspace.scss");
 
+var _chatDialog = _interopRequireDefault(require("../chatDialog"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -56081,7 +56603,7 @@ var Workspace = /*#__PURE__*/function (_PugTemplate) {
     var sidebar = new _index.default(sidebarElems);
     formTemplate += sidebar.get();
     console.log(chatData);
-    var chatSpace = new _index2.default(chatData);
+    var chatSpace = new _index2.default(chatData.headerElems, chatData.dialogElems, chatData.footerElems);
     formTemplate += chatSpace.get();
     /*         for (let elem of elems) {
                 switch (elem.tag) {
@@ -56105,7 +56627,7 @@ var Workspace = /*#__PURE__*/function (_PugTemplate) {
 }(_pugTemplate.default);
 
 exports.default = Workspace;
-},{"../sidebar/index":"../src/components/sidebar/index.js","../chatSpace/index":"../src/components/chatSpace/index.js","../link/index":"../src/components/link/index.js","./workspace.tmpl":"../src/components/workspace/workspace.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./workspace.scss":"../src/components/workspace/workspace.scss"}],"../src/components/workspace/index.js":[function(require,module,exports) {
+},{"../sidebar/index":"../src/components/sidebar/index.js","../chatSpace/index":"../src/components/chatSpace/index.js","../link/index":"../src/components/link/index.js","./workspace.tmpl":"../src/components/workspace/workspace.tmpl.js","../../pugTemplate":"../src/pugTemplate.js","./workspace.scss":"../src/components/workspace/workspace.scss","../chatDialog":"../src/components/chatDialog/index.js"}],"../src/components/workspace/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56158,144 +56680,267 @@ var sidebarElems = [{
     }
   }]
 }, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4,
-    isUserMsg: true
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4,
-    isUserMsg: true
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4,
-    isUserMsg: true
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4,
-    isUserMsg: true
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4
-  }
-}, {
-  tag: 'chat',
-  attrs: {
-    src: 'images/empty-avatar.png',
-    alt: 'Аватар',
-    name: 'hellfer',
-    msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-    date: '15:12',
-    unreadNumber: 4
-  }
-}];
-var chatElems = [{
-  tag: 'span',
+  tag: 'div',
+  classes: 'chat-sidebar',
   elems: [{
-    tag: 'image',
+    tag: 'chat',
     attrs: {
-      name: 'helfer',
       src: 'images/empty-avatar.png',
-      alt: 'avatar',
-      classes: 'chat-header__image',
-      divClasses: 'chat-header__avatar'
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4,
+      isUserMsg: true
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4,
+      isUserMsg: true
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4,
+      isUserMsg: true
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4,
+      isUserMsg: true
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4
+    }
+  }, {
+    tag: 'chat',
+    attrs: {
+      src: 'images/empty-avatar.png',
+      alt: 'Аватар',
+      name: 'hellfer',
+      msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+      date: '15:12',
+      unreadNumber: 4
     }
   }]
-}, {
-  tag: 'span',
-  classes: 'chat-header__name',
-  inner: 'Max'
-}, {
-  tag: 'button',
-  attrs: {
-    type: 'span',
-    imgClasses: 'chat-header__svg',
-    classes: 'chat-header__button'
-  }
 }];
+var chatElems = {
+  headerElems: [{
+    tag: 'span',
+    elems: [{
+      tag: 'image',
+      attrs: {
+        name: 'helfer',
+        src: 'images/empty-avatar.png',
+        alt: 'avatar',
+        classes: 'chat-header__image',
+        divClasses: 'chat-header__avatar'
+      }
+    }]
+  }, {
+    tag: 'span',
+    classes: 'chat-header__name',
+    inner: 'Max'
+  }, {
+    tag: 'button',
+    attrs: {
+      type: 'span',
+      imgClasses: 'chat-header__svg',
+      classes: 'chat-header__button'
+    }
+  }],
+  dialogElems: [{
+    tag: 'div',
+    classes: 'message-list',
+    elems: [{
+      tag: 'div',
+      attrs: {
+        tag: 'div',
+        classes: 'message-list__day-separator',
+        inner: '4 апреля'
+      }
+    }, {
+      tag: 'message',
+      attrs: {
+        tag: 'div',
+        classes: 'message-list__message message-list__message_incoming',
+        inner: "\u041F\u0440\u0438\u0432\u0435\u0442! \u0421\u043C\u043E\u0442\u0440\u0438, \u0442\u0443\u0442 \u0432\u0441\u043F\u043B\u044B\u043B \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u044B\u0439 \u043A\u0443\u0441\u043E\u043A \u043B\u0443\u043D\u043D\u043E\u0439 \u043A\u043E\u0441\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0438\u0441\u0442\u043E\u0440\u0438\u0438 \u2014 \u041D\u0410\u0421\u0410 \u0432 \u043A\u0430\u043A\u043E\u0439-\u0442\u043E \u043C\u043E\u043C\u0435\u043D\u0442 \u043F\u043E\u043F\u0440\u043E\u0441\u0438\u043B\u0430 \u0425\u0430\u0441\u0441\u0435\u043B\u044C\u0431\u043B\u0430\u0434 \u0430\u0434\u0430\u043F\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043C\u043E\u0434\u0435\u043B\u044C SWC \u0434\u043B\u044F \u043F\u043E\u043B\u0435\u0442\u043E\u0432 \u043D\u0430 \u041B\u0443\u043D\u0443. \u0421\u0435\u0439\u0447\u0430\u0441 \u043C\u044B \u0432\u0441\u0435 \u0437\u043D\u0430\u0435\u043C \u0447\u0442\u043E \u0430\u0441\u0442\u0440\u043E\u043D\u0430\u0432\u0442\u044B \u043B\u0435\u0442\u0430\u043B\u0438 \u0441 \u043C\u043E\u0434\u0435\u043B\u044C\u044E 500 EL \u2014 \u0438 \u043A \u0441\u043B\u043E\u0432\u0443 \u0433\u043E\u0432\u043E\u0440\u044F, \u0432\u0441\u0435 \u0442\u0443\u0448\u043A\u0438 \u044D\u0442\u0438\u0445 \u043A\u0430\u043C\u0435\u0440 \u0432\u0441\u0435 \u0435\u0449\u0435 \u043D\u0430\u0445\u043E\u0434\u044F\u0442\u0441\u044F \u043D\u0430 \u043F\u043E\u0432\u0435\u0440\u0445\u043D\u043E\u0441\u0442\u0438 \u041B\u0443\u043D\u044B, \u0442\u0430\u043A \u043A\u0430\u043A \u0430\u0441\u0442\u0440\u043E\u043D\u0430\u0432\u0442\u044B \u0441 \u0441\u043E\u0431\u043E\u0439 \u0437\u0430\u0431\u0440\u0430\u043B\u0438 \u0442\u043E\u043B\u044C\u043A\u043E \u043A\u0430\u0441\u0441\u0435\u0442\u044B \u0441 \u043F\u043B\u0435\u043D\u043A\u043E\u0439.\u0425\u0430\u0441\u0441\u0435\u043B\u044C\u0431\u043B\u0430\u0434 \u0432 \u0438\u0442\u043E\u0433\u0435 \u0430\u0434\u0430\u043F\u0442\u0438\u0440\u043E\u0432\u0430\u043B SWC \u0434\u043B\u044F \u043A\u043E\u0441\u043C\u043E\u0441\u0430, \u043D\u043E \u0447\u0442\u043E-\u0442\u043E \u043F\u043E\u0448\u043B\u043E \u043D\u0435 \u0442\u0430\u043A \u0438 \u043D\u0430 \u0440\u0430\u043A\u0435\u0442\u0443 \u043E\u043D\u0438 \u0442\u0430\u043A \u043D\u0438\u043A\u043E\u0433\u0434\u0430 \u0438 \u043D\u0435 \u043F\u043E\u043F\u0430\u043B\u0438. \u0412\u0441\u0435\u0433\u043E \u0438\u0445 \u0431\u044B\u043B\u043E \u043F\u0440\u043E\u0438\u0437\u0432\u0435\u0434\u0435\u043D\u043E 25 \u0448\u0442\u0443\u043A, \u043E\u0434\u043D\u0443 \u0438\u0437 \u043D\u0438\u0445 \u043D\u0435\u0434\u0430\u0432\u043D\u043E \u043F\u0440\u043E\u0434\u0430\u043B\u0438 \u043D\u0430 \u0430\u0443\u043A\u0446\u0438\u043E\u043D\u0435 \u0437\u0430 45000 \u0435\u0432\u0440\u043E.",
+        time: '11:57',
+        timeClasses: 'message-time message-time__incoming'
+      }
+    }, {
+      tag: 'message',
+      attrs: {
+        tag: 'div',
+        classes: 'message-list__image message-list__image_incoming',
+        imgSrc: 'images/tiger.jpeg',
+        imgAlt: 'picture',
+        imgClasses: 'message__image',
+        time: '11:59',
+        timeClasses: 'message-time message-time__incoming message-time__image'
+      }
+    }, {
+      tag: 'message',
+      attrs: {
+        tag: 'div',
+        classes: 'message-list__image message-list__image_outcoming',
+        imgSrc: 'images/tiger.jpeg',
+        imgAlt: 'picture',
+        imgClasses: 'message__image',
+        time: '11:59',
+        timeClasses: 'message-time message-time__incoming message-time__image'
+      }
+    }, {
+      tag: 'message',
+      attrs: {
+        tag: 'div',
+        classes: 'message-list__message message-list__message_outcoming',
+        inner: "I'm fine thank you!",
+        time: '18:34',
+        timeClasses: 'message-time message-time__outcoming',
+        status: 'read'
+      }
+    }
+    /*             {
+                    tag: 'button',
+                    attrs: {
+                        type: 'image',
+                        src: 'images/add.png',
+                        alt: 'добавить',
+                        imgClasses: 'sidebar-image',
+                        classes: 'sidebar-button',
+                    }
+                }, */
+    ]
+  }],
+  footerElems: [{
+    tag: 'button',
+    attrs: {
+      type: 'span',
+      imgClasses: 'chat-footer__attach',
+      classes: 'chat-footer__attach-button'
+    }
+  }, {
+    tag: 'input',
+    attrs: {
+      name: 'message-field',
+      type: 'text',
+      divClasses: 'message-footer__input-field-wrapper',
+      classes: 'message-footer__input-field',
+      placeholder: 'Сообщение'
+    }
+  }, {
+    tag: 'button',
+    attrs: {
+      type: 'span',
+      imgClasses: 'chat-footer__send',
+      classes: 'chat-footer__send-button'
+    }
+  }
+  /*      {
+           tag: 'span',
+           elems: [
+               {
+                   tag: 'image',
+                   attrs: {
+                       name: 'helfer',
+                       src: 'images/empty-avatar.png',
+                       alt: 'avatar',
+                       classes: 'chat-header__image',
+                       divClasses: 'chat-header__avatar',
+                   }
+               }
+           ]
+       },
+       {
+           tag: 'span',
+           classes: 'chat-header__name',
+           inner: 'Max'
+       },
+       {
+           tag: 'button',
+           attrs: {
+               type: 'span',
+               imgClasses: 'chat-header__svg',
+               classes: 'chat-header__button',
+           }
+       } */
+  ]
+};
 var loginForm = new _index.default(sidebarElems, chatElems).get();
 document.body.innerHTML = loginForm;
 },{"../../components/workspace/index":"../src/components/workspace/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -56326,7 +56971,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52765" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51329" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

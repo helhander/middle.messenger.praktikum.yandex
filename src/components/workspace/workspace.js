@@ -4,13 +4,14 @@ import Link from '../link/index';
 import template from './workspace.tmpl';
 import PugTemplate from '../../pugTemplate';
 import './workspace.scss';
+import chatDialog from '../chatDialog';
 export default class Workspace extends PugTemplate {
     constructor(sidebarElems, chatData) {
         let formTemplate = template;
         const sidebar = new Sidebar(sidebarElems);
         formTemplate += sidebar.get();
         console.log(chatData);
-        const chatSpace = new ChatSpace(chatData);
+        const chatSpace = new ChatSpace(chatData.headerElems, chatData.dialogElems, chatData.footerElems);
         formTemplate += chatSpace.get();      
 /*         for (let elem of elems) {
             switch (elem.tag) {

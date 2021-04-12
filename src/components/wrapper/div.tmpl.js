@@ -1,3 +1,3 @@
 export default `
-div(class= classes)
+div(class= classes) #{inner}
   `;

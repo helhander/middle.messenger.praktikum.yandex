@@ -1,0 +1,19 @@
+@import '../../base.scss';
+
+.chat-header {
+  display: flex;
+  margin: 10px 20px 10px 20px;
+  padding-bottom: 10px;
+  align-items: center;
+  width: calc(100% - 40px);
+  border: solid #eaeaea;
+  border-width: 0px 0px 1px 0px;
+  &__avatar {
+    margin: 0px 10px 0px 0px;
+    height: 34px;
+  }
+  &__name {
+    margin: auto;
+    flex-grow: 1;
+  }
+}
