@@ -1,0 +1,17 @@
+@import '../../base.scss';
+
+.sidebar {
+  background-color: #fbfbfb;
+  overflow: auto;
+
+  &-profile {
+    height: 100vh;
+    width: 64px;
+    display: flex;
+    position: absolute;
+    &__button{
+      width: 100%;
+    }
+  }
+
+}

@@ -30,7 +30,7 @@ const sidebarElems = [
                     src: 'images/add.png',
                     alt: 'добавить',
                     imgClasses: 'sidebar-image',
-                    classes: 'sidebar-button',
+                    classes: 'sidebar__button',
                 }
             },
 

@@ -1,6 +1,6 @@
-import Sidebar from '../sidebar/index';
-import ChatSpace from '../chatSpace/index';
-import Link from '../link/index';
+import Sidebar from '../../blocks/sidebar';
+import ChatSpace from '../chatSpace';
+import Link from '../link';
 import template from './workspace.tmpl';
 import PugTemplate from '../../pugTemplate';
 import './workspace.scss';
@@ -9,7 +9,7 @@ export default class Workspace extends PugTemplate {
     constructor(sidebarElems, chatData) {
         let formTemplate = template;
         const sidebar = new Sidebar(sidebarElems);
-        formTemplate += sidebar.get();
+        formTemplate += sidebar.get()   ;
         console.log(chatData);
         const chatSpace = new ChatSpace(chatData.headerElems, chatData.dialogElems, chatData.footerElems);
         formTemplate += chatSpace.get();      

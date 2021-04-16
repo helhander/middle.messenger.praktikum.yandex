@@ -10,7 +10,7 @@ import PugTemplate from '../../pugTemplate';
 import './wrapper.scss';
 
 export default class Wrapper extends PugTemplate {
-    constructor(tag, classes, elems = [], inner = null) {
+    constructor(tag, classes='', elems = [], inner = null) {
         let formTemplate = (tag == 'div') ? divTemplate : spanTemplate;
         for (let elem of elems) {
             switch (elem.tag) {

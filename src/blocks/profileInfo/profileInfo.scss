@@ -1,0 +1,95 @@
+@import '../../base.scss';
+
+.profile-info {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  width: 510px;
+  margin: 0px auto;
+
+  &__avatar {
+    width: 130px;
+    height: 130px;
+    margin: 60px auto 21px auto;
+
+    &_separated {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__image {
+    width: 130px;
+    height: 130px;
+  }
+
+  &__user-name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: $label-color-black;
+    margin-bottom: 60px;
+  }
+
+  &__input {
+    font-size: 13px;
+    line-height: 13px;
+    text-align: right;
+    color: $label-color;
+    width: 100%;
+    margin-left: 10px;
+    border: 0px;
+
+    &-label {
+      font-size: 13px;
+      line-height: 13px;
+      color: $label-color-black;
+      width: 200px;
+    }
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $border-color;
+      padding: 0px 0px 10px 0px;
+      margin: 10px auto;
+
+      &_last {
+        border: 0px;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    text-align: left;
+    margin: 10px 0px;
+    text-decoration: none;
+    border-bottom: 1px solid $border-color;
+    padding: 0px 0px 10px 0px;
+
+    &_blue {
+      color: $primary-color;
+    }
+
+    &_red {
+      color: $primary-red;
+      border: 0px;
+    }
+  }
+
+  &__button {
+    height: 37px;
+    width: 280px;
+    margin: 60px auto 0px auto;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #107d9f;
+    border-radius: 8px;
+    border-width: 0px;
+
+    &-wrapper {
+      display: flex;
+    }
+  }
+}

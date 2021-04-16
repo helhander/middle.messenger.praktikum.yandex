@@ -13,7 +13,7 @@ export const sidebarElems = [
 export const profileInfoElems = [
   {
     tag: 'div',
-    classes:'profile-info',
+    classes: 'profile-info',
     elems: [
       {
         tag: 'image',
@@ -22,18 +22,8 @@ export const profileInfoElems = [
           src: 'images/avatar.png',
           alt: 'avatar',
           classes: 'profile-info__image',
-          divClasses: 'profile-info__avatar',
+          divClasses: 'profile-info__avatar profile-info__avatar_separated',
         }
-      },
-
-      {
-        tag: 'div',
-        attrs: {
-          tag: 'div',
-          classes: 'profile-info__user-name',
-          inner: 'Никита'
-        }
-
       },
       {
         tag: 'input',
@@ -45,7 +35,6 @@ export const profileInfoElems = [
           divClasses: 'profile-info__input-wrapper',
           labelClasses: 'profile-info__input-label',
           classes: 'profile-info__input',
-          readonly: true,
           value: 'felix@yandex.ru'
         }
       },
@@ -59,7 +48,6 @@ export const profileInfoElems = [
           divClasses: 'profile-info__input-wrapper',
           labelClasses: 'profile-info__input-label',
           classes: 'profile-info__input',
-          readonly: true,
           value: 'Felix'
         }
       },
@@ -73,7 +61,6 @@ export const profileInfoElems = [
           divClasses: 'profile-info__input-wrapper',
           labelClasses: 'profile-info__input-label',
           classes: 'profile-info__input',
-          readonly: true,
           value: 'Феликс'
         }
       },
@@ -87,7 +74,6 @@ export const profileInfoElems = [
           divClasses: 'profile-info__input-wrapper',
           labelClasses: 'profile-info__input-label',
           classes: 'profile-info__input',
-          readonly: true,
           value: 'Учтивый'
         }
       },
@@ -101,7 +87,6 @@ export const profileInfoElems = [
           divClasses: 'profile-info__input-wrapper',
           labelClasses: 'profile-info__input-label',
           classes: 'profile-info__input',
-          readonly: true,
           value: 'Felix'
         }
       },
@@ -115,32 +100,16 @@ export const profileInfoElems = [
           divClasses: 'profile-info__input-wrapper profile-info__input-wrapper_last',
           labelClasses: 'profile-info__input-label',
           classes: 'profile-info__input',
-          readonly: true,
           value: '+7(901)123-32-23'
         }
       },
       {
-        tag: 'link',
+        tag: 'input',
         attrs: {
-          href: 'signin.html',
-          label: 'Изменить данные',
-          classes: 'profile-info__link profile-info__link_blue'
-        }
-      },
-      {
-        tag: 'link',
-        attrs: {
-          href: 'signin.html',
-          label: 'Изменить пароль',
-          classes: 'profile-info__link profile-info__link_blue'
-        }
-      },
-      {
-        tag: 'link',
-        attrs: {
-          href: 'signin.html',
-          label: 'Выйти',
-          classes: 'profile-info__link profile-info__link_red'
+          value: 'Сохранить',
+          type: 'submit',
+          divClasses: 'profile-info__button-wrapper',
+          classes: 'profile-info__button'
         }
       }]
   }

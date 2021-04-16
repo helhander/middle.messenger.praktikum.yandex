@@ -1,0 +1,41 @@
+@import '../../base.scss';
+
+.error {
+  width: 100%;
+  height: calc(100vh - 16px);
+  display: flex;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  background: #C7F8F5;
+
+  &__wrapper {
+    margin: auto;
+  }
+
+  &__code {
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: $label-color-black;
+  }
+
+  &__text {
+    margin-bottom: 70px;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: $label-color-black;
+  }
+
+  &__link {
+    margin: auto;
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    line-height: 13px;
+    text-decoration: none;
+    color: $primary-color;
+  }
+}
