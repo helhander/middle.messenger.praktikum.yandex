@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run clear && parcel build ./static/images/* --out-dir dist/images  --no-cache && parcel build ./static/*  --no-cache && node ./server.js",
     "dev": "parcel build ./static/* && node ./server.js && parcel build ./static/*  --no-cache",
-    "clear": "rm -rf ./dist",    
+    "clear": "rm -rf ./dist",
     "build": "npm run clear && parcel build ./static/images/* --out-dir dist/images  --no-cache && parcel build ./static/*  --no-cache"
   },
   "author": "",
@@ -17,8 +17,6 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "form.css": "^1.1.0",
-    "fs": "^0.0.1-security",
     "pug": "^3.0.2"
   }
 }
