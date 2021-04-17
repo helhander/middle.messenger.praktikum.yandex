@@ -5,7 +5,7 @@ export const sidebarElems = [
       type: 'image',
       src: 'images/arrow-left.png',
       alt: 'добавить',
-      imgClasses: 'sidebar-image',
+      imgClasses: 'sidebar__image',
       classes: 'sidebar__button sidebar-profile__button',
     }
   },

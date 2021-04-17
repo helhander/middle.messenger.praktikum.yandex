@@ -1,25 +1,13 @@
 @import '../../base.scss';
 $content-height: 47px;
 
-.chat-image {
-  width: 47px;
-  height: $content-height;
-  margin-right: 10px;
+.chats-sidebar {
+  overflow: auto;
+  display: block;
+  height: calc(100vh - 100px);
 }
 
-.chat-wrapper {
-  display: flex;
-  border: solid #eaeaea;
-  border-width: 1px 0px 0px 0px;
-  margin: 0px 10px;
-  padding: 12px 0px;
-
-  &:last-child {
-    border-width: 1px 0px 1px 0px;
-  }
-}
-
-.chat-content {
+.chat {
   height: $content-height;
   width: calc(100% - 97px);
 
@@ -34,6 +22,24 @@ $content-height: 47px;
     font-size: 12px;
     line-height: 15px;
     color: #999999;
+  }
+
+  &__image {
+    width: content-height;
+    height: $content-height;
+    margin-right: 10px;
+  }
+
+  &__wrapper {
+    display: flex;
+    border: solid #eaeaea;
+    border-width: 1px 0px 0px 0px;
+    margin: 0px 10px;
+    padding: 12px 0px;
+
+    &:last-child {
+      border-width: 1px 0px 1px 0px;
+    }
   }
 }
 
@@ -50,15 +56,22 @@ $content-height: 47px;
     margin-bottom: 18px;
   }
 
-  &__unread-number {
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 12px;
+  &__unread {
+    background-color: $primary-color;
+    width: 20px;
+    height: 20px;
+    margin: 0px 0px 0px auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-number {
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 12px;
+      color: $label-color-light;
+    }
   }
 }
 
-.chat-sidebar {
-  overflow: auto;
-  display: block;
-  height: calc(100vh - 100px);
-}
