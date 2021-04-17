@@ -1,10 +1,10 @@
-import Input from '../input/index';
-import Link from '../link/index';
-import Chat from '../chat/index';
-import Button from '../button/index';
+import Input from '../../components/input/index';
+import Link from '../../components/link/index';
+import Chat from '../../components/chat/index';
+import Button from '../../components/button/index';
 import Wrapper from '../wrapper/index';
-import Image from '../image/index';
-import Message from '../message';
+import Image from '../../components/image/index';
+import Message from '../../components/message';
 import template from './chatDialog.tmpl';
 import PugTemplate from '../../pugTemplate';
 import './chatDialog.scss';

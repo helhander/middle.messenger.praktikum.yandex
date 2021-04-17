@@ -59,7 +59,7 @@ export const profileInfoElems = [
           name: 'password-new-repeat',
           type: 'password',
           id: 'profile-password-new-repeat',
-          divClasses: 'profile-info__input-wrapper',
+          divClasses: 'profile-info__input-wrapper profile-info__input-wrapper_last',
           labelClasses: 'profile-info__input-label',
           classes: 'profile-info__input',
           value: ''

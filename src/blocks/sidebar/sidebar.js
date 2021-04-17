@@ -2,7 +2,7 @@ import Input from '../../components/input/index';
 import Link from '../../components/link/index';
 import Chat from '../../components/chat/index';
 import Button from '../../components/button/index';
-import Wrapper from '../../components/wrapper/index';
+import Wrapper from '../wrapper/index';
 import template from './sidebar.tmpl';
 import PugTemplate from '../../pugTemplate';
 import './sidebar.scss';

@@ -2,7 +2,7 @@ import Input from '../components/input';
 import Link from '../components/link';
 import Chat from '../components/chat';
 import Button from '../components/button';
-import Wrapper from '../components/wrapper';
+import Wrapper from '../blocks/wrapper';
 import Image from '../components/image';
 
 export default function getElemsHTML(elems) {

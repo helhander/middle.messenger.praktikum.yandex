@@ -1,6 +1,6 @@
-import ChatHeader from '../chatHeader';
-import ChatDialog from '../chatDialog';
-import ChatFooter from '../chatFooter';
+import ChatHeader from '../../blocks/chatHeader';
+import ChatDialog from '../../blocks/chatDialog';
+import ChatFooter from '../../blocks/chatFooter';
 import template from './chatSpace.tmpl';
 import PugTemplate from '../../pugTemplate';
 import './chatSpace.scss';

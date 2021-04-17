@@ -1,13 +1,12 @@
-import Input from '../input/index';
-import Link from '../link/index';
-import Chat from '../chat/index';
-import Button from '../button/index';
-import Image from '../image/index';
-import Message from '../message/index';
+import Input from '../../components/input/index';
+import Link from '../../components/link/index';
+import Chat from '../../components/chat/index';
+import Button from '../../components/button/index';
+import Image from '../../components/image/index';
+import Message from '../../components/message/index';
 import divTemplate from './div.tmpl';
 import spanTemplate from './span.tmpl';
 import PugTemplate from '../../pugTemplate';
-import './wrapper.scss';
 
 export default class Wrapper extends PugTemplate {
     constructor(tag, classes='', elems = [], inner = null) {
