@@ -81,7 +81,7 @@ export default [
   {
     tag: 'link',
     attrs: {
-      href: 'login.html',
+      href: 'index.html',
       label: 'Войти',
       classes: 'login-form__link'
     }
