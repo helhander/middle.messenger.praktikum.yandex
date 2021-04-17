@@ -1,5 +1,7 @@
 ## Ссылка на открытый pull request.
 
+https://github.com/helhander/middle.messenger.praktikum.yandex/pull/1
+
 ## Ссылка на Figma:
 
 https://www.figma.com/file/55FxEewTNCeQAFmnrGO26c/Chat?node-id=0%3A1
