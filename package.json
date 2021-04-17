@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clear && parcel build ./static/images/* --out-dir dist/images  --no-cache && parcel build ./static/*  --no-cache",
+    "start": "npm run clear && parcel build ./static/images/* --out-dir dist/images  --no-cache && parcel build ./static/*  --no-cache && node ./server.js",
     "dev": "parcel build ./static/* && node ./server.js && parcel build ./static/*  --no-cache",
-    "clear": "rm -rf ./dist",
-    "build": "npm run clear && parcel build ./static/images/* --out-dir dist/images  --no-cache && parcel build ./static/*  --no-cache && node ./server.js"
+    "clear": "rm -rf ./dist",    
+    "build": "npm run clear && parcel build ./static/images/* --out-dir dist/images  --no-cache && parcel build ./static/*  --no-cache"
   },
   "author": "",
   "license": "ISC",
