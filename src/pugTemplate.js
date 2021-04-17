@@ -5,7 +5,6 @@ export default class PugTemplate {
       this._templateFunc = templateFunc;
       const compiledTemplate = templateFunc(attrs);
       this._compiledTemplate = compiledTemplate;
-      //console.log('class',wrapper);
   }
 
   get() {

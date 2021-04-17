@@ -1,4 +1,3 @@
-import './button.scss';
 import template from './button.tmpl';
 import PugTemplate from '../../pugTemplate';
 

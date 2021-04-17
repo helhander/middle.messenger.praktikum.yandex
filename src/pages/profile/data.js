@@ -10,10 +10,11 @@ export const sidebarElems = [
     }
   },
 ];
+
 export const profileInfoElems = [
   {
     tag: 'div',
-    classes:'profile-info',
+    classes: 'profile-info',
     elems: [
       {
         tag: 'image',

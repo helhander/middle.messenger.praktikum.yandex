@@ -10,6 +10,7 @@ export const sidebarElems = [
     }
   },
 ];
+
 export const profileInfoElems = [
   {
     tag: 'div',

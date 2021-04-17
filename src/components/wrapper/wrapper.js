@@ -48,7 +48,6 @@ export default class Wrapper extends PugTemplate {
                     break;
             }
         }
-        console.log({ tag, classes, inner });
         super(formTemplate, { tag, classes, inner });
     }
 }

@@ -1,4 +1,3 @@
-import './input.scss';
 import template from './input.tmpl';
 import PugTemplate from '../../pugTemplate';
 

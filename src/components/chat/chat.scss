@@ -25,16 +25,23 @@ $content-height: 47px;
   }
 
   &__image {
-    width: content-height;
+    width: $content-height;
     height: $content-height;
     margin-right: 10px;
   }
 
-  &__wrapper {
+  &__wrapper{
+
+    &_active{
+      background-color: #E4EDFD;
+    }
+  }
+  &__content {
+    margin: 0px 10px;
     display: flex;
     border: solid #eaeaea;
     border-width: 1px 0px 0px 0px;
-    margin: 0px 10px;
+
     padding: 12px 0px;
 
     &:last-child {

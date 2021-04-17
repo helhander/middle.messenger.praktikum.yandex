@@ -1,4 +1,3 @@
-import './link.scss';
 import template from './link.tmpl';
 import PugTemplate from '../../pugTemplate';
 

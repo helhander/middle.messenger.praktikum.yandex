@@ -1,4 +1,3 @@
-import './image.scss';
 import template from './image.tmpl';
 import PugTemplate from '../../pugTemplate';
 
