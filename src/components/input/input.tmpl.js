@@ -1,7 +1,7 @@
 export default `
-div(class= divClasses || 'login-form-input-wrapper')
+div(class= divClasses || 'login-form__input-wrapper')
   if label
-    label(class= labelClasses || 'login-form-input-label' for= id) #{label}
+    label(class= labelClasses || 'login-form__input-label' for= id) #{label}
   input(
     class= classes
     type= type
