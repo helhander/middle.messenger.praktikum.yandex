@@ -6,47 +6,62 @@ import Image from '../../components/image/index';
 import Message from '../../components/message/index';
 import divTemplate from './div.tmpl';
 import spanTemplate from './span.tmpl';
+import formTemplate from './form.tmpl';
 import PugTemplate from '../../pugTemplate';
 
 export default class Wrapper extends PugTemplate {
-    constructor(tag, classes='', elems = [], inner = null) {
-        let formTemplate = (tag == 'div') ? divTemplate : spanTemplate;
+    constructor(tag, classes = '', elems = [], inner = null) {
+        let template = '';
+        switch (tag) {
+            case 'div':
+                template = divTemplate;
+                break;
+            case 'span':
+                template = spanTemplate;
+                break;
+            case 'form':
+                template = formTemplate;
+                break;
+            default:
+                break;
+        }
         for (let elem of elems) {
             switch (elem.tag) {
                 case 'input':
                     const input = new Input(elem.attrs);
-                    formTemplate += input.get();
+                    template += input.get();
                     break;
                 case 'link':
                     const link = new Link(elem.attrs);
-                    formTemplate += link.get();
+                    template += link.get();
                     break;
                 case 'button':
                     const button = new Button(elem.attrs);
-                    formTemplate += button.get();
+                    template += button.get();
                     break;
                 case 'chat':
                     const chat = new Chat(elem.attrs);
-                    formTemplate += chat.get();
+                    template += chat.get();
                     break;
                 case 'image':
                     const image = new Image(elem.attrs);
-                    formTemplate += image.get();
+                    template += image.get();
                     break;
                 case 'span':
                 case 'div':
                     const pug = require('pug');
                     const templateFunc = pug.compile((tag == 'div') ? divTemplate : spanTemplate);
-                    formTemplate += templateFunc(elem.attrs);
+                    template += templateFunc(elem.attrs);
                     break;
                 case 'message':
                     const message = new Message(elem.attrs);
-                    formTemplate += message.get();
+                    template += message.get();
                     break;
                 default:
                     break;
             }
         }
-        super(formTemplate, { tag, classes, inner });
+
+        super(template, { tag, classes, inner });
     }
 }

@@ -2,7 +2,7 @@ export const sidebarElems = [
   {
     tag: 'link',
     attrs: {
-      href: '#',
+      href: 'profile.html',
       label: 'Профиль >',
       classes: 'sidebar__link'
     }

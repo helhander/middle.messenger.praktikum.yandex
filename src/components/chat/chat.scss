@@ -21,7 +21,7 @@ $content-height: 47px;
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;
-    color: #999999;
+    color: $label-color;
   }
 
   &__image {
@@ -39,7 +39,7 @@ $content-height: 47px;
   &__content {
     margin: 0px 10px;
     display: flex;
-    border: solid #eaeaea;
+    border: solid $border-color;
     border-width: 1px 0px 0px 0px;
 
     padding: 12px 0px;
@@ -59,7 +59,7 @@ $content-height: 47px;
     font-weight: 500;
     font-size: 9px;
     line-height: 13px;
-    color: #999999;
+    color: $label-color;
     margin-bottom: 18px;
   }
 

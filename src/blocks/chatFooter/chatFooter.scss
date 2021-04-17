@@ -6,7 +6,7 @@
   padding-top: 10px;
   align-items: center;
   width: calc(100% - 40px);
-  border: solid #eaeaea;
+  border: solid $border-color;
   border-width: 1px 0px 0px 0px;
 
   &__avatar {
@@ -24,6 +24,7 @@
     width: 32px;
     height: 32px;
     display: flex;
+
     &-button {
       background: transparent;
       border: 0px;
@@ -34,12 +35,12 @@
     }
   }
 
-
   &__send {
-    background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='14' cy='14' r='14' fill='%23107D9F'/%3E%3Crect x='8' y='13.2' width='11' height='1.6' fill='white'/%3E%3Cpath d='M15 9L19 14L15 19' stroke='white' stroke-width='1.6'/%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml, %3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='14' cy='14' r='14' fill='%23107D9F'/%3E%3Crect x='8' y='13.2' width='11' height='1.6' fill='white'/%3E%3Cpath d='M15 9L19 14L15 19' stroke='white' stroke-width='1.6'/%3E%3C/svg%3E%0A");
     width: 28px;
     height: 28px;
     display: flex;
+
     &-button {
       background: transparent;
       border: 0px;
@@ -49,7 +50,6 @@
       margin-left: 10px;
     }
   }
-
 }
 
 .message-footer__input-field {

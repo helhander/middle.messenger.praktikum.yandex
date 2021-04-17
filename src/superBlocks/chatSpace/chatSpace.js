@@ -6,20 +6,20 @@ import PugTemplate from '../../pugTemplate';
 import './chatSpace.scss';
 
 export default class ChatSpace extends PugTemplate {
-    constructor(headerElems, dialogElems = [],footerElems) {
-        let formTemplate = template;
+    constructor(headerElems, dialogElems = [], footerElems) {
+        let blockTemplate = template;
         const isEmpty = dialogElems.length === 0;
         if (!isEmpty) {
             const chatHeader = new ChatHeader(headerElems);
-            formTemplate += chatHeader.get();
-           
+            blockTemplate += chatHeader.get();
+
             const chatDialog = new ChatDialog(dialogElems);
-            formTemplate += chatDialog.get();
+            blockTemplate += chatDialog.get();
 
             const chatFooter = new ChatFooter(footerElems);
-            formTemplate += chatFooter.get();
+            blockTemplate += chatFooter.get();
         }
 
-        super(formTemplate, { isEmpty });
+        super(blockTemplate, { isEmpty });
     }
 }

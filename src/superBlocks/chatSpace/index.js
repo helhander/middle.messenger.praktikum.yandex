@@ -1,1 +1,1 @@
-export {default} from './chatSpace';
+export { default } from './chatSpace';

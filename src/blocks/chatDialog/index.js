@@ -1,1 +1,1 @@
-export {default} from './chatDialog';
+export { default } from './chatDialog';

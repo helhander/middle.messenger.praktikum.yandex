@@ -123,7 +123,7 @@ export const profileInfoElems = [
       {
         tag: 'link',
         attrs: {
-          href: 'signin.html',
+          href: 'profileData.html',
           label: 'Изменить данные',
           classes: 'profile-info__link profile-info__link_blue'
         }
@@ -131,7 +131,7 @@ export const profileInfoElems = [
       {
         tag: 'link',
         attrs: {
-          href: 'signin.html',
+          href: 'profilePassword.html',
           label: 'Изменить пароль',
           classes: 'profile-info__link profile-info__link_blue'
         }
@@ -139,7 +139,7 @@ export const profileInfoElems = [
       {
         tag: 'link',
         attrs: {
-          href: 'signin.html',
+          href: 'login.html',
           label: 'Выйти',
           classes: 'profile-info__link profile-info__link_red'
         }

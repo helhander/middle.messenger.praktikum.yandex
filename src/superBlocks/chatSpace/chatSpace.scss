@@ -4,9 +4,8 @@
   display: flex;
   height: calc(100vh - 16px);
   font-family: Inter;
-  /*   align-items: center;
-  justify-content: center; */
-  &__contents{
+
+  &__contents {
     display: flex;
     width: 100%;
     align-items: flex-start;

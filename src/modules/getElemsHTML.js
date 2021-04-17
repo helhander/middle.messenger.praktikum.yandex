@@ -4,6 +4,7 @@ import Chat from '../components/chat';
 import Button from '../components/button';
 import Wrapper from '../blocks/wrapper';
 import Image from '../components/image';
+import Message from '../components/message';
 
 export default function getElemsHTML(elems) {
   let elemsHTML = '';
@@ -27,12 +28,17 @@ export default function getElemsHTML(elems) {
         break;
       case 'span':
       case 'div':
+      case 'form':
         const wrapper = new Wrapper(elem.tag, elem.classes, elem.elems, elem.inner);
         elemsHTML += wrapper.get();
         break;
       case 'image':
         const image = new Image(elem.attrs);
         elemsHTML += image.get();
+        break;
+      case 'message':
+        const message = new Message(elem.attrs);
+        formTemplate += message.get();
         break;
       default:
         break;

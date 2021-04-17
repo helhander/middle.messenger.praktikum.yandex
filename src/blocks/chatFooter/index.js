@@ -1,1 +1,1 @@
-export {default} from './chatFooter';
+export { default } from './chatFooter';

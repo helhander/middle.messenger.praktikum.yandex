@@ -1,4 +1,4 @@
-import getElemsHTML from '../../modules/getElemsHTML'
+import getElemsHTML from '../../modules/getElemsHTML';
 import template from './errorPage.tmpl';
 import PugTemplate from '../../pugTemplate';
 import './errorPage.scss';
@@ -6,8 +6,8 @@ import './errorPage.scss';
 export default class ErrorPage extends PugTemplate {
     constructor(elems = []) {
         const elemsHTML = getElemsHTML(elems);
-        const viewTemplate = template + elemsHTML;    
-        
-        super(viewTemplate);
+        const blockTemplate = template + elemsHTML;
+
+        super(blockTemplate);
     }
 }

@@ -13,7 +13,7 @@ export const sidebarElems = [
 
 export const profileInfoElems = [
   {
-    tag: 'div',
+    tag: 'form',
     classes: 'profile-info',
     elems: [
       {
