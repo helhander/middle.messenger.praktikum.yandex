@@ -14,4 +14,3 @@ div(class= divClasses || 'chat__wrapper')
       div(class="chat-info__unread")
         div(class="chat-info__unread-number") #{unreadNumber}
 `;
-//div(class="wrapper-form")

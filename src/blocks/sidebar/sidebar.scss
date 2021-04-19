@@ -1,7 +1,7 @@
 @import '../../base.scss';
 
 .sidebar {
-  background-color: #fbfbfb;
+  background-color: $sidebar-color;
   overflow: auto;
 
   &__button {

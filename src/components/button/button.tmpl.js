@@ -5,5 +5,3 @@ button(class= classes)
   else
     span(class= imgClasses)
 `;
-//div(class="wrapper-form")
-
