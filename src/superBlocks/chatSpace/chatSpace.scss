@@ -1,0 +1,24 @@
+@import '../../base.scss';
+
+.chat-space {
+  display: flex;
+  height: calc(100vh - 16px);
+  font-family: Inter;
+
+  &__contents {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.content__init-msg {
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  color: $label-color;
+  align-items: center;
+  justify-content: center;
+}
