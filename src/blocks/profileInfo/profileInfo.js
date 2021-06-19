@@ -1,6 +1,6 @@
 import getElemsHTML from '../../modules/getElemsHTML'
 import template from './profileInfo.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './profileInfo.scss';
 
 export default class ProfileInfo extends PugTemplate {

@@ -1,6 +1,6 @@
 import getElemsHTML from '../../modules/getElemsHTML';
 import template from './sidebar.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './sidebar.scss';
 
 export default class Sidebar extends PugTemplate {

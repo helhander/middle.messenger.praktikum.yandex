@@ -1,6 +1,6 @@
 import getElemsHTML from '../../modules/getElemsHTML';
 import template from './errorPage.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './errorPage.scss';
 
 export default class ErrorPage extends PugTemplate {

@@ -1,7 +1,7 @@
 import Sidebar from '../../blocks/sidebar';
 import ProfileInfo from '../../blocks/profileInfo';
 import template from './profile.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './profile.scss';
 
 export default class Profile extends PugTemplate {

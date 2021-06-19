@@ -2,7 +2,7 @@ import ChatHeader from '../../blocks/chatHeader';
 import ChatDialog from '../../blocks/chatDialog';
 import ChatFooter from '../../blocks/chatFooter';
 import template from './chatSpace.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './chatSpace.scss';
 
 export default class ChatSpace extends PugTemplate {

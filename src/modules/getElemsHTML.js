@@ -11,12 +11,12 @@ export default function getElemsHTML(elems) {
   for (let elem of elems) {
     switch (elem.tag) {
       case 'input':
-        const input = new Input(elem.attrs);
-        elemsHTML += input.get();
+        const input = new Input(elem);
+        elemsHTML += input.render();
         break;
       case 'link':
-        const link = new Link(elem.attrs);
-        elemsHTML += link.get();
+        const link = new Link(elem);
+        elemsHTML += link.render();
         break;
       case 'button':
         const button = new Button(elem.attrs);

@@ -139,7 +139,7 @@ export const profileInfoElems = [
       {
         tag: 'link',
         attrs: {
-          href: 'index.html',
+          href: 'login.html',
           label: 'Выйти',
           classes: 'profile-info__link profile-info__link_red'
         }

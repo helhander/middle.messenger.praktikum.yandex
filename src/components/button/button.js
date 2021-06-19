@@ -1,5 +1,5 @@
 import template from './button.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 
 export default class Button extends PugTemplate {
     constructor(attrs) {

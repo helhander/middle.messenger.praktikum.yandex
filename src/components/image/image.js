@@ -1,5 +1,5 @@
 import template from './image.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 
 export default class Input extends PugTemplate {
     constructor(attrs) {

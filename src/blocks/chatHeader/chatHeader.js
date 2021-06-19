@@ -1,6 +1,6 @@
 import getElemsHTML from '../../modules/getElemsHTML';
 import template from './chatHeader.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './chatHeader.scss';
 
 export default class ChatSpace extends PugTemplate {

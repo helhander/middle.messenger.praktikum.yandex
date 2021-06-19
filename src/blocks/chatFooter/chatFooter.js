@@ -1,6 +1,6 @@
 import getElemsHTML from '../../modules/getElemsHTML';
 import template from './chatFooter.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './chatFooter.scss';
 
 export default class ChatFooter extends PugTemplate {

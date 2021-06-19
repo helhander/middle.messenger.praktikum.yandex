@@ -1,6 +1,6 @@
 import getElemsHTML from '../../modules/getElemsHTML';
 import template from './form.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './form.scss';
 export default class Form extends PugTemplate {
     constructor(name, elems) {

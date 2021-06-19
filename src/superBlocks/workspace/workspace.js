@@ -1,7 +1,7 @@
 import Sidebar from '../../blocks/sidebar';
 import ChatSpace from '../chatSpace';
 import template from './workspace.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 import './workspace.scss';
 
 export default class Workspace extends PugTemplate {

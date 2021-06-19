@@ -7,7 +7,7 @@ import Message from '../../components/message/index';
 import divTemplate from './div.tmpl';
 import spanTemplate from './span.tmpl';
 import formTemplate from './form.tmpl';
-import PugTemplate from '../../pugTemplate';
+import PugTemplate from '../../modules/pugTemplate';
 
 export default class Wrapper extends PugTemplate {
     constructor(tag, classes = '', elems = [], inner = null) {

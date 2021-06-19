@@ -1,88 +1,43 @@
 export default [
   {
+    tagName: 'input',
     tag: 'input',
-    attrs: {
-      label: 'Почта',
-      name: 'email',
-      type: 'email',
-      id: 'login-form-email',
-      classes: 'login-form__input'
-    }
-  },
-  {
-    tag: 'input',
-    attrs: {
+    props: {
       label: 'Логин',
       name: 'login',
       type: 'text',
       id: 'login-form-login',
+      value:'fffff',
       classes: 'login-form__input'
     }
   },
   {
+    tagName: 'input',
     tag: 'input',
-    attrs: {
-      label: 'Имя',
-      name: 'name',
-      type: 'text',
-      id: 'login-form-name',
-      classes: 'login-form__input'
-    }
-  },
-  {
-    tag: 'input',
-    attrs: {
-      label: 'Фамилия',
-      name: 'lastname',
-      type: 'text',
-      id: 'login-form-lastname',
-      classes: 'login-form__input'
-    }
-  },
-  {
-    tag: 'input',
-    attrs: {
-      label: 'Телефон',
-      name: 'tel',
-      type: 'tel',
-      id: 'login-form-tel',
-      classes: 'login-form__input'
-    }
-  },
-  {
-    tag: 'input',
-    attrs: {
+    props: {
       label: 'Пароль',
       name: 'password',
       type: 'password',
       id: 'login-form-password',
-      classes: 'login-form__input'
-    }
-  },
-  {
-    tag: 'input',
-    attrs: {
-      label: 'Пароль (ещё раз)',
-      name: 'password2',
-      type: 'password',
-      id: 'login-form-password2',
-      classes: 'login-form__input login-form__input-space',
+      classes: 'login-form__input',
       divClasses: 'login-form__input-wrapper login-form__input-space'
     }
   },
   {
+    tagName: 'input',
     tag: 'input',
-    attrs: {
-      value: 'Зарегистрироваться',
+    props: {
+      value: 'Авторизоваться',
       type: 'submit',
-      classes: 'login-form__button login-form__button-space'
+      classes: 'login-form__button'
     }
   },
   {
     tag: 'link',
-    attrs: {
-      href: 'index.html',
-      label: 'Войти',
+    tagName: 'link',
+    props: {
+      href: 'signup.html',
+      label: 'Нет аккаунта?',
       classes: 'login-form__link'
     }
   },
