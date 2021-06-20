@@ -1,4 +1,5 @@
 import EventBus from './eventBus';
+import getFragment from './fragment';
 
 class Block {
   static EVENTS = {
@@ -17,12 +18,14 @@ class Block {
    *
    * @returns {void}
    */
-  constructor(tagName = "div", props = {}) {
+  constructor(tagName = "div", props = {}, components = [], innerMountPath = 'div') {
     const eventBus = new EventBus();
     this._meta = {
-      tagName:'template',
+      tagName,
       props
     };
+    this._components = components;
+    this._innerMountPath = innerMountPath;
 
     this.props = this._makePropsProxy(props);
 
@@ -87,12 +90,18 @@ class Block {
     // Нужно не в строку компилировать (или делать это правильно),
     // либо сразу в DOM-элементы превращать из возвращать из compile DOM-ноду
     this._element.innerHTML = block;
+    //Добавление внутренних компонентов, если есть
+    if (this._components.length > 0) {
+      const compsFragment = getFragment(this._components);
+      const mountedElement = this.element.querySelector(this._innerMountPath);
+      mountedElement.appendChild(compsFragment);
+    }
   }
 
   render() { }
 
   getContent() {
-    return this.element.content;
+    return this.element;
   }
 
   _makePropsProxy(props) {
@@ -133,4 +142,4 @@ class Block {
   }
 }
 
-export default Block; 
+export default Block;
