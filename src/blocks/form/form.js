@@ -1,12 +1,17 @@
-import getElemsHTML from '../../modules/getElemsHTML';
+import getComponents from '../../modules/getElemsFragment';
 import template from './form.tmpl';
 import PugTemplate from '../../modules/pugTemplate';
 import './form.scss';
-export default class Form extends PugTemplate {
-    constructor(name, elems) {
-        const elemsHTML = getElemsHTML(elems);
-        const blockTemplate = template + elemsHTML;
+import ComplexBlock from '../../modules/ComplexBlock';
 
-        super(blockTemplate, { name });
+export default class Form extends ComplexBlock {
+    constructor(name, elems) {
+        const components = getComponents(elems);
+        super('div', { name }, components, 'form');
+    }
+
+    render() {
+        const pugTemplate = new PugTemplate(template, this.props);
+        return pugTemplate.get();
     }
 }

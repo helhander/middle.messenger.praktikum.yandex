@@ -20,7 +20,7 @@ class Block {
   constructor(tagName = "div", props = {}) {
     const eventBus = new EventBus();
     this._meta = {
-      tagName,
+      tagName:'template',
       props
     };
 
@@ -92,7 +92,7 @@ class Block {
   render() { }
 
   getContent() {
-    return this.element;
+    return this.element.content;
   }
 
   _makePropsProxy(props) {

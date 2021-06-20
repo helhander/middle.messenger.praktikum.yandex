@@ -6,17 +6,18 @@ import Wrapper from '../blocks/wrapper';
 import Image from '../components/image';
 import Message from '../components/message';
 
-export default function getElemsHTML(elems) {
+export default function getComponents(elems) {
+  let components = [];
   let elemsHTML = '';
   for (let elem of elems) {
     switch (elem.tag) {
       case 'input':
         const input = new Input(elem);
-        elemsHTML += input.render();
+        components.push(input);
         break;
       case 'link':
         const link = new Link(elem);
-        elemsHTML += link.render();
+        components.push(link);
         break;
       case 'button':
         const button = new Button(elem.attrs);
@@ -44,5 +45,6 @@ export default function getElemsHTML(elems) {
         break;
     }
   }
-  return elemsHTML;
+
+  return components;
 }
