@@ -1,6 +1,5 @@
 export default [
   {
-    tagName: 'input',
     tag: 'input',
     props: {
       label: 'Логин',
@@ -8,11 +7,11 @@ export default [
       type: 'text',
       id: 'login-form-login',
       value:'fffff',
-      classes: 'login-form__input'
+      classes: 'login-form__input',
+      tagClasses: 'login-form__input-wrapper'
     }
   },
   {
-    tagName: 'input',
     tag: 'input',
     props: {
       label: 'Пароль',
@@ -20,21 +19,20 @@ export default [
       type: 'password',
       id: 'login-form-password',
       classes: 'login-form__input',
-      divClasses: 'login-form__input-wrapper login-form__input-space'
+      tagClasses: 'login-form__input-wrapper login-form__input-space'
     }
   },
   {
-    tagName: 'input',
     tag: 'input',
     props: {
       value: 'Авторизоваться',
       type: 'submit',
-      classes: 'login-form__button'
+      classes: 'login-form__button',
+      tagClasses: 'login-form__input-wrapper'
     }
   },
   {
     tag: 'link',
-    tagName: 'link',
     props: {
       href: 'signup.html',
       label: 'Нет аккаунта?',

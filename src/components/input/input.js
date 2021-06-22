@@ -3,8 +3,8 @@ import PugTemplate from '../../modules/pugTemplate';
 import Block from '../../modules/Block';
 
 export default class Input extends Block {
-    constructor({ props, tagName }) {
-        super('div', props);//template
+    constructor(props) {
+        super(props);
     }
 
     render() {

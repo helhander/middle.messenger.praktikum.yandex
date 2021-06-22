@@ -23,11 +23,11 @@ class ComplexBlock extends Block {
   }
 
   getContent() {
-/*     if (this._components.length > 0) {
-      const compsFragment = getFragment(this._components);
-      const mountedElement = this.element.querySelector(this._innerMountPath);
-      mountedElement.appendChild(compsFragment);
-    } */
+    /*     if (this._components.length > 0) {
+          const compsFragment = getFragment(this._components);
+          const mountedElement = this.element.querySelector(this._innerMountPath);
+          mountedElement.appendChild(compsFragment);
+        } */
 
     return this.element;
   }

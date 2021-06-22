@@ -18,10 +18,11 @@ class Block {
    *
    * @returns {void}
    */
-  constructor(tagName = "div", props = {}, components = [], innerMountPath = 'div') {
+  constructor(props = {}, components = [], innerMountPath = 'div') {
     const eventBus = new EventBus();
     this._meta = {
-      tagName,
+      tagName: props.tagName || 'div',
+      tagClasses: props.tagClasses || '',
       props
     };
     this._components = components;
@@ -43,8 +44,8 @@ class Block {
   }
 
   _createResources() {
-    const { tagName } = this._meta;
-    this._element = this._createDocumentElement(tagName);
+    const { tagName, tagClasses } = this._meta;
+    this._element = this._createDocumentElement(tagName, tagClasses);
   }
 
   init() {
@@ -128,9 +129,14 @@ class Block {
     });
   }
 
-  _createDocumentElement(tagName) {
+  _createDocumentElement(tagName, tagClasses) {
     // Можно сделать метод, который через фрагменты в цикле создает сразу несколько блоков
-    return document.createElement(tagName);
+    const element = document.createElement(tagName);
+    if (tagClasses !== '') {
+      element.classList.add(...tagClasses.split(' '));
+    }
+    
+    return element;
   }
 
   show() {

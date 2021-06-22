@@ -7,7 +7,7 @@ import Block from '../../modules/Block';
 export default class Form extends Block {
     constructor(name, elems) {
         const components = getComponents(elems);
-        super('div', { name }, components, 'form');
+        super({ name, tagClasses: 'login-form__content-wrapper' }, components, 'form');
     }
 
     render() {

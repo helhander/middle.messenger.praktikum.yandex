@@ -12,11 +12,11 @@ export default function getComponents(elems) {
   for (let elem of elems) {
     switch (elem.tag) {
       case 'input':
-        const input = new Input(elem);
+        const input = new Input(elem.props);
         components.push(input);
         break;
       case 'link':
-        const link = new Link(elem);
+        const link = new Link(elem.props);
         components.push(link);
         break;
       case 'button':
