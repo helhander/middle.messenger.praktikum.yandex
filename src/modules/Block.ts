@@ -1,16 +1,14 @@
-import EventBus from './eventBus';
+import EventBus from './EventBus';
 import getFragment from './fragment';
-
-class Block {
-  static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render"
-  };
-
-  _element = null;
-  _meta = null;
+import { EVENTS } from './Block.types';
+import { Component, ComponentProps, TAG_NAMES } from '../components/component.type';
+class Block<CP extends ComponentProps> {
+  private _element: HTMLElement = null;
+  private _meta: CP = null;
+  private _components: Block<CP>[] = [];
+  private _innerMountPath: string = '';
+  public props: CP = null;
+  public eventBus: () => EventBus;
 
   /** JSDoc
    * @param {string} tagName
@@ -18,13 +16,12 @@ class Block {
    *
    * @returns {void}
    */
-  constructor(props = {}, components = [], innerMountPath = 'div') {
+  constructor(props: CP, components?: Block<CP>[], innerMountPath?:string) {
     const eventBus = new EventBus();
-    this._meta = {
-      tagName: props.tagName || 'div',
-      tagClasses: props.tagClasses || '',
-      props
-    };
+    this._meta = props;
+    this._meta.tagName = props.tagName || TAG_NAMES.DIV;
+    this._meta.tagClasses = props.tagClasses || '';
+
     this._components = components;
     this._innerMountPath = innerMountPath;
 
@@ -33,34 +30,34 @@ class Block {
     this.eventBus = () => eventBus;
 
     this._registerEvents(eventBus);
-    eventBus.emit(Block.EVENTS.INIT);
+    eventBus.emit(EVENTS.INIT);
   }
 
-  _registerEvents(eventBus) {
-    eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+  _registerEvents(eventBus): void {
+    eventBus.on(EVENTS.INIT, this.init.bind(this));
+    eventBus.on(EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
+    eventBus.on(EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+    eventBus.on(EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  _createResources() {
+  _createResources(): void {
     const { tagName, tagClasses } = this._meta;
     this._element = this._createDocumentElement(tagName, tagClasses);
   }
 
-  init() {
+  init(): void {
     this._createResources();
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+    this.eventBus().emit(EVENTS.FLOW_CDM);
   }
 
-  _componentDidMount() {
-    this.componentDidMount();
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+  _componentDidMount(oldProps: CP): void {
+    this.componentDidMount(oldProps);
+    this.eventBus().emit(EVENTS.FLOW_RENDER);
   }
 
-  componentDidMount(oldProps) { }
+  componentDidMount(oldProps: CP): void { }
 
-  _componentDidUpdate(oldProps, newProps) {
+  _componentDidUpdate(oldProps: CP, newProps: CP): void {
     const response = this.componentDidUpdate(oldProps, newProps);
     if (!response) {
       return;
@@ -68,11 +65,11 @@ class Block {
     this._render();
   }
 
-  componentDidUpdate(oldProps, newProps) {
+  componentDidUpdate(oldProps: CP, newProps: CP): boolean {
     return true;
   }
 
-  setProps = nextProps => {
+  setProps = (nextProps: Record<string, any>): void => {
     if (!nextProps) {
       return;
     }
@@ -80,12 +77,12 @@ class Block {
     Object.assign(this.props, nextProps);
   };
 
-  get element() {
+  get element(): HTMLElement {
     return this._element;
   }
 
-  _render() {
-    const block = this.render();
+  _render(): void {
+    const block: string = this.render();
     // Этот небезопасный метод для упрощения логики
     // Используйте шаблонизатор из npm или напиши свой безопасный
     // Нужно не в строку компилировать (или делать это правильно),
@@ -93,57 +90,57 @@ class Block {
     this._element.innerHTML = block;
     //Добавление внутренних компонентов, если есть
     if (this._components.length > 0) {
-      const compsFragment = getFragment(this._components);
-      const mountedElement = this.element.querySelector(this._innerMountPath);
+      const compsFragment: DocumentFragment = getFragment(this._components);
+      const mountedElement: HTMLElement = this.element.querySelector(this._innerMountPath);
       mountedElement.appendChild(compsFragment);
     }
   }
 
-  render() { }
+  render(): string { return ''; }
 
-  getContent() {
+  getContent(): HTMLElement {
     return this.element;
   }
 
-  _makePropsProxy(props) {
+  _makePropsProxy(props: CP): CP {
     // Можно и так передать this
     // Такой способ больше не применяется с приходом ES6+
-    const self = this;
+    const self: any = this;
 
     return new Proxy(props, {
-      get(target, prop) {
+      get(target: CP, prop: string): any {
         const value = target[prop];
         return typeof value === "function" ? value.bind(target) : value;
       },
-      set(target, prop, value) {
+      set(target: CP, prop: string, value: any): boolean {
         target[prop] = value;
 
         // Запускаем обновление компоненты
         // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+        self.eventBus().emit(EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
-      deleteProperty() {
+      deleteProperty(): boolean {
         throw new Error("Нет доступа");
       }
     });
   }
 
-  _createDocumentElement(tagName, tagClasses) {
+  _createDocumentElement(tagName: string, tagClasses: string) {
     // Можно сделать метод, который через фрагменты в цикле создает сразу несколько блоков
-    const element = document.createElement(tagName);
+    const element: HTMLElement = document.createElement(tagName);
     if (tagClasses !== '') {
       element.classList.add(...tagClasses.split(' '));
     }
-    
+
     return element;
   }
 
-  show() {
+  show(): void {
     this.getContent().style.display = "block";
   }
 
-  hide() {
+  hide(): void {
     this.getContent().style.display = "none";
   }
 }

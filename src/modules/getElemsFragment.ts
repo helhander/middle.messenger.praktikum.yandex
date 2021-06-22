@@ -1,13 +1,15 @@
+import { Component, ComponentProps } from '../components/component.type';
 import Input from '../components/input';
 import Link from '../components/link';
-import Chat from '../components/chat';
+import Block from './Block';
+/* import Chat from '../components/chat';
 import Button from '../components/button';
 import Wrapper from '../blocks/wrapper';
 import Image from '../components/image';
-import Message from '../components/message';
+import Message from '../components/message'; */
 
-export default function getComponents(elems) {
-  let components = [];
+export default function getComponents<CP extends ComponentProps, C extends Component<CP>>(elems: C[]) {
+  let components: Block<CP>[] = [];
   let elemsHTML = '';
   for (let elem of elems) {
     switch (elem.tag) {
@@ -19,7 +21,7 @@ export default function getComponents(elems) {
         const link = new Link(elem.props);
         components.push(link);
         break;
-      case 'button':
+      /* case 'button':
         const button = new Button(elem.attrs);
         elemsHTML += button.get();
         break;
@@ -40,7 +42,7 @@ export default function getComponents(elems) {
       case 'message':
         const message = new Message(elem.attrs);
         formTemplate += message.get();
-        break;
+        break; */
       default:
         break;
     }
