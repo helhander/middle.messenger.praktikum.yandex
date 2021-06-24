@@ -1,10 +1,11 @@
 import template from './input.tmpl';
 import PugTemplate from '../../modules/pugTemplate';
 import Block from '../../modules/Block';
-import { ComponentProps } from '../component.type';
+import { ComponentProps } from '../component.types';
+import { InputProps } from './input.types';
 
-export default class Input<CP extends ComponentProps> extends Block<CP> {
-    constructor(props: CP) {
+export default class Input extends Block<InputProps> {
+    constructor(props: InputProps) {
         super(props);
     }
 

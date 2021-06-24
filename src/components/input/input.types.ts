@@ -1,8 +1,8 @@
-import { Component, ComponentProps } from "../component.type";
+import { Component, ComponentProps } from "../component.types";
 
-export interface InputType<CP extends ComponentProps> extends Component<CP> {
-  label: string,
-  name: string,
+export interface InputProps extends ComponentProps {
   type: string,
-  value: string,
+  label?: string,
+  name?: string,
+  value?: string,
 }

@@ -1,11 +1,11 @@
 import EventBus from './EventBus';
 import getFragment from './fragment';
 import { EVENTS } from './Block.types';
-import { Component, ComponentProps, TAG_NAMES } from '../components/component.type';
+import { Blocks, Component, ComponentProps, TAG_NAMES } from '../components/component.types';
 class Block<CP extends ComponentProps> {
   private _element: HTMLElement = null;
   private _meta: CP = null;
-  private _components: Block<CP>[] = [];
+  private _components: Blocks[] = [];
   private _innerMountPath: string = '';
   public props: CP = null;
   public eventBus: () => EventBus;
@@ -16,14 +16,16 @@ class Block<CP extends ComponentProps> {
    *
    * @returns {void}
    */
-  constructor(props: CP, components?: Block<CP>[], innerMountPath?:string) {
+  constructor(props: CP, components?: Blocks[], innerMountPath?: string) {
     const eventBus = new EventBus();
-    this._meta = props;
-    this._meta.tagName = props.tagName || TAG_NAMES.DIV;
-    this._meta.tagClasses = props.tagClasses || '';
+    this._meta = {
+      tagName: props.tagName || TAG_NAMES.DIV,
+      tagClasses: props.tagName || '',
+      ...props
+    };
 
-    this._components = components;
-    this._innerMountPath = innerMountPath;
+    this._components = components || [];
+    this._innerMountPath = innerMountPath || 'div';
 
     this.props = this._makePropsProxy(props);
 

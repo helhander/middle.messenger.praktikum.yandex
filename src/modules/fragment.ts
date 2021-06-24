@@ -1,4 +1,4 @@
-import { ComponentProps } from "../components/component.type";
+import { ComponentProps } from "../components/component.types";
 import Block from "./Block";
 export default function getFragment<CP extends ComponentProps, B extends Block<CP>>(components: B[] = []): DocumentFragment {
   const fragment: DocumentFragment = document.createDocumentFragment();

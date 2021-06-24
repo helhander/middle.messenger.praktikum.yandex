@@ -1,42 +1,49 @@
+import { TAG_NAMES } from "../../components/component.types";
+
 export default [
   {
     tag: 'input',
     props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',      
       label: 'Логин',
       name: 'login',
       type: 'text',
       id: 'login-form-login',
-      value:'fffff',
+      value: 'fffff',
       classes: 'login-form__input',
-      tagClasses: 'login-form__input-wrapper'
     }
   },
   {
     tag: 'input',
     props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper login-form__input-space',      
       label: 'Пароль',
       name: 'password',
       type: 'password',
       id: 'login-form-password',
-      classes: 'login-form__input',
-      tagClasses: 'login-form__input-wrapper login-form__input-space'
+      classes: 'login-form__input',      
     }
   },
   {
     tag: 'input',
     props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',
       value: 'Авторизоваться',
       type: 'submit',
-      classes: 'login-form__button',
-      tagClasses: 'login-form__input-wrapper'
+      classes: 'login-form__button',    
     }
   },
   {
     tag: 'link',
     props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: '',      
       href: 'signup.html',
       label: 'Нет аккаунта?',
-      classes: 'login-form__link'
+      classes: 'login-form__link',
     }
   },
 ];

@@ -1,4 +1,4 @@
-import { ComponentProps } from "../components/component.type";
+import { ComponentProps } from "../components/component.types";
 
 export enum EVENTS {
   INIT = 'init',
