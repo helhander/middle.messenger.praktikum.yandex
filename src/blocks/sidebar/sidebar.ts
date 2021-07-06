@@ -1,16 +1,14 @@
 import getComponents from '../../modules/getElemsFragment';
-import template from './form.tmpl';
+import template from './sidebar.tmpl';
 import PugTemplate from '../../modules/pugTemplate';
-import './form.scss';
+import './sidebar.scss';
 import Block from '../../modules/Block';
 import { Blocks, Component, ComponentProps, TAG_NAMES } from '../../components/component.types';
-import { FormProps } from './form.types';
 
-export default class Form extends Block<FormProps> {
-    constructor(name: string, elems: Component[]) {
+export default class Sidebar extends Block<ComponentProps> {
+    constructor(elems: Component[], classes: string = 'sidebar') {
         const components: Blocks[] = getComponents(elems);
-        const formProps: FormProps = { name, tagClasses: 'login-form__content-wrapper', tagName: TAG_NAMES.DIV };
-        super(formProps, components, 'form');
+        super({ tagName: TAG_NAMES.DIV, tagClasses: 'workspace-layout', classes }, components);
     }
 
     render(): string {

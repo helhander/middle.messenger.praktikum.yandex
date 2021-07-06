@@ -1,5 +1,6 @@
 import Form from '../../blocks/form/index';
+import { render } from '../../modules/render';
 import elems from './data';
 
-const loginForm = new Form('Регистрация', elems).get();
-document.body.innerHTML = loginForm;
+const signUp = new Form('Регистрация', elems);
+render('.app', signUp);

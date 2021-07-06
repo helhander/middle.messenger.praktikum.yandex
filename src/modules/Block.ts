@@ -83,6 +83,10 @@ class Block<CP extends ComponentProps> {
     return this._element;
   }
 
+  set innerMountPath(value: string) {
+    this._innerMountPath = value;
+  }
+
   _render(): void {
     const block: string = this.render();
     // Этот небезопасный метод для упрощения логики

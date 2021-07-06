@@ -1,7 +1,11 @@
+import { TAG_NAMES } from "../../components/component.types";
+
 export const sidebarElems = [
   {
     tag: 'link',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: '',
       href: 'profile.html',
       label: 'Профиль >',
       classes: 'sidebar__link'
@@ -10,20 +14,21 @@ export const sidebarElems = [
   {
     tag: 'div',
     classes: 'sidebar__search',
-    elems: [
+    comps: [
       {
         tag: 'input',
-        attrs: {
+        props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'sidebar__input-wrapper',
           name: 'search',
           type: 'text',
-          divClasses: 'sidebar__input-wrapper',
           classes: 'sidebar__input',
           placeholder: 'Поиск'
         }
       },
       {
         tag: 'button',
-        attrs: {
+        props: {
           type: 'image',
           src: 'images/add.png',
           alt: 'добавить',
@@ -40,7 +45,7 @@ export const sidebarElems = [
     elems: [
       {
         tag: 'chat',
-        attrs: {
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -51,8 +56,8 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
-          divClasses:'chat__wrapper_active',
+        props: {
+          divClasses: 'chat__wrapper_active',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'Max',
@@ -64,7 +69,7 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -75,7 +80,7 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -86,19 +91,7 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
-          src: 'images/empty-avatar.png',
-          alt: 'Аватар',
-          name: 'hellfer',
-          msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-          date: '15:12',
-          unreadNumber: 4,
-          isUserMsg: true,
-        }
-      },
-      {
-        tag: 'chat',
-        attrs: {
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -110,7 +103,7 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -122,7 +115,7 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -134,7 +127,19 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
+        props: {
+          src: 'images/empty-avatar.png',
+          alt: 'Аватар',
+          name: 'hellfer',
+          msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+          date: '15:12',
+          unreadNumber: 4,
+          isUserMsg: true,
+        }
+      },
+      {
+        tag: 'chat',
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -145,7 +150,7 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -156,7 +161,7 @@ export const sidebarElems = [
       },
       {
         tag: 'chat',
-        attrs: {
+        props: {
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -177,7 +182,7 @@ export const chatElems = {
       elems: [
         {
           tag: 'image',
-          attrs: {
+          props: {
             name: 'helfer',
             src: 'images/empty-avatar.png',
             alt: 'avatar',
@@ -194,7 +199,7 @@ export const chatElems = {
     },
     {
       tag: 'button',
-      attrs: {
+      props: {
         type: 'span',
         imgClasses: 'chat-header__svg',
         classes: 'chat-header__button',
@@ -207,7 +212,7 @@ export const chatElems = {
       elems: [
         {
           tag: 'div',
-          attrs: {
+          props: {
             tag: 'div',
             classes: 'message-list__day-separator',
             inner: '4 апреля'
@@ -216,7 +221,7 @@ export const chatElems = {
         },
         {
           tag: 'message',
-          attrs: {
+          props: {
             tag: 'div',
             classes: 'message-list__message message-list__message_incoming',
             inner: `Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.`,
@@ -227,7 +232,7 @@ export const chatElems = {
         },
         {
           tag: 'message',
-          attrs: {
+          props: {
             tag: 'div',
             classes: 'message-list__image message-list__image_incoming',
             imgSrc: 'images/tiger.jpeg',
@@ -240,7 +245,7 @@ export const chatElems = {
         },
         {
           tag: 'message',
-          attrs: {
+          props: {
             tag: 'div',
             classes: 'message-list__image message-list__image_outcoming',
             imgSrc: 'images/tiger.jpeg',
@@ -253,7 +258,7 @@ export const chatElems = {
         },
         {
           tag: 'message',
-          attrs: {
+          props: {
             tag: 'div',
             classes: 'message-list__message message-list__message_outcoming',
             inner: `I'm fine thank you!`,
@@ -265,7 +270,7 @@ export const chatElems = {
         },
         /*             {
                         tag: 'button',
-                        attrs: {
+                        props: {
                             type: 'image',
                             src: 'images/add.png',
                             alt: 'добавить',
@@ -280,7 +285,7 @@ export const chatElems = {
   footerElems: [
     {
       tag: 'button',
-      attrs: {
+      props: {
         type: 'span',
         imgClasses: 'chat-footer__attach',
         classes: 'chat-footer__attach-button',
@@ -288,7 +293,7 @@ export const chatElems = {
     },
     {
       tag: 'input',
-      attrs: {
+      props: {
         name: 'message-field',
         type: 'text',
         divClasses: 'message-footer__input-field-wrapper',
@@ -298,7 +303,7 @@ export const chatElems = {
     },
     {
       tag: 'button',
-      attrs: {
+      props: {
         type: 'span',
         imgClasses: 'chat-footer__send',
         classes: 'chat-footer__send-button',

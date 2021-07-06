@@ -1,7 +1,11 @@
+import { TAG_NAMES } from "../../components/component.types";
+
 export default [
   {
     tag: 'input',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',
       label: 'Почта',
       name: 'email',
       type: 'email',
@@ -11,7 +15,9 @@ export default [
   },
   {
     tag: 'input',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',
       label: 'Логин',
       name: 'login',
       type: 'text',
@@ -21,7 +27,9 @@ export default [
   },
   {
     tag: 'input',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',
       label: 'Имя',
       name: 'name',
       type: 'text',
@@ -31,7 +39,9 @@ export default [
   },
   {
     tag: 'input',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',
       label: 'Фамилия',
       name: 'lastname',
       type: 'text',
@@ -41,7 +51,9 @@ export default [
   },
   {
     tag: 'input',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',
       label: 'Телефон',
       name: 'tel',
       type: 'tel',
@@ -51,7 +63,9 @@ export default [
   },
   {
     tag: 'input',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',
       label: 'Пароль',
       name: 'password',
       type: 'password',
@@ -61,18 +75,21 @@ export default [
   },
   {
     tag: 'input',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper login-form__input-space',
       label: 'Пароль (ещё раз)',
       name: 'password2',
       type: 'password',
       id: 'login-form-password2',
       classes: 'login-form__input login-form__input-space',
-      divClasses: 'login-form__input-wrapper login-form__input-space'
     }
   },
   {
     tag: 'input',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: 'login-form__input-wrapper',
       value: 'Зарегистрироваться',
       type: 'submit',
       classes: 'login-form__button login-form__button-space'
@@ -80,7 +97,9 @@ export default [
   },
   {
     tag: 'link',
-    attrs: {
+    props: {
+      tagName: TAG_NAMES.DIV,
+      tagClasses: '',
       href: 'login.html',
       label: 'Войти',
       classes: 'login-form__link'
