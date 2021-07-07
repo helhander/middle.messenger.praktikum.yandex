@@ -29,11 +29,12 @@ export const sidebarElems = [
       {
         tag: 'button',
         props: {
+          tagName: TAG_NAMES.BUTTON,
+          tagClasses: 'sidebar__button',
           type: 'image',
           src: 'images/add.png',
           alt: 'добавить',
           imgClasses: 'sidebar__image',
-          classes: 'sidebar__button',
         }
       },
 
@@ -42,10 +43,12 @@ export const sidebarElems = [
   {
     tag: 'div',
     classes: 'chats-sidebar',
-    elems: [
+    comps: [
       {
         tag: 'chat',
         props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -57,7 +60,8 @@ export const sidebarElems = [
       {
         tag: 'chat',
         props: {
-          divClasses: 'chat__wrapper_active',
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper_active',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'Max',
@@ -70,6 +74,8 @@ export const sidebarElems = [
       {
         tag: 'chat',
         props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -81,6 +87,8 @@ export const sidebarElems = [
       {
         tag: 'chat',
         props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -92,30 +100,8 @@ export const sidebarElems = [
       {
         tag: 'chat',
         props: {
-          src: 'images/empty-avatar.png',
-          alt: 'Аватар',
-          name: 'hellfer',
-          msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-          date: '15:12',
-          unreadNumber: 4,
-          isUserMsg: true,
-        }
-      },
-      {
-        tag: 'chat',
-        props: {
-          src: 'images/empty-avatar.png',
-          alt: 'Аватар',
-          name: 'hellfer',
-          msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
-          date: '15:12',
-          unreadNumber: 4,
-          isUserMsg: true,
-        }
-      },
-      {
-        tag: 'chat',
-        props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -128,6 +114,8 @@ export const sidebarElems = [
       {
         tag: 'chat',
         props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -140,6 +128,36 @@ export const sidebarElems = [
       {
         tag: 'chat',
         props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
+          src: 'images/empty-avatar.png',
+          alt: 'Аватар',
+          name: 'hellfer',
+          msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+          date: '15:12',
+          unreadNumber: 4,
+          isUserMsg: true,
+        }
+      },
+      {
+        tag: 'chat',
+        props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
+          src: 'images/empty-avatar.png',
+          alt: 'Аватар',
+          name: 'hellfer',
+          msg: 'Так ыв аы а ыа а ы аыа ыа ва ыа ыа ы...',
+          date: '15:12',
+          unreadNumber: 4,
+          isUserMsg: true,
+        }
+      },
+      {
+        tag: 'chat',
+        props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -151,6 +169,8 @@ export const sidebarElems = [
       {
         tag: 'chat',
         props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -162,6 +182,8 @@ export const sidebarElems = [
       {
         tag: 'chat',
         props: {
+          tagName: TAG_NAMES.DIV,
+          tagClasses: 'chat__wrapper',
           src: 'images/empty-avatar.png',
           alt: 'Аватар',
           name: 'hellfer',
@@ -179,51 +201,56 @@ export const chatElems = {
   headerElems: [
     {
       tag: 'span',
-      elems: [
+      comps: [
         {
           tag: 'image',
           props: {
+            tagName: TAG_NAMES.DIV,
+            tagClasses: 'chat-header__avatar',
             name: 'helfer',
             src: 'images/empty-avatar.png',
             alt: 'avatar',
             classes: 'chat-header__image',
-            divClasses: 'chat-header__avatar',
           }
         }
       ]
     },
     {
       tag: 'span',
-      classes: 'chat-header__name',
-      inner: 'Max'
+      props: {
+        tagName: TAG_NAMES.DIV,
+        tagClasses: 'chat-header__name',
+        inner: 'Max'
+      },
     },
     {
       tag: 'button',
       props: {
+        tagName: TAG_NAMES.BUTTON,
+        tagClasses: 'chat-header__button',
         type: 'span',
         imgClasses: 'chat-header__svg',
-        classes: 'chat-header__button',
       }
     }],
   dialogElems: [
     {
       tag: 'div',
       classes: 'message-list',
-      elems: [
+      comps: [
         {
           tag: 'div',
           props: {
-            tag: 'div',
-            classes: 'message-list__day-separator',
+            tagName: TAG_NAMES.DIV,
+            tagClasses: 'message-list__day-separator',
             inner: '4 апреля'
           }
-
         },
         {
           tag: 'message',
           props: {
-            tag: 'div',
-            classes: 'message-list__message message-list__message_incoming',
+            tagName: TAG_NAMES.DIV,
+            tagClasses: 'message-list__message message-list__message_incoming',
+            tag: 'div',            
             inner: `Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.`,
             time: '11:57',
             timeClasses: 'message-time message-time__incoming'
@@ -233,8 +260,9 @@ export const chatElems = {
         {
           tag: 'message',
           props: {
-            tag: 'div',
-            classes: 'message-list__image message-list__image_incoming',
+            tagName: TAG_NAMES.DIV,
+            tagClasses: 'message-list__image message-list__image_incoming',
+            tag: 'div',            
             imgSrc: 'images/tiger.jpeg',
             imgAlt: 'picture',
             imgClasses: 'message__image',
@@ -246,8 +274,9 @@ export const chatElems = {
         {
           tag: 'message',
           props: {
+            tagName: TAG_NAMES.DIV,
+            tagClasses: 'message-list__image message-list__image_outcoming',
             tag: 'div',
-            classes: 'message-list__image message-list__image_outcoming',
             imgSrc: 'images/tiger.jpeg',
             imgAlt: 'picture',
             imgClasses: 'message__image',
@@ -259,8 +288,9 @@ export const chatElems = {
         {
           tag: 'message',
           props: {
-            tag: 'div',
-            classes: 'message-list__message message-list__message_outcoming',
+            tagName: TAG_NAMES.DIV,
+            tagClasses: 'message-list__message message-list__message_outcoming',
+            tag: 'div',            
             inner: `I'm fine thank you!`,
             time: '18:34',
             timeClasses: 'message-time message-time__outcoming',
@@ -286,17 +316,19 @@ export const chatElems = {
     {
       tag: 'button',
       props: {
+        tagName: TAG_NAMES.BUTTON,
+        tagClasses: 'chat-footer__attach-button',
         type: 'span',
         imgClasses: 'chat-footer__attach',
-        classes: 'chat-footer__attach-button',
       }
     },
     {
       tag: 'input',
       props: {
+        tagName: TAG_NAMES.DIV,
+        tagClasses: 'message-footer__input-field-wrapper',
         name: 'message-field',
         type: 'text',
-        divClasses: 'message-footer__input-field-wrapper',
         classes: 'message-footer__input-field',
         placeholder: 'Сообщение'
       }
@@ -304,9 +336,10 @@ export const chatElems = {
     {
       tag: 'button',
       props: {
+        tagName: TAG_NAMES.BUTTON,
+        tagClasses: 'chat-footer__send-button',
         type: 'span',
         imgClasses: 'chat-footer__send',
-        classes: 'chat-footer__send-button',
       }
     }],
 };

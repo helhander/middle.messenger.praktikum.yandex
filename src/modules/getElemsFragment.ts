@@ -4,6 +4,11 @@ import Link from '../components/link';
 import Block from './Block';
 import { InputProps } from '../components/input/input.types'
 import { LinkProps } from '../components/link/link.types';
+import Button from '../components/button';
+import { ButtonProps } from '../components/button/button.types';
+import { ChatProps } from '../components/chat/chat.types';
+import Chat from '../components/chat';
+import Wrapper from '../blocks/wrapper';
 /* import Chat from '../components/chat';
 import Button from '../components/button';
 import Wrapper from '../blocks/wrapper';
@@ -22,28 +27,28 @@ export default function getComponents(elems: Component[]) {
         const link = new Link(elem.props as LinkProps);
         components.push(link);
         break;
-      /* case 'button':
-        const button = new Button(elem.attrs);
-        elemsHTML += button.get();
+      case 'button':
+        const button = new Button(elem.props as ButtonProps);
+        components.push(button);
         break;
       case 'chat':
-        const chat = new Chat(elem.attrs);
-        elemsHTML += chat.get();
+        const chat = new Chat(elem.props as ChatProps);
+        components.push(chat);
         break;
       case 'span':
       case 'div':
       case 'form':
-        const wrapper = new Wrapper(elem.tag, elem.classes, elem.elems, elem.inner);
-        elemsHTML += wrapper.get();
+        const wrapper = new Wrapper(elem.tag, elem.classes, elem.comps, elem.inner);
+        components.push(wrapper);
         break;
       case 'image':
-        const image = new Image(elem.attrs);
-        elemsHTML += image.get();
+        const image = new Image(elem.props as );
+        components.push(image);
         break;
       case 'message':
-        const message = new Message(elem.attrs);
-        formTemplate += message.get();
-        break; */
+        const message = new Message(elem.props as );
+        formTemplate += message);
+        break;
       default:
         break;
     }

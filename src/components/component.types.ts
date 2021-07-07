@@ -1,11 +1,15 @@
+import Button from "./button";
+import { ButtonProps } from "./button/button.types";
+import Chat from "./chat";
+import { ChatProps } from "./chat/chat.types";
 import Input from "./input";
 import { InputProps } from "./input/input.types";
 import Link from "./link";
 import { LinkProps } from "./link/link.types";
 
 
-export type Blocks = Input | Link;
-export type Props = InputProps | LinkProps;
+export type Blocks = Input | Link | Button | Chat;
+export type Props = InputProps | LinkProps | ButtonProps | ChatProps;
 
 export interface Component {
   tag: string,
@@ -22,5 +26,6 @@ export interface ComponentProps {
 export enum TAG_NAMES {
   DIV = 'div',
   SPAN = 'span',
+  BUTTON = 'button',
 }
 
