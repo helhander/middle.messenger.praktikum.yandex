@@ -1,7 +1,8 @@
 import { Component, ComponentProps } from "../../components/component.types";
 
 export interface WrapperProps extends ComponentProps {
-    inner: string;
+    inner?: string;
     tag?: string;
-    comps?: Component[]
+    comps?: Component[];
+    tagInnerHTML?: string;
 }

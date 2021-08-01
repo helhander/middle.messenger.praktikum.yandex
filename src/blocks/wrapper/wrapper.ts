@@ -14,9 +14,10 @@ import Block from '../../modules/Block';
 import getComponents from '../../modules/getElemsFragment';
 
 export default class Wrapper extends Block<WrapperProps> {
-    constructor(tag: string, classes: string = '', inner: string = '', comps: Component[] = []) {
-        const components: Blocks[] = getComponents(comps);
-        const wrapperProps: WrapperProps = { tagName: TAG_NAMES.DIV, tagClasses: 'workspace-layout', tag, classes, inner };
+    constructor(props: WrapperProps) {
+        const components: Blocks[] = [];
+        if (props.comps && props.comps.length > 0)
+            components.push(...getComponents(props.comps));
         /* 
                 for (let elem of comps) {
                     switch (elem.tag) {
@@ -55,7 +56,7 @@ export default class Wrapper extends Block<WrapperProps> {
                     }
                 }
          */
-        super(wrapperProps, components);
+        super(props, components);
     }
     render(): string {
         let template: string = '';

@@ -5,12 +5,12 @@ import template from './chatSpace.tmpl';
 import PugTemplate from '../../modules/pugTemplate';
 import './chatSpace.scss';
 import Block from '../../modules/Block';
-import { ChatspaceProps } from './chatSpace.types';
+import { ChatspaceComp, ChatspaceProps } from './chatSpace.types';
 import { Component, TAG_NAMES } from '../../components/component.types';
 
 export default class ChatSpace extends Block<ChatspaceProps> {
     constructor(headerComps: Component[], dialogComps: Component[] = [], footerComps: Component[]) {
-        const chatspaceComps = [];
+        const chatspaceComps: ChatspaceComp[] = [];
         const isEmpty = dialogComps.length === 0;
         if (!isEmpty) {
             const chatHeader = new ChatHeader(headerComps);

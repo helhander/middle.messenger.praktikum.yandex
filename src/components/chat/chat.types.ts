@@ -7,5 +7,6 @@ export interface ChatProps extends ComponentProps {
   isUserMsg: boolean,
   msg: string,
   date: string,
-  unreadNumber: string
+  unreadNumber: number,
+  active:boolean,
 }

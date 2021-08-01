@@ -1,3 +1,5 @@
+import Wrapper from "../blocks/wrapper";
+import { WrapperProps } from "../blocks/wrapper/wrapper.types";
 import Button from "./button";
 import { ButtonProps } from "./button/button.types";
 import Chat from "./chat";
@@ -8,12 +10,12 @@ import Link from "./link";
 import { LinkProps } from "./link/link.types";
 
 
-export type Blocks = Input | Link | Button | Chat;
-export type Props = InputProps | LinkProps | ButtonProps | ChatProps;
+export type Blocks = Input | Link | Button | Chat | Wrapper;
+export type Props = InputProps | LinkProps | ButtonProps | ChatProps | WrapperProps;
 
 export interface Component {
   tag: string,
-  props: Props
+  props: Props,
 }
 
 export interface ComponentProps {
@@ -21,6 +23,7 @@ export interface ComponentProps {
   tagClasses: string,
   id?: string,
   classes?: string,
+  tagInnerHTML?: string,
 }
 
 export enum TAG_NAMES {

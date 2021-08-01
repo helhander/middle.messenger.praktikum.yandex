@@ -5,9 +5,9 @@ import elems from './data';
 const loginForm = new Form('Вход', elems);
 
 render('.app', loginForm);
-setTimeout(() => {
+/* setTimeout(() => {
   console.log(loginForm);
   loginForm.setProps({
     name: 'otherClass',
   });
-}, 1000);
+}, 1000); */
