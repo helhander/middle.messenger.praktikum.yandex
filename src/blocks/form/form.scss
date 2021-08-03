@@ -20,7 +20,7 @@
     line-height: 11px;
     margin: 14px 0px;
     color: $primary-color;
-    text-decoration: none;    
+    text-decoration: none;
   }
 
   &__button {
@@ -61,7 +61,7 @@
     margin-bottom: 7px;
 
     &-space {
-      margin-bottom: auto;
+      //margin-bottom: auto;
     }
 
     &-label {
@@ -83,4 +83,15 @@
     font-size: 20px;
     line-height: 20px;
   }
+}
+
+.input__hint {
+  height: 8px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 8px;
+  color: $primary-red;
+  display: none;
 }

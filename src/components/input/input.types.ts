@@ -8,4 +8,7 @@ export interface InputProps extends ComponentProps {
   value?: string,
   labelClasses?: string,
   readonly?: boolean,
+  validationMsg?: string,
+  validationRegExp?: string,
+  validationField?: string,
 }

@@ -4,12 +4,13 @@ import PugTemplate from '../../modules/pugTemplate';
 import './profileInfo.scss';
 import { Blocks, Component, ComponentProps, TAG_NAMES } from '../../components/component.types';
 import Block from '../../modules/Block';
+import { onBlur, onFocus, onSubmit } from '../../modules/validation';
 
 export default class ProfileInfo extends Block<ComponentProps> {
     constructor(comps: Component[]) {
         const components: Blocks[] = getComponents(comps);
         const profileInfo: ComponentProps = { tagClasses: 'profile-info__wrapper', tagName: TAG_NAMES.DIV };
-        super(profileInfo, components, 'div');
+        super(profileInfo, components, 'div',[{ eventName: 'focusin', fn: onFocus }, { eventName: 'focusout', fn: onBlur }, { eventName: 'submit', fn: onSubmit }]);
     }
 
     render(): string {

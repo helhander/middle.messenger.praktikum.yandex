@@ -10,7 +10,9 @@ export default [
       name: 'email',
       type: 'email',
       id: 'login-form-email',
-      classes: 'login-form__input'
+      classes: 'login-form__input',
+      validationMsg: 'Неправильный формат email',
+      validationRegExp: '^\\S{1,100}@\\S{1,100}$',
     }
   },
   {
@@ -22,7 +24,9 @@ export default [
       name: 'login',
       type: 'text',
       id: 'login-form-login',
-      classes: 'login-form__input'
+      classes: 'login-form__input',
+      validationMsg: 'Поле должно быть заполнено',
+      validationRegExp: '^\\S{1,100}$',
     }
   },
   {
@@ -34,7 +38,9 @@ export default [
       name: 'name',
       type: 'text',
       id: 'login-form-name',
-      classes: 'login-form__input'
+      classes: 'login-form__input',
+      validationMsg: 'Поле должно быть заполнено',
+      validationRegExp: '^\\S{1,100}$',
     }
   },
   {
@@ -46,7 +52,9 @@ export default [
       name: 'lastname',
       type: 'text',
       id: 'login-form-lastname',
-      classes: 'login-form__input'
+      classes: 'login-form__input',
+      validationMsg: 'Поле должно быть заполнено',
+      validationRegExp: '^\\S{1,100}$',
     }
   },
   {
@@ -58,7 +66,9 @@ export default [
       name: 'tel',
       type: 'tel',
       id: 'login-form-tel',
-      classes: 'login-form__input'
+      classes: 'login-form__input',
+      validationMsg: 'Номер должен быть корректным. Например +79099673030',
+      validationRegExp: '^\\+?(\\d| |\\(|\\)){5,15}$',
     }
   },
   {
@@ -70,7 +80,9 @@ export default [
       name: 'password',
       type: 'password',
       id: 'login-form-password',
-      classes: 'login-form__input'
+      classes: 'login-form__input',
+      validationMsg: 'Поле должно быть заполнено',
+      validationRegExp: '^\\S{1,100}$',
     }
   },
   {
@@ -83,6 +95,8 @@ export default [
       type: 'password',
       id: 'login-form-password2',
       classes: 'login-form__input login-form__input-space',
+      validationMsg: 'Пароли не совпадают',
+      validationField: 'password',
     }
   },
   {

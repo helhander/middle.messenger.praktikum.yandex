@@ -9,4 +9,6 @@ input(
   placeholder= placeholder
   id= id
   readonly= readonly)
+if validationMsg
+  div(class='input__hint' data-reg-exp= validationRegExp data-field= validationField) #{validationMsg}
 `;

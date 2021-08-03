@@ -7,7 +7,6 @@ class Block<CP extends ComponentProps> {
   private _meta: CP = null;
   private _components: Blocks[] = [];
   private _innerMountPath: string = '';
-  private _validator: (e: Event) => void = null;
   private _listeners: EventInfo[] = [];
   public props: CP = null;
   public eventBus: () => EventBus;
@@ -151,8 +150,8 @@ class Block<CP extends ComponentProps> {
 
   _addEventListeners() {
     if (this._listeners.length > 0) {
-      this._listeners.forEach(l=>{
-        this.delegate(l.eventName,l.fn);
+      this._listeners.forEach(l => {
+        this.delegate(l.eventName, l.fn);
       });
     }
   }
@@ -165,11 +164,11 @@ class Block<CP extends ComponentProps> {
   }
 
   delegate(eventName: string, callback: EventListener) {
-    const eventElement = this.element;
+    const eventElement: HTMLElement = this.element.querySelector(this._innerMountPath) || this.element;
     eventElement.addEventListener(eventName, callback.bind(eventElement));
     this._listeners.push({ eventName, fn: callback });
 
-    return eventElement;
+    return this;
   }
 
 }

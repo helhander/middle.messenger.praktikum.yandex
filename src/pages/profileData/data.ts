@@ -43,7 +43,9 @@ export const profileInfoComps: Component[] = [
             id: 'profile-email',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: 'felix@yandex.ru'
+            value: 'felix@yandex.ru',
+            validationMsg: 'Неправильный формат email',
+            validationRegExp: '^\\S{1,100}@\\S{1,100}$',
           }
         },
         {
