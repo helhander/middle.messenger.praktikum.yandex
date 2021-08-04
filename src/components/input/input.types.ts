@@ -11,4 +11,5 @@ export interface InputProps extends ComponentProps {
   validationMsg?: string,
   validationRegExp?: string,
   validationField?: string,
+  hintClasses?: string,
 }

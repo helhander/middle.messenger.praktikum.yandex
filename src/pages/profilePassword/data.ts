@@ -19,7 +19,7 @@ export const profileInfoComps: Component[] = [
     tag: 'form',
     props: {
       tagClasses: 'profile-info',
-      tagName: TAG_NAMES.DIV,
+      tagName: TAG_NAMES.FORM,
       comps: [
         {
           tag: 'image',
@@ -43,7 +43,10 @@ export const profileInfoComps: Component[] = [
             id: 'profile-password',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: ''
+            value: '',
+            validationMsg: 'Поле должно быть заполнено',
+            validationRegExp: '^\\S{1,100}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {
@@ -57,7 +60,10 @@ export const profileInfoComps: Component[] = [
             id: 'profile-password-new',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: ''
+            value: '',
+            validationMsg: 'Поле должно быть заполнено',
+            validationRegExp: '^\\S{1,100}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {
@@ -71,7 +77,10 @@ export const profileInfoComps: Component[] = [
             id: 'profile-password-new-repeat',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: ''
+            value: '',
+            validationMsg: 'Пароли не совпадают',
+            validationField: 'password-new',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {

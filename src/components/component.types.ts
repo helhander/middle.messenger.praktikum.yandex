@@ -30,5 +30,6 @@ export enum TAG_NAMES {
   DIV = 'div',
   SPAN = 'span',
   BUTTON = 'button',
+  FORM = 'form',
 }
 

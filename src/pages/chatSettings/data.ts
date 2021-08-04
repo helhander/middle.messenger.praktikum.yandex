@@ -19,7 +19,7 @@ export const profileInfoElems: Component[] = [
     tag: 'form',
     props: {
       tagClasses: 'profile-info',
-      tagName: TAG_NAMES.DIV,
+      tagName: TAG_NAMES.FORM,
       comps: [
         {
           tag: 'image',
@@ -51,7 +51,10 @@ export const profileInfoElems: Component[] = [
             id: 'chat-description',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: 'Чат для общения'
+            value: 'Чат для общения',
+            validationMsg: 'Поле должно быть заполнено',
+            validationRegExp: '^.{1,100}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {

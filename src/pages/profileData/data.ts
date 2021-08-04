@@ -17,8 +17,8 @@ export const sidebarComps: Component[] = [
 export const profileInfoComps: Component[] = [
   {
     tag: 'form',
-    props:{
-      tagName: TAG_NAMES.DIV,
+    props: {
+      tagName: TAG_NAMES.FORM,
       tagClasses: 'profile-info',
       comps: [
         {
@@ -46,6 +46,7 @@ export const profileInfoComps: Component[] = [
             value: 'felix@yandex.ru',
             validationMsg: 'Неправильный формат email',
             validationRegExp: '^\\S{1,100}@\\S{1,100}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {
@@ -56,10 +57,13 @@ export const profileInfoComps: Component[] = [
             label: 'Логин',
             name: 'login',
             type: 'text',
-            id: 'profile-login',            
+            id: 'profile-login',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: 'Felix'
+            value: 'Felix',
+            validationMsg: 'Поле должно быть заполнено',
+            validationRegExp: '^\\S{1,100}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {
@@ -70,10 +74,13 @@ export const profileInfoComps: Component[] = [
             label: 'Имя',
             name: 'firstname',
             type: 'text',
-            id: 'profile-firstname',            
+            id: 'profile-firstname',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: 'Феликс'
+            value: 'Феликс',
+            validationMsg: 'Поле должно быть заполнено',
+            validationRegExp: '^\\S{1,100}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {
@@ -84,10 +91,13 @@ export const profileInfoComps: Component[] = [
             label: 'Фамилия',
             name: 'lastname',
             type: 'text',
-            id: 'profile-lastname',            
+            id: 'profile-lastname',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: 'Учтивый'
+            value: 'Учтивый',
+            validationMsg: 'Поле должно быть заполнено',
+            validationRegExp: '^\\S{1,100}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {
@@ -101,7 +111,10 @@ export const profileInfoComps: Component[] = [
             id: 'profile-alias',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: 'Felix'
+            value: 'Felix',
+            validationMsg: 'Поле должно быть заполнено',
+            validationRegExp: '^\\S{1,100}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {
@@ -115,7 +128,10 @@ export const profileInfoComps: Component[] = [
             id: 'profile-tel',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
-            value: '+7(901)123-32-23'
+            value: '+7(901)123-32-23',
+            validationMsg: 'Номер должен быть корректным. Например +79099673030',
+            validationRegExp: '^\\+?(\\d| |-|\\(|\\)){5,15}$',
+            hintClasses: 'input__hint input__hint_right',
           }
         },
         {

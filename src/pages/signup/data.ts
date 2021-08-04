@@ -68,7 +68,7 @@ export default [
       id: 'login-form-tel',
       classes: 'login-form__input',
       validationMsg: 'Номер должен быть корректным. Например +79099673030',
-      validationRegExp: '^\\+?(\\d| |\\(|\\)){5,15}$',
+      validationRegExp: '^\\+?(\\d| |-|\\(|\\)){5,15}$',
     }
   },
   {

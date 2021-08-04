@@ -26,7 +26,7 @@ export function onBlur(event: Event, target?: HTMLInputElement): void {
       if (!regExp.test(elem.value))
         hint.style.display = "block";
       else hint.style.display = "none";
-      
+
       return;
     }
 
@@ -48,6 +48,14 @@ export function onSubmit(event: Event) {
   const form: HTMLFormElement = elem.closest('form');
   const inputs: NodeListOf<HTMLInputElement> = form.querySelectorAll('input');
   inputs.forEach(i => onBlur(null, i));
+  const formElems = form.elements;
+  const formData: Record<string, any> = {};
+  for (let elem of formElems) {
+    if (elem instanceof HTMLInputElement)
+      formData[elem.name] = elem.value;
+  }
+  console.log(JSON.stringify(formData));
+  event.preventDefault();
 }
 
 function getHint(elem: HTMLElement): HTMLElement {

@@ -10,7 +10,7 @@ export default class ProfileInfo extends Block<ComponentProps> {
     constructor(comps: Component[]) {
         const components: Blocks[] = getComponents(comps);
         const profileInfo: ComponentProps = { tagClasses: 'profile-info__wrapper', tagName: TAG_NAMES.DIV };
-        super(profileInfo, components, 'div',[{ eventName: 'focusin', fn: onFocus }, { eventName: 'focusout', fn: onBlur }, { eventName: 'submit', fn: onSubmit }]);
+        super(profileInfo, components, 'form', [{ eventName: 'focusin', fn: onFocus }, { eventName: 'focusout', fn: onBlur }, { eventName: 'submit', fn: onSubmit }]);
     }
 
     render(): string {
