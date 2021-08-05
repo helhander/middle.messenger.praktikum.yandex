@@ -1,4 +1,4 @@
-import { TAG_NAMES } from "../../components/component.types";
+import { TAG_NAMES } from '../../components/component.types';
 
 export default [
   {
@@ -10,11 +10,10 @@ export default [
       name: 'login',
       type: 'text',
       id: 'login-form-login',
-      value: 'fffff',
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
       validationRegExp: '^\\S{1,100}$',
-    }
+    },
   },
   {
     tag: 'input',
@@ -28,7 +27,7 @@ export default [
       classes: 'login-form__input login-form__input-space',
       validationMsg: 'Поле должно быть заполнено',
       validationRegExp: '^\\S{1,100}$',
-    }
+    },
   },
   {
     tag: 'input',
@@ -38,7 +37,7 @@ export default [
       value: 'Авторизоваться',
       type: 'submit',
       classes: 'login-form__button login-form__button-space',
-    }
+    },
   },
   {
     tag: 'link',
@@ -48,6 +47,6 @@ export default [
       href: 'signup.html',
       label: 'Нет аккаунта?',
       classes: 'login-form__link',
-    }
+    },
   },
 ];

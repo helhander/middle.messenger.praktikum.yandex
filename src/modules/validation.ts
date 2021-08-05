@@ -3,62 +3,63 @@ export function validate(event: Event): void {
   console.log('this = ', this.tagName); // this = FORM
 }
 
-export function onFocus(event: Event): void {
-  const elem = event.target;
-  if (!(elem instanceof HTMLInputElement))
-    return;
-
-  const hint: HTMLElement = getHint(elem);
-  if (hint)
-    hint.style.display = "none";
+function getHint(elem: HTMLElement): HTMLElement | null {
+  const hint: HTMLElement | null = elem.parentElement?.querySelector('.input__hint') || null;
+  return hint;
 }
 
-export function onBlur(event: Event, target?: HTMLInputElement): void {
-  const elem: EventTarget = target || event.target;
-  if (!(elem instanceof HTMLInputElement))
-    return;
+export function onFocus(event: Event): void {
+  const elem = event.target;
+  if (!(elem instanceof HTMLInputElement)) return;
 
-  const hint: HTMLElement = getHint(elem);
+  const hint: HTMLElement | null = getHint(elem);
+  if (hint) hint.style.display = 'none';
+}
+
+export function onBlur(event: Event | null, target?: HTMLInputElement): void {
+  const elem: EventTarget | null = target || (event && event.target);
+  if (!(elem instanceof HTMLInputElement)) return;
+
+  const hint: HTMLElement | null = getHint(elem);
   if (hint) {
-    const regExpString: string = hint.dataset.regExp;
+    const regExpString: string = hint.dataset.regExp || '';
     if (regExpString) {
       const regExp = new RegExp(regExpString, 'gi');
-      if (!regExp.test(elem.value))
-        hint.style.display = "block";
-      else hint.style.display = "none";
+      if (!regExp.test(elem.value)) hint.style.display = 'block';
+      else hint.style.display = 'none';
 
       return;
     }
 
-    const validationField: string = hint.dataset.field;
+    const validationField: string = hint.dataset.field || '';
     if (validationField) {
-      const form: HTMLFormElement = elem.closest('form');
-      const validationFieldElem: HTMLInputElement = form.querySelector(`input[name="${validationField}"]`);
-      if (validationFieldElem.value !== elem.value)
-        hint.style.display = "block";
-      else hint.style.display = "none";
+      const form: HTMLFormElement | null = elem.closest('form');
+      const validationFieldElem: HTMLInputElement | null = form && form.querySelector(`input[name="${validationField}"]`);
+      if (validationFieldElem && validationFieldElem.value !== elem.value) hint.style.display = 'block';
+      else hint.style.display = 'none';
     }
   }
 }
 
 export function onSubmit(event: Event) {
-  const elem: EventTarget = event.target;
-  if (!(elem instanceof HTMLElement))
-    return;
-  const form: HTMLFormElement = elem.closest('form');
-  const inputs: NodeListOf<HTMLInputElement> = form.querySelectorAll('input');
-  inputs.forEach(i => onBlur(null, i));
-  const formElems = form.elements;
+  const elem: EventTarget | null = event.target;
+  if (!(elem instanceof HTMLElement)) return;
+  const form: HTMLFormElement | null = elem.closest('form');
+  // eslint-disable-next-line no-undef
+  const inputs: NodeListOf<HTMLInputElement> | null = form && form.querySelectorAll('input');
+  inputs?.forEach((i) => onBlur(null, i));
+  const formElems: HTMLFormControlsCollection | null = form?.elements || null;
   const formData: Record<string, any> = {};
-  for (let elem of formElems) {
-    if (elem instanceof HTMLInputElement)
-      formData[elem.name] = elem.value;
+  if (!formElems) {
+    event.preventDefault();
+    return;
   }
+
+  for (let i = 0; i < formElems.length; i += 1) {
+    const inputElem = formElems[i];
+    if (inputElem instanceof HTMLInputElement) formData[inputElem.name] = inputElem.value;
+  }
+
   console.log(JSON.stringify(formData));
   event.preventDefault();
-}
-
-function getHint(elem: HTMLElement): HTMLElement {
-  const hint: HTMLElement = elem.parentElement.querySelector('.input__hint');
-  return hint;
 }

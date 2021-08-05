@@ -1,43 +1,37 @@
-import { RequestOptions } from "./HTTPTransport.types";
+/* eslint-disable no-unused-vars */
+import { RequestOptions } from './HTTPTransport.types';
 
 enum METHODS {
   GET = 'GET',
   POST = 'POST',
   PUT = 'PUT',
   DELETE = 'DELETE',
-};
+}
 
-function queryStringify(data): string {
+function queryStringify(data: Record<string, any>): string {
   if (typeof data !== 'object') {
     throw new Error('Data must be object');
   }
 
-  return Object.keys(data) ? '?' + Object.keys(data).map(k => `${k}=${data[k]}`).join('&') : '';
+  return Object.keys(data) ? `?${Object.keys(data).map((k) => `${k}=${data[k]}`).join('&')}` : '';
 }
 
 class HTTPTransport {
-  get = (url: string, options: RequestOptions = {}) => {
-    return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
-  };
+  get = (url: string, options: RequestOptions = {}) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
 
-  post = (url: string, options: RequestOptions = {}) => {
-    return this.request(url, { ...options, method: METHODS.POST }, options.timeout);
-  };
+  post = (url: string, options: RequestOptions = {}) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
 
-  put = (url: string, options: RequestOptions = {}) => {
-    return this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
-  };
+  put = (url: string, options: RequestOptions = {}) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
 
-  delete = (url: string, options: RequestOptions = {}) => {
-    return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
-  };
+  // eslint-disable-next-line max-len
+  delete = (url: string, options: RequestOptions = {}) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 
   request = (url: string, options: RequestOptions = {}, timeout: number = 5000) => {
     const { headers = {}, method, data } = options;
 
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
       if (!method) {
-        reject('No method');
+        reject(new Error('No method'));
         return;
       }
 
@@ -47,15 +41,15 @@ class HTTPTransport {
       xhr.open(
         method,
         isGet && !!data
-          ? `${url}${queryStringify(data)}`
+          ? `${url}${queryStringify(data as object)}`
           : url,
       );
 
-      Object.keys(headers).forEach(key => {
+      Object.keys(headers).forEach((key) => {
         xhr.setRequestHeader(key, headers[key]);
       });
 
-      xhr.onload = function (): void {
+      xhr.onload = (): void => {
         resolve(xhr);
       };
 

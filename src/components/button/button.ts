@@ -4,12 +4,8 @@ import Block from '../../modules/Block';
 import { ButtonProps } from './button.types';
 
 export default class Button extends Block<ButtonProps> {
-    constructor(props: ButtonProps) {
-        super(props);
-    }
-
-    render(): string {
-        const pugTemplate = new PugTemplate(template, this.props);
-        return pugTemplate.get();
-    }
+  render(): string {
+    const pugTemplate = new PugTemplate(template, this.props);
+    return pugTemplate.get();
+  }
 }

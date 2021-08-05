@@ -1,4 +1,4 @@
-import { TAG_NAMES } from "../../components/component.types";
+import { TAG_NAMES } from '../../components/component.types';
 
 export default [
   {
@@ -13,7 +13,7 @@ export default [
       classes: 'login-form__input',
       validationMsg: 'Неправильный формат email',
       validationRegExp: '^\\S{1,100}@\\S{1,100}$',
-    }
+    },
   },
   {
     tag: 'input',
@@ -27,7 +27,7 @@ export default [
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
       validationRegExp: '^\\S{1,100}$',
-    }
+    },
   },
   {
     tag: 'input',
@@ -41,7 +41,7 @@ export default [
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
       validationRegExp: '^\\S{1,100}$',
-    }
+    },
   },
   {
     tag: 'input',
@@ -55,7 +55,7 @@ export default [
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
       validationRegExp: '^\\S{1,100}$',
-    }
+    },
   },
   {
     tag: 'input',
@@ -69,7 +69,7 @@ export default [
       classes: 'login-form__input',
       validationMsg: 'Номер должен быть корректным. Например +79099673030',
       validationRegExp: '^\\+?(\\d| |-|\\(|\\)){5,15}$',
-    }
+    },
   },
   {
     tag: 'input',
@@ -83,7 +83,7 @@ export default [
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
       validationRegExp: '^\\S{1,100}$',
-    }
+    },
   },
   {
     tag: 'input',
@@ -97,7 +97,7 @@ export default [
       classes: 'login-form__input login-form__input-space',
       validationMsg: 'Пароли не совпадают',
       validationField: 'password',
-    }
+    },
   },
   {
     tag: 'input',
@@ -106,8 +106,8 @@ export default [
       tagClasses: 'login-form__input-wrapper',
       value: 'Зарегистрироваться',
       type: 'submit',
-      classes: 'login-form__button login-form__button-space'
-    }
+      classes: 'login-form__button login-form__button-space',
+    },
   },
   {
     tag: 'link',
@@ -116,7 +116,7 @@ export default [
       tagClasses: '',
       href: 'login.html',
       label: 'Войти',
-      classes: 'login-form__link'
-    }
+      classes: 'login-form__link',
+    },
   },
 ];

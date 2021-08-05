@@ -1,14 +1,24 @@
+/* eslint-disable class-methods-use-this */
 import EventBus from './EventBus';
 import getFragment from './fragment';
 import { EVENTS, EventInfo } from './Block.types';
-import { Blocks, Component, ComponentProps, TAG_NAMES } from '../components/component.types';
+import {
+  Blocks, ComponentProps, TAG_NAMES,
+} from '../components/component.types';
+
 class Block<CP extends ComponentProps> {
-  private _element: HTMLElement = null;
-  private _meta: CP = null;
+  private _element: HTMLElement;
+
+  private _meta: CP;
+
   private _components: Blocks[] = [];
+
   private _innerMountPath: string = '';
+
   private _listeners: EventInfo[] = [];
-  public props: CP = null;
+
+  public props: CP;
+
   public eventBus: () => EventBus;
 
   /** JSDoc
@@ -20,10 +30,10 @@ class Block<CP extends ComponentProps> {
   constructor(props: CP, components?: Blocks[], innerMountPath?: string, listeners?: EventInfo[]) {
     const eventBus = new EventBus();
     this._meta = {
-      tagName: props.tagName || TAG_NAMES.DIV,
-      tagClasses: props.tagName || '',
       tagInnerHTML: props.tagInnerHTML || '',
-      ...props
+      ...props,
+      tagName: props.tagName || TAG_NAMES.DIV,
+      tagClasses: props.tagClasses || '',
     };
 
     this._components = components || [];
@@ -38,7 +48,7 @@ class Block<CP extends ComponentProps> {
     eventBus.emit(EVENTS.INIT);
   }
 
-  _registerEvents(eventBus): void {
+  _registerEvents(eventBus: EventBus): void {
     eventBus.on(EVENTS.INIT, this.init.bind(this));
     eventBus.on(EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
@@ -61,7 +71,8 @@ class Block<CP extends ComponentProps> {
     this.eventBus().emit(EVENTS.FLOW_RENDER);
   }
 
-  componentDidMount(oldProps: CP): void { }
+  // eslint-disable-next-line no-unused-vars
+  componentDidMount(_oldProps: CP): void { }
 
   _componentDidUpdate(oldProps: CP, newProps: CP): void {
     const response = this.componentDidUpdate(oldProps, newProps);
@@ -72,7 +83,8 @@ class Block<CP extends ComponentProps> {
   }
 
   componentDidUpdate(oldProps: CP, newProps: CP): boolean {
-    return true;
+    if (oldProps !== newProps) return true;
+    return false;
   }
 
   setProps = (nextProps: Record<string, any>): void => {
@@ -93,12 +105,8 @@ class Block<CP extends ComponentProps> {
 
   _render(): void {
     const block: string = this.render();
-    // Этот небезопасный метод для упрощения логики
-    // Используйте шаблонизатор из npm или напиши свой безопасный
-    // Нужно не в строку компилировать (или делать это правильно),
-    // либо сразу в DOM-элементы превращать из возвращать из compile DOM-ноду
     this._element.innerHTML = this.props.tagInnerHTML || block;
-    //Добавление внутренних компонентов, если есть
+    // Добавление внутренних компонентов, если есть
     if (this._components.length > 0) {
       const compsFragment: DocumentFragment = getFragment(this._components);
       const mountedElement: HTMLElement = this.element.querySelector(this._innerMountPath) || this.element;
@@ -114,33 +122,28 @@ class Block<CP extends ComponentProps> {
   }
 
   _makePropsProxy(props: CP): CP {
-    // Можно и так передать this
-    // Такой способ больше не применяется с приходом ES6+
     const self: any = this;
 
     return new Proxy(props, {
       get(target: CP, prop: string): any {
         const value = target[prop];
-        return typeof value === "function" ? value.bind(target) : value;
+        return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target: CP, prop: string, value: any): boolean {
         target[prop] = value;
-
-        // Запускаем обновление компоненты
-        // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
         self.eventBus().emit(EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
       deleteProperty(): boolean {
-        throw new Error("Нет доступа");
-      }
+        throw new Error('Нет доступа');
+      },
     });
   }
 
   _createDocumentElement(tagName: string, tagClasses: string) {
     // Можно сделать метод, который через фрагменты в цикле создает сразу несколько блоков
     const element: HTMLElement = document.createElement(tagName);
-    //element.innerText = this.props.inner;
+    // element.innerText = this.props.inner;
     if (tagClasses !== '') {
       element.classList.add(...tagClasses.split(' '));
     }
@@ -150,19 +153,21 @@ class Block<CP extends ComponentProps> {
 
   _addEventListeners() {
     if (this._listeners.length > 0) {
-      this._listeners.forEach(l => {
+      this._listeners.forEach((l) => {
         this.delegate(l.eventName, l.fn);
       });
     }
   }
+
   show(): void {
-    this.getContent().style.display = "block";
+    this.getContent().style.display = 'block';
   }
 
   hide(): void {
-    this.getContent().style.display = "none";
+    this.getContent().style.display = 'none';
   }
 
+  // eslint-disable-next-line no-undef
   delegate(eventName: string, callback: EventListener) {
     const eventElement: HTMLElement = this.element.querySelector(this._innerMountPath) || this.element;
     eventElement.addEventListener(eventName, callback.bind(eventElement));
@@ -170,7 +175,6 @@ class Block<CP extends ComponentProps> {
 
     return this;
   }
-
 }
 
 export default Block;

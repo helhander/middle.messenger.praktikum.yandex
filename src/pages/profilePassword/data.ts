@@ -1,4 +1,4 @@
-import { Component, TAG_NAMES } from "../../components/component.types";
+import { Component, TAG_NAMES } from '../../components/component.types';
 
 export const sidebarComps: Component[] = [
   {
@@ -10,7 +10,7 @@ export const sidebarComps: Component[] = [
       src: 'images/arrow-left.png',
       alt: 'добавить',
       imgClasses: 'sidebar__image',
-    }
+    },
   },
 ];
 
@@ -30,7 +30,7 @@ export const profileInfoComps: Component[] = [
             src: 'images/avatar.png',
             alt: 'avatar',
             classes: 'profile-info__image',
-          }
+          },
         },
         {
           tag: 'input',
@@ -47,7 +47,7 @@ export const profileInfoComps: Component[] = [
             validationMsg: 'Поле должно быть заполнено',
             validationRegExp: '^\\S{1,100}$',
             hintClasses: 'input__hint input__hint_right',
-          }
+          },
         },
         {
           tag: 'input',
@@ -64,7 +64,7 @@ export const profileInfoComps: Component[] = [
             validationMsg: 'Поле должно быть заполнено',
             validationRegExp: '^\\S{1,100}$',
             hintClasses: 'input__hint input__hint_right',
-          }
+          },
         },
         {
           tag: 'input',
@@ -81,7 +81,7 @@ export const profileInfoComps: Component[] = [
             validationMsg: 'Пароли не совпадают',
             validationField: 'password-new',
             hintClasses: 'input__hint input__hint_right',
-          }
+          },
         },
         {
           tag: 'input',
@@ -90,10 +90,10 @@ export const profileInfoComps: Component[] = [
             tagClasses: 'profile-info__button-wrapper',
             value: 'Сохранить',
             type: 'submit',
-            classes: 'profile-info__button'
-          }
-        }]
-    }
+            classes: 'profile-info__button',
+          },
+        }],
+    },
 
-  }
+  },
 ];

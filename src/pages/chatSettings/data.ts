@@ -1,4 +1,4 @@
-import { Component, TAG_NAMES } from "../../components/component.types";
+import { Component, TAG_NAMES } from '../../components/component.types';
 
 export const sidebarElems: Component[] = [
   {
@@ -10,7 +10,7 @@ export const sidebarElems: Component[] = [
       src: 'images/arrow-left.png',
       alt: 'добавить',
       imgClasses: 'sidebar__image',
-    }
+    },
   },
 ];
 
@@ -30,15 +30,15 @@ export const profileInfoElems: Component[] = [
             src: 'images/avatar.png',
             alt: 'avatar',
             classes: 'profile-info__image',
-          }
+          },
         },
         {
           tag: 'div',
           props: {
             tagName: TAG_NAMES.DIV,
             tagClasses: 'profile-info__user-name',
-            tagInnerHTML: 'Никита'
-          }
+            tagInnerHTML: 'Никита',
+          },
         },
         {
           tag: 'input',
@@ -55,7 +55,7 @@ export const profileInfoElems: Component[] = [
             validationMsg: 'Поле должно быть заполнено',
             validationRegExp: '^.{1,100}$',
             hintClasses: 'input__hint input__hint_right',
-          }
+          },
         },
         {
           tag: 'input',
@@ -64,10 +64,10 @@ export const profileInfoElems: Component[] = [
             tagClasses: 'profile-info__button-wrapper',
             value: 'Сохранить',
             type: 'submit',
-            classes: 'profile-info__button'
-          }
-        }]
-    }
+            classes: 'profile-info__button',
+          },
+        }],
+    },
 
-  }
+  },
 ];

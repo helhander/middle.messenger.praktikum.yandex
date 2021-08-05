@@ -1,7 +1,8 @@
-import { EventCallback } from "./EventBus.types";
+import { EventCallback } from './EventBus.types';
 
 class EventBus {
   listeners: Record<string, Array<EventCallback>>;
+
   constructor() {
     this.listeners = {};
   }
@@ -20,7 +21,7 @@ class EventBus {
     }
 
     this.listeners[event] = this.listeners[event].filter(
-      listener => listener !== callback
+      (listener) => listener !== callback,
     );
   }
 
@@ -29,7 +30,7 @@ class EventBus {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event].forEach(function (listener) {
+    this.listeners[event].forEach((listener) => {
       listener(...args);
     });
   }

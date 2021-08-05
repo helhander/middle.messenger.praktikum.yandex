@@ -1,4 +1,4 @@
-import { ComponentProps } from "../component.types";
+import { ComponentProps } from '../component.types';
 
 export interface ButtonProps extends ComponentProps {
   src: string,

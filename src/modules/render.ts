@@ -1,8 +1,9 @@
-import { ComponentProps } from "../components/component.types";
-import Block from "./Block";
+import { ComponentProps } from '../components/component.types';
+import Block from './Block';
 
-export function render<CP extends ComponentProps, B extends Block<CP>>(query: string, block: B): HTMLElement {
-  const root: HTMLElement = document.querySelector(query);
+export default function render<CP extends ComponentProps, B extends Block<CP>>(query: string, block: B): void {
+  const root: HTMLElement|null = document.querySelector(query);
+  if (!root) return;
+
   root.appendChild(block.getContent());
-  return root;
 }

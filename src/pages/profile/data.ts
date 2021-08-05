@@ -1,4 +1,4 @@
-import { Component, TAG_NAMES } from "../../components/component.types";
+import { Component, TAG_NAMES } from '../../components/component.types';
 
 export const sidebarElems: Component[] = [
   {
@@ -10,7 +10,7 @@ export const sidebarElems: Component[] = [
       src: 'images/arrow-left.png',
       alt: 'добавить',
       imgClasses: 'sidebar__image',
-    }
+    },
   },
 ];
 
@@ -30,7 +30,7 @@ export const profileInfoElems: Component[] = [
             src: 'images/avatar.png',
             alt: 'avatar',
             classes: 'profile-info__image',
-          }
+          },
         },
 
         {
@@ -38,8 +38,8 @@ export const profileInfoElems: Component[] = [
           props: {
             tagName: TAG_NAMES.DIV,
             tagClasses: 'profile-info__user-name',
-            tagInnerHTML: 'Никита'
-          }
+            tagInnerHTML: 'Никита',
+          },
 
         },
         {
@@ -54,28 +54,28 @@ export const profileInfoElems: Component[] = [
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
             readonly: true,
-            value: 'felix@yandex.ru'
-          }
+            value: 'felix@yandex.ru',
+          },
         },
         {
           tag: 'input',
           props: {
-            tagName:TAG_NAMES.DIV,
+            tagName: TAG_NAMES.DIV,
             tagClasses: 'profile-info__input-wrapper',
             label: 'Логин',
             name: 'login',
             type: 'text',
-            id: 'profile-login',            
+            id: 'profile-login',
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
             readonly: true,
-            value: 'Felix'
-          }
+            value: 'Felix',
+          },
         },
         {
           tag: 'input',
           props: {
-            tagName:TAG_NAMES.DIV,
+            tagName: TAG_NAMES.DIV,
             tagClasses: 'profile-info__input-wrapper',
             label: 'Имя',
             name: 'firstname',
@@ -84,13 +84,13 @@ export const profileInfoElems: Component[] = [
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
             readonly: true,
-            value: 'Феликс'
-          }
+            value: 'Феликс',
+          },
         },
         {
           tag: 'input',
           props: {
-            tagName:TAG_NAMES.DIV,
+            tagName: TAG_NAMES.DIV,
             tagClasses: 'profile-info__input-wrapper',
             label: 'Фамилия',
             name: 'lastname',
@@ -99,13 +99,13 @@ export const profileInfoElems: Component[] = [
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
             readonly: true,
-            value: 'Учтивый'
-          }
+            value: 'Учтивый',
+          },
         },
         {
           tag: 'input',
           props: {
-            tagName:TAG_NAMES.DIV,
+            tagName: TAG_NAMES.DIV,
             tagClasses: 'profile-info__input-wrapper',
             label: 'Имя в чате',
             name: 'alias',
@@ -114,13 +114,13 @@ export const profileInfoElems: Component[] = [
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
             readonly: true,
-            value: 'Felix'
-          }
+            value: 'Felix',
+          },
         },
         {
           tag: 'input',
           props: {
-            tagName:TAG_NAMES.DIV,
+            tagName: TAG_NAMES.DIV,
             tagClasses: 'profile-info__input-wrapper profile-info__input-wrapper_last',
             label: 'Телефон',
             name: 'tel',
@@ -129,8 +129,8 @@ export const profileInfoElems: Component[] = [
             labelClasses: 'profile-info__input-label',
             classes: 'profile-info__input',
             readonly: true,
-            value: '+7(901)123-32-23'
-          }
+            value: '+7(901)123-32-23',
+          },
         },
         {
           tag: 'link',
@@ -139,8 +139,8 @@ export const profileInfoElems: Component[] = [
             tagClasses: '',
             href: 'profileData.html',
             label: 'Изменить данные',
-            classes: 'profile-info__link profile-info__link_blue'
-          }
+            classes: 'profile-info__link profile-info__link_blue',
+          },
         },
         {
           tag: 'link',
@@ -149,8 +149,8 @@ export const profileInfoElems: Component[] = [
             tagClasses: '',
             href: 'profilePassword.html',
             label: 'Изменить пароль',
-            classes: 'profile-info__link profile-info__link_blue'
-          }
+            classes: 'profile-info__link profile-info__link_blue',
+          },
         },
         {
           tag: 'link',
@@ -159,10 +159,10 @@ export const profileInfoElems: Component[] = [
             tagClasses: '',
             href: 'login.html',
             label: 'Выйти',
-            classes: 'profile-info__link profile-info__link_red'
-          }
-        }]
-    }
+            classes: 'profile-info__link profile-info__link_red',
+          },
+        }],
+    },
 
-  }
+  },
 ];

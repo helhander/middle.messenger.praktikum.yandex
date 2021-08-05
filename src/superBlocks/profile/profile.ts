@@ -8,20 +8,20 @@ import { Component, ComponentProps, TAG_NAMES } from '../../components/component
 import { ProfileComp } from './profile.types';
 
 export default class Profile extends Block<ComponentProps> {
-    constructor(sidebarComps: Component[], profileInfoComps: Component[]) {
-        const profileComps: ProfileComp[] = [];
+  constructor(sidebarComps: Component[], profileInfoComps: Component[]) {
+    const profileComps: ProfileComp[] = [];
 
-        const sidebar = new Sidebar(sidebarComps, 'sidebar sidebar-profile');
-        profileComps.push(sidebar);
+    const sidebar = new Sidebar(sidebarComps, 'sidebar sidebar-profile');
+    profileComps.push(sidebar);
 
-        const profileInfo = new ProfileInfo(profileInfoComps);
-        profileComps.push(profileInfo);
+    const profileInfo = new ProfileInfo(profileInfoComps);
+    profileComps.push(profileInfo);
 
-        super({ tagClasses: 'profile', tagName: TAG_NAMES.DIV }, profileComps);
-    }
+    super({ tagClasses: 'profile', tagName: TAG_NAMES.DIV }, profileComps);
+  }
 
-    render(): string {
-        const pugTemplate = new PugTemplate(template, this.props);
-        return pugTemplate.get();
-    }
+  render(): string {
+    const pugTemplate = new PugTemplate(template, this.props);
+    return pugTemplate.get();
+  }
 }

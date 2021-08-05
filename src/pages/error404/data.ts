@@ -1,4 +1,4 @@
-import { TAG_NAMES } from "../../components/component.types";
+import { TAG_NAMES } from '../../components/component.types';
 
 export default [
   {
@@ -6,16 +6,16 @@ export default [
     props: {
       tagName: TAG_NAMES.DIV,
       tagClasses: 'error__code',
-      tagInnerHTML: '404'
-    }
+      tagInnerHTML: '404',
+    },
   },
   {
     tag: 'div',
     props: {
       tagName: TAG_NAMES.DIV,
       tagClasses: 'error__text',
-      tagInnerHTML: 'Не туда попали'
-    }
+      tagInnerHTML: 'Не туда попали',
+    },
   },
   {
     tag: 'link',
@@ -24,7 +24,7 @@ export default [
       tagClasses: '',
       href: 'chats.html',
       label: 'Назад к чатам',
-      classes: 'error__link'
-    }
-  }
+      classes: 'error__link',
+    },
+  },
 ];

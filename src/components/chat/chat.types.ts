@@ -1,4 +1,4 @@
-import { Component, ComponentProps } from "../component.types";
+import { ComponentProps } from '../component.types';
 
 export interface ChatProps extends ComponentProps {
   src: string,
