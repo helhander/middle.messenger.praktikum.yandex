@@ -1,6 +1,6 @@
 ## Ссылка на открытый pull request.
 
-https://github.com/helhander/middle.messenger.praktikum.yandex/pull/1
+https://github.com/helhander/middle.messenger.praktikum.yandex/pull/2
 
 ## Ссылка на Figma:
 
