@@ -1,4 +1,3 @@
-// server.js
 import express = require('express');
 
 const app = express();
