@@ -130,6 +130,7 @@ class Block<CP extends ComponentProps> {
         return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target: CP, prop: string, value: any): boolean {
+        // eslint-disable-next-line no-param-reassign
         target[prop] = value;
         self.eventBus().emit(EVENTS.FLOW_CDU, { ...target }, target);
         return true;
