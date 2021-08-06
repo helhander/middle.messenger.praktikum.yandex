@@ -7,5 +7,6 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "moduleResolution":"Node",
+    "outDir": "dist",
   }
 }
