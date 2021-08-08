@@ -12,7 +12,6 @@
   },
   "author": "",
   "license": "ISC",
-  "type": "module",
   "engines": {
     "node": "12.18.0"
   },
