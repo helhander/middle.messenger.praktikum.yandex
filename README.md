@@ -9,6 +9,8 @@ https://www.figma.com/file/55FxEewTNCeQAFmnrGO26c/Chat?node-id=0%3A1
 ## Описание
 
 Добро пожаловать в чат! Этот чат создан для удобного общения пользователей
+Был внедрен TS, добавлен компонентный подход и валидация на формы.
+Подключен ESLint, Styleint. Добавьте класс для работы с запросами.
 
 Ссылка на netlify:
 https://jovial-yalow-a301c6.netlify.app

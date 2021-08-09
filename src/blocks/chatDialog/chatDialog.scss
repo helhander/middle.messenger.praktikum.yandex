@@ -3,7 +3,7 @@
 .message-list {
   &__wrapper {
     width: calc(100% - 40px);
-    margin: 0px 20px;
+    margin: 0 20px;
     flex-grow: 1;
     align-items: flex-end;
     overflow: scroll;
@@ -27,7 +27,7 @@
     width: fit-content;
     padding: 11px 11px 9px;
     border-radius: 12px;
-    margin: 10px 0px;
+    margin: 10px 0;
     position: relative;
     font-weight: 500;
     font-style: normal;
@@ -38,7 +38,7 @@
     }
 
     &_outcoming {
-      background: #e4edfd;
+      background: $form-back;
       text-align: right;
       margin-left: auto;
     }
@@ -47,9 +47,10 @@
   &__image {
     max-width: calc(50% + 22px);
     position: relative;
-    margin: 10px 0px;
+    margin: 10px 0;
     width: 100%;
     border-radius: 12px;
+
     &_incoming {
       margin-right: auto;
     }

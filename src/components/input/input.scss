@@ -1,0 +1,16 @@
+@import '../../base.scss';
+
+.input__hint {
+  height: 8px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 8px;
+  color: $primary-red;
+  display: none;
+
+  &_right {
+    margin-left: auto;
+  }
+}

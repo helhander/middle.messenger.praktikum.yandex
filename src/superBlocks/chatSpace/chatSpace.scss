@@ -3,7 +3,7 @@
 .chat-space {
   display: flex;
   height: calc(100vh - 16px);
-  font-family: Inter;
+  font-family: Inter, sans-serif;
 
   &__contents {
     display: flex;

@@ -7,10 +7,10 @@
   align-items: center;
   width: calc(100% - 40px);
   border: solid $border-color;
-  border-width: 1px 0px 0px 0px;
+  border-width: 1px 0 0 0;
 
   &__avatar {
-    margin: 0px 10px 0px 0px;
+    margin: 0 10px 0 0;
     height: 34px;
   }
 
@@ -27,10 +27,10 @@
 
     &-button {
       background: transparent;
-      border: 0px;
+      border: 0;
       width: 32px;
       height: 32px;
-      padding: 0px;
+      padding: 0;
       margin-right: 10px;
     }
   }
@@ -43,10 +43,10 @@
 
     &-button {
       background: transparent;
-      border: 0px;
+      border: 0;
       width: 28px;
       height: 28px;
-      padding: 0px;
+      padding: 0;
       margin-left: 10px;
     }
   }
@@ -56,12 +56,12 @@
   display: inline;
   height: 32px;
   width: 100%;
-  border: 0px;
+  border: 0;
   background: #efefef;
   border-radius: 30px;
   box-sizing: border-box;
   flex-grow: 1;
-  padding: 0px 20px;
+  padding: 0 20px;
 
   &-wrapper {
     display: flex;
