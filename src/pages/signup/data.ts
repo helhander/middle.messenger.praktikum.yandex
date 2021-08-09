@@ -1,4 +1,5 @@
 import { TAG_NAMES } from '../../components/component.types';
+import VALIDATION_REG_EXP from '../../modules/validationRegExp';
 
 export default [
   {
@@ -12,7 +13,7 @@ export default [
       id: 'login-form-email',
       classes: 'login-form__input',
       validationMsg: 'Неправильный формат email',
-      validationRegExp: '^\\S{1,100}@\\S{1,100}$',
+      validationRegExp: VALIDATION_REG_EXP.EMAIL,
     },
   },
   {
@@ -26,7 +27,7 @@ export default [
       id: 'login-form-login',
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
-      validationRegExp: '^\\S{1,100}$',
+      validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
     },
   },
   {
@@ -40,7 +41,7 @@ export default [
       id: 'login-form-name',
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
-      validationRegExp: '^\\S{1,100}$',
+      validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
     },
   },
   {
@@ -54,7 +55,7 @@ export default [
       id: 'login-form-lastname',
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
-      validationRegExp: '^\\S{1,100}$',
+      validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
     },
   },
   {
@@ -68,7 +69,7 @@ export default [
       id: 'login-form-tel',
       classes: 'login-form__input',
       validationMsg: 'Номер должен быть корректным. Например +79099673030',
-      validationRegExp: '^\\+?(\\d| |-|\\(|\\)){5,15}$',
+      validationRegExp: VALIDATION_REG_EXP.TEL,
     },
   },
   {
@@ -82,7 +83,7 @@ export default [
       id: 'login-form-password',
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
-      validationRegExp: '^\\S{1,100}$',
+      validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
     },
   },
   {
@@ -114,7 +115,7 @@ export default [
     props: {
       tagName: TAG_NAMES.DIV,
       tagClasses: '',
-      href: 'login.html',
+      href: 'signin.html',
       label: 'Войти',
       classes: 'login-form__link',
     },

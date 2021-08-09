@@ -1,4 +1,5 @@
 import { Component, TAG_NAMES } from '../../components/component.types';
+import VALIDATION_REG_EXP from '../../modules/validationRegExp';
 
 export const sidebarComps: Component[] = [
   {
@@ -45,7 +46,7 @@ export const profileInfoComps: Component[] = [
             classes: 'profile-info__input',
             value: 'felix@yandex.ru',
             validationMsg: 'Неправильный формат email',
-            validationRegExp: '^\\S{1,100}@\\S{1,100}$',
+            validationRegExp: VALIDATION_REG_EXP.EMAIL,
             hintClasses: 'input__hint input__hint_right',
           },
         },
@@ -62,7 +63,7 @@ export const profileInfoComps: Component[] = [
             classes: 'profile-info__input',
             value: 'Felix',
             validationMsg: 'Поле должно быть заполнено',
-            validationRegExp: '^\\S{1,100}$',
+            validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
             hintClasses: 'input__hint input__hint_right',
           },
         },
@@ -79,7 +80,7 @@ export const profileInfoComps: Component[] = [
             classes: 'profile-info__input',
             value: 'Феликс',
             validationMsg: 'Поле должно быть заполнено',
-            validationRegExp: '^\\S{1,100}$',
+            validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
             hintClasses: 'input__hint input__hint_right',
           },
         },
@@ -96,7 +97,7 @@ export const profileInfoComps: Component[] = [
             classes: 'profile-info__input',
             value: 'Учтивый',
             validationMsg: 'Поле должно быть заполнено',
-            validationRegExp: '^\\S{1,100}$',
+            validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
             hintClasses: 'input__hint input__hint_right',
           },
         },
@@ -113,7 +114,7 @@ export const profileInfoComps: Component[] = [
             classes: 'profile-info__input',
             value: 'Felix',
             validationMsg: 'Поле должно быть заполнено',
-            validationRegExp: '^\\S{1,100}$',
+            validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
             hintClasses: 'input__hint input__hint_right',
           },
         },
@@ -130,7 +131,7 @@ export const profileInfoComps: Component[] = [
             classes: 'profile-info__input',
             value: '+7(901)123-32-23',
             validationMsg: 'Номер должен быть корректным. Например +79099673030',
-            validationRegExp: '^\\+?(\\d| |-|\\(|\\)){5,15}$',
+            validationRegExp: VALIDATION_REG_EXP.TEL,
             hintClasses: 'input__hint input__hint_right',
           },
         },

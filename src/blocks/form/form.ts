@@ -15,8 +15,12 @@ export default class Form extends Block<FormProps> {
   constructor(name: string, elems: Component[]) {
     const components: Blocks[] = getComponents(elems);
     const formProps: FormProps = { name, tagClasses: 'login-form__content-wrapper', tagName: TAG_NAMES.DIV };
-    // eslint-disable-next-line max-len
-    super(formProps, components, 'form', [{ eventName: 'focusin', fn: onFocus }, { eventName: 'focusout', fn: onBlur }, { eventName: 'submit', fn: onSubmit }]);
+    super(formProps, components, 'form',
+      [
+        { eventName: 'focusin', fn: onFocus },
+        { eventName: 'focusout', fn: onBlur },
+        { eventName: 'submit', fn: onSubmit },
+      ]);
   }
 
   render(): string {

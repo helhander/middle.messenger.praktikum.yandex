@@ -1,4 +1,5 @@
 import { Component, TAG_NAMES } from '../../components/component.types';
+import VALIDATION_REG_EXP from '../../modules/validationRegExp';
 
 export const sidebarElems: Component[] = [
   {
@@ -53,7 +54,7 @@ export const profileInfoElems: Component[] = [
             classes: 'profile-info__input',
             value: 'Чат для общения',
             validationMsg: 'Поле должно быть заполнено',
-            validationRegExp: '^.{1,100}$',
+            validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
             hintClasses: 'input__hint input__hint_right',
           },
         },

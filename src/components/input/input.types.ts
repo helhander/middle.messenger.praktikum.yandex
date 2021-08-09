@@ -1,3 +1,4 @@
+import VALIDATION_REG_EXP from '../../modules/validationRegExp';
 import { ComponentProps } from '../component.types';
 
 export interface InputProps extends ComponentProps {
@@ -9,7 +10,7 @@ export interface InputProps extends ComponentProps {
   labelClasses?: string,
   readonly?: boolean,
   validationMsg?: string,
-  validationRegExp?: string,
+  validationRegExp?: VALIDATION_REG_EXP,
   validationField?: string,
   hintClasses?: string,
 }

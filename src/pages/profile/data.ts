@@ -157,7 +157,7 @@ export const profileInfoElems: Component[] = [
           props: {
             tagName: TAG_NAMES.DIV,
             tagClasses: '',
-            href: 'login.html',
+            href: 'signin.html',
             label: 'Выйти',
             classes: 'profile-info__link profile-info__link_red',
           },

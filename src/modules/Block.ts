@@ -5,6 +5,7 @@ import { EVENTS, EventInfo } from './Block.types';
 import {
   Blocks, ComponentProps, TAG_NAMES,
 } from '../components/component.types';
+import isEqual from './isEqual';
 
 class Block<CP extends ComponentProps> {
   private _element: HTMLElement;
@@ -83,7 +84,7 @@ class Block<CP extends ComponentProps> {
   }
 
   componentDidUpdate(oldProps: CP, newProps: CP): boolean {
-    if (oldProps !== newProps) return true;
+    if (isEqual(oldProps, newProps)) return true;
     return false;
   }
 
@@ -122,20 +123,18 @@ class Block<CP extends ComponentProps> {
   }
 
   _makePropsProxy(props: CP): CP {
-    const self: any = this;
-
     return new Proxy(props, {
-      get(target: CP, prop: string): any {
+      get: (target: CP, prop: string): any => {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target: CP, prop: string, value: any): boolean {
+      set: (target: CP, prop: string, value: any): boolean => {
         // eslint-disable-next-line no-param-reassign
         target[prop] = value;
-        self.eventBus().emit(EVENTS.FLOW_CDU, { ...target }, target);
+        this.eventBus().emit(EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
-      deleteProperty(): boolean {
+      deleteProperty: (): boolean => {
         throw new Error('Нет доступа');
       },
     });
@@ -161,11 +160,11 @@ class Block<CP extends ComponentProps> {
   }
 
   show(): void {
-    this.getContent().style.display = 'block';
+    this.element.classList.remove('hidden');
   }
 
   hide(): void {
-    this.getContent().style.display = 'none';
+    this.element.classList.add('hidden');
   }
 
   // eslint-disable-next-line no-undef

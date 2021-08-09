@@ -1,4 +1,5 @@
 import { TAG_NAMES } from '../../components/component.types';
+import VALIDATION_REG_EXP from '../../modules/validationRegExp';
 
 export default [
   {
@@ -12,7 +13,7 @@ export default [
       id: 'login-form-login',
       classes: 'login-form__input',
       validationMsg: 'Поле должно быть заполнено',
-      validationRegExp: '^\\S{1,100}$',
+      validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
     },
   },
   {
@@ -26,7 +27,7 @@ export default [
       id: 'login-form-password',
       classes: 'login-form__input login-form__input-space',
       validationMsg: 'Поле должно быть заполнено',
-      validationRegExp: '^\\S{1,100}$',
+      validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
     },
   },
   {

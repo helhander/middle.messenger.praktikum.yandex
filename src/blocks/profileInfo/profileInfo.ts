@@ -13,7 +13,12 @@ export default class ProfileInfo extends Block<ComponentProps> {
     const components: Blocks[] = getComponents(comps);
     const profileInfo: ComponentProps = { tagClasses: 'profile-info__wrapper', tagName: TAG_NAMES.DIV };
     // eslint-disable-next-line max-len
-    super(profileInfo, components, 'form', [{ eventName: 'focusin', fn: onFocus }, { eventName: 'focusout', fn: onBlur }, { eventName: 'submit', fn: onSubmit }]);
+    super(profileInfo, components, 'form',
+      [
+        { eventName: 'focusin', fn: onFocus },
+        { eventName: 'focusout', fn: onBlur },
+        { eventName: 'submit', fn: onSubmit },
+      ]);
   }
 
   render(): string {

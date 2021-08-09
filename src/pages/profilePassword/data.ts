@@ -1,4 +1,5 @@
 import { Component, TAG_NAMES } from '../../components/component.types';
+import VALIDATION_REG_EXP from '../../modules/validationRegExp';
 
 export const sidebarComps: Component[] = [
   {
@@ -45,7 +46,7 @@ export const profileInfoComps: Component[] = [
             classes: 'profile-info__input',
             value: '',
             validationMsg: 'Поле должно быть заполнено',
-            validationRegExp: '^\\S{1,100}$',
+            validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
             hintClasses: 'input__hint input__hint_right',
           },
         },
@@ -62,7 +63,7 @@ export const profileInfoComps: Component[] = [
             classes: 'profile-info__input',
             value: '',
             validationMsg: 'Поле должно быть заполнено',
-            validationRegExp: '^\\S{1,100}$',
+            validationRegExp: VALIDATION_REG_EXP.NOT_EMPTY100,
             hintClasses: 'input__hint input__hint_right',
           },
         },
