@@ -1,4 +1,8 @@
-import { ComponentProps } from '../../components/component.types';
+import { Component } from '../../components/component.types';
 
-export interface WorkspaceProps extends ComponentProps {
+export interface WorkspaceProps {
+  sidebarComps: Component[],
+  headerComps: Component[],
+  dialogComps: Component[],
+  footerComps: Component[]
 }

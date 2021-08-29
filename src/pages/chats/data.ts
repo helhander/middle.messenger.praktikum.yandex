@@ -1,6 +1,6 @@
 import { Component, TAG_NAMES } from '../../components/component.types';
 
-export const sidebarElems: Component[] = [
+export const sidebarComps: Component[] = [
   {
     tag: 'link',
     props: {
@@ -202,8 +202,8 @@ export const sidebarElems: Component[] = [
   },
 ];
 
-export const chatElems = {
-  headerElems: [
+export const chatComps = {
+  headerComps: [
     {
       tag: 'span',
       props: {
@@ -241,7 +241,7 @@ export const chatElems = {
         imgClasses: 'chat-header__svg',
       },
     }],
-  dialogElems: [
+  dialogComps: [
     {
       tag: 'div',
       props: {
@@ -326,7 +326,7 @@ export const chatElems = {
 
     },
   ],
-  footerElems: [
+  footerComps: [
     {
       tag: 'button',
       props: {

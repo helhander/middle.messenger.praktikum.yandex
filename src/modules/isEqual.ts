@@ -1,39 +1,45 @@
-function countProps(obj:object) {
-  let count = 0;
-  Object.keys(obj).forEach((prop) => {
-    // eslint-disable-next-line no-prototype-builtins
-    if (obj.hasOwnProperty(prop)) {
-      count += 1;
-    }
-  });
+type PlainObject<T = any> = {
+  // eslint-disable-next-line no-unused-vars
+  [k in string]: T;
+};
 
-  return count;
+function isPlainObject(value: unknown): value is PlainObject {
+  return typeof value === 'object'
+      && value !== null
+      && value.constructor === Object
+      && Object.prototype.toString.call(value) === '[object Object]';
 }
 
-export default function isEqual(v1:object, v2:object) {
-  if (typeof (v1) !== typeof (v2)) {
+function isArray(value: unknown): value is [] {
+  return Array.isArray(value);
+}
+
+function isArrayOrObject(value: unknown): value is [] | PlainObject {
+  return isPlainObject(value) || isArray(value);
+}
+
+function isEqual(lhs: PlainObject, rhs: PlainObject) {
+  if (Object.keys(lhs).length !== Object.keys(rhs).length) {
     return false;
   }
 
-  if (typeof (v1) === 'function') {
-    return v1.toString() === v2.toString();
-  }
-
-  if (v1 instanceof Object && v2 instanceof Object) {
-    if (countProps(v1) !== countProps(v2)) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const [key, value] of Object.entries(lhs)) {
+    const rightValue = rhs[key];
+    if (isArrayOrObject(value) && isArrayOrObject(rightValue)) {
+      if (isEqual(value, rightValue)) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
       return false;
     }
-    let r = true;
-    Object.keys(v1).every((prop) => {
-      r = isEqual(v1[prop], v2[prop]);
-      if (!r) {
-        return false;
-      }
 
-      return true;
-    });
-
-    return true;
+    if (value !== rightValue) {
+      return false;
+    }
   }
-  return v1 === v2;
+
+  return true;
 }
+
+export default isEqual;

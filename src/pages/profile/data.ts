@@ -1,6 +1,6 @@
 import { Component, TAG_NAMES } from '../../components/component.types';
 
-export const sidebarElems: Component[] = [
+export const sidebarComps: Component[] = [
   {
     tag: 'button',
     props: {
@@ -14,7 +14,7 @@ export const sidebarElems: Component[] = [
   },
 ];
 
-export const profileInfoElems: Component[] = [
+export const profileInfoComps: Component[] = [
   {
     tag: 'div',
     props: {

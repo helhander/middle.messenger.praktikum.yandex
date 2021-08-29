@@ -1,7 +1,7 @@
 import Form from '../../blocks/form/index';
 import render from '../../modules/render';
-import elems from './data';
+import comps from './data';
 
-const loginForm = new Form('Вход', elems);
+const loginForm = new Form({ name: 'Вход', comps });
 
 render('.app', loginForm);

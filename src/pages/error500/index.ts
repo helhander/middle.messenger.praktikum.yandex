@@ -1,6 +1,6 @@
 import ErrorPage from '../../blocks/errorPage';
 import render from '../../modules/render';
-import errorElems from './data';
+import errorComps from './data';
 
-const error = new ErrorPage(errorElems);
+const error = new ErrorPage({ errorComps });
 render('.app', error);

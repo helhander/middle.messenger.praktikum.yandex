@@ -4,13 +4,15 @@ import PugTemplate from '../../modules/pugTemplate';
 import './errorPage.scss';
 import Block from '../../modules/Block';
 import {
-  Blocks, Component, ComponentProps, TAG_NAMES,
+  Blocks, ComponentProps, TAG_NAMES,
 } from '../../components/component.types';
+import { ErrorPageProps } from './errorPage.types';
 
 export default class ErrorPage extends Block<ComponentProps> {
-  constructor(elems: Component[], classes: string = 'error') {
-    const components: Blocks[] = getComponents(elems);
-    super({ tagName: TAG_NAMES.DIV, tagClasses: classes }, components);
+  constructor(errorProps: ErrorPageProps) {
+    const { errorComps } = errorProps;
+    const components: Blocks[] = getComponents(errorComps);
+    super({ tagName: TAG_NAMES.DIV, tagClasses: 'error' }, components);
   }
 
   render(): string {

@@ -1,6 +1,8 @@
 import render from '../../modules/render';
 import Workspace from '../../superBlocks/workspace/index';
-import { sidebarElems, chatElems } from './data';
+import { sidebarComps, chatComps } from './data';
 
-const chats = new Workspace(sidebarElems, chatElems.headerElems, chatElems.dialogElems, chatElems.footerElems);
+const chats = new Workspace({
+  sidebarComps, headerComps: chatComps.headerComps, dialogComps: chatComps.dialogComps, footerComps: chatComps.footerComps,
+});
 render('.app', chats);

@@ -4,16 +4,17 @@ import PugTemplate from '../../modules/pugTemplate';
 import './form.scss';
 import Block from '../../modules/Block';
 import {
-  Blocks, Component, TAG_NAMES,
+  Blocks, TAG_NAMES,
 } from '../../components/component.types';
-import { FormProps } from './form.types';
+import { BlockFormProps, FormProps } from './form.types';
 import {
   onBlur, onFocus, onSubmit,
 } from '../../modules/validation';
 
 export default class Form extends Block<FormProps> {
-  constructor(name: string, elems: Component[]) {
-    const components: Blocks[] = getComponents(elems);
+  constructor(blockFormProps:BlockFormProps) {
+    const { name, comps } = blockFormProps;
+    const components: Blocks[] = getComponents(comps);
     const formProps: FormProps = { name, tagClasses: 'login-form__content-wrapper', tagName: TAG_NAMES.DIV };
     super(formProps, components, 'form',
       [
