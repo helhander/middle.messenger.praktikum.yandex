@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { PageConstructor, PageProps } from '../pages/pages.types';
+import { PageProps, typeofPage } from '../pages/pages.types';
 import Route from './Route';
 
 class Router {
@@ -26,7 +26,7 @@ class Router {
     Router.__instance = this;
   }
 
-  use(pathname:string, block:PageConstructor, props:PageProps) {
+  use(pathname:string, block:typeofPage, props:PageProps) {
     const route = new Route(pathname, block, { ...props, rootQuery: this._rootQuery });
 
     this.routes.push(route);

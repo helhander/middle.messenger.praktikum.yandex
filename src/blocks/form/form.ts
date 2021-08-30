@@ -13,7 +13,7 @@ import {
 
 export default class Form extends Block<FormProps> {
   constructor(blockFormProps:BlockFormProps) {
-    const { name, comps } = blockFormProps;
+    const { name = '', comps = [] } = blockFormProps;
     const components: Blocks[] = getComponents(comps);
     const formProps: FormProps = { name, tagClasses: 'login-form__content-wrapper', tagName: TAG_NAMES.DIV };
     super(formProps, components, 'form',

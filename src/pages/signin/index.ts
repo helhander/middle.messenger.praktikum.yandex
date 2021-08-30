@@ -1,7 +1,9 @@
 import Form from '../../blocks/form/index';
-import render from '../../modules/render';
+import Router from '../../modules/Router';
 import comps from './data';
 
-const loginForm = new Form({ name: 'Вход', comps });
+const router = new Router('.app');
 
-render('.app', loginForm);
+router
+  .use('/signin.html', Form, { props: { name: 'Вход', comps }, rootQuery: '.app' })
+  .start();

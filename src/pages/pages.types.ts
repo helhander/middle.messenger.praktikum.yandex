@@ -9,7 +9,8 @@ import Workspace from '../superBlocks/workspace';
 import { WorkspaceProps } from '../superBlocks/workspace/workspace.types';
 
 export type Page = Workspace | Profile | ErrorPage | Form;
-export type PagePropsBase = WorkspaceProps | ProfileProps | ErrorPageProps | BlockFormProps;
+export type typeofPage = typeof Workspace | typeof Profile | typeof ErrorPage | typeof Form;
+export type PagePropsBase = BlockFormProps | WorkspaceProps | ProfileProps | ErrorPageProps;
 
 export interface PageProps {
   rootQuery: string,

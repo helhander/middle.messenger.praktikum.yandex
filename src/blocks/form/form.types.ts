@@ -5,6 +5,6 @@ export interface FormProps extends ComponentProps {
 }
 
 export interface BlockFormProps {
-    name: string,
-    comps: Component[]
+    name?: string,
+    comps?: Component[]
   }

@@ -10,7 +10,7 @@ import { WorkspaceProps } from './workspace.types';
 export default class Workspace extends Block<ComponentProps> {
   constructor(workspaceProps: WorkspaceProps) {
     const {
-      sidebarComps, headerComps, dialogComps, footerComps,
+      sidebarComps = [], headerComps = [], dialogComps = [], footerComps = [],
     } = workspaceProps;
     const workspaceComps = [];
     const sidebar = new Sidebar(sidebarComps);

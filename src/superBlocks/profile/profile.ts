@@ -9,7 +9,7 @@ import { ProfileComp, ProfileProps } from './profile.types';
 
 export default class Profile extends Block<ComponentProps> {
   constructor(profileProps: ProfileProps) {
-    const { sidebarComps, profileInfoComps } = profileProps;
+    const { sidebarComps = [], profileInfoComps = [] } = profileProps;
     const profileComps: ProfileComp[] = [];
 
     const sidebar = new Sidebar(sidebarComps, 'sidebar sidebar-profile');

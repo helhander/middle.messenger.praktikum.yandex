@@ -10,7 +10,7 @@ import { ErrorPageProps } from './errorPage.types';
 
 export default class ErrorPage extends Block<ComponentProps> {
   constructor(errorProps: ErrorPageProps) {
-    const { errorComps } = errorProps;
+    const { errorComps = [] } = errorProps;
     const components: Blocks[] = getComponents(errorComps);
     super({ tagName: TAG_NAMES.DIV, tagClasses: 'error' }, components);
   }

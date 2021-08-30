@@ -1,16 +1,19 @@
-import { Page, PageConstructor, PageProps } from '../pages/pages.types';
+/* eslint-disable no-prototype-builtins */
+import {
+  Page, PageProps, typeofPage,
+} from '../pages/pages.types';
 import render from './render';
 
 class Route {
   private _pathname: string;
 
-  private _blockClass: PageConstructor;
+  private _blockClass: typeofPage;
 
   private _block: Page | null;
 
   private _props: PageProps;
 
-  constructor(pathname: string, view: PageConstructor, props: PageProps) {
+  constructor(pathname: string, view: typeofPage, props: PageProps) {
     this._pathname = pathname;
     this._blockClass = view;
     this._block = null;
@@ -36,7 +39,8 @@ class Route {
 
   render() {
     if (!this._block) {
-      this._block = new this._blockClass(this._props);
+      // eslint-disable-next-line max-len
+      this._block = new this._blockClass(this._props.props);
       render(this._props.rootQuery, this._block);
       return;
     }
