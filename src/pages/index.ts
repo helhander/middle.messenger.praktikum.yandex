@@ -10,18 +10,17 @@ import Profile from '../superBlocks/profile';
 const router = new Router('.app');
 
 router
-  .use('/#!/signin', Form, { props: { name: 'Вход', comps: signinComps }, rootQuery: '.app' })
-  .use('/#!/signup', Form, { props: { name: 'Регистрация', comps: signupComps }, rootQuery: '.app' })
+  .use('', Form, { props: { name: 'Вход', comps: signinComps }, rootQuery: '.app' })
+  .use('#!/signin', Form, { props: { name: 'Вход', comps: signinComps }, rootQuery: '.app' })
+  .use('#!/signup', Form, { props: { name: 'Регистрация', comps: signupComps }, rootQuery: '.app' })
   .use('/profilePassword', Profile, { props: { sidebarComps: ppSidebarComps, profileInfoComps: ppProfileInfoComps }, rootQuery: '.app' })
   .use('/profileData', Profile, { props: { sidebarComps: pdSidebarComps, profileInfoComps: pdProfileInfoComps }, rootQuery: '.app' })
   .start();
-
-//router.go('/#!/signin');
 
 document.body.addEventListener('click', (event) => {
   const elem = event.target;
   if (!(elem instanceof HTMLAnchorElement)) return;
 
-  router.go(elem.href.replace(/http:\/\/.*?\//, '/'));
+  router.go(elem.href.replace(/http:\/\/.*?\//, ''));
   event.preventDefault();
 });
