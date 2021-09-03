@@ -1,7 +1,7 @@
 import { Component, TAG_NAMES } from '../../components/component.types';
 import VALIDATION_REG_EXP from '../../modules/validationRegExp';
 
-export const sidebarComps: Component[] = [
+export const pdSidebarComps: Component[] = [
   {
     tag: 'button',
     props: {
@@ -15,7 +15,7 @@ export const sidebarComps: Component[] = [
   },
 ];
 
-export const profileInfoComps: Component[] = [
+export const pdProfileInfoComps: Component[] = [
   {
     tag: 'form',
     props: {

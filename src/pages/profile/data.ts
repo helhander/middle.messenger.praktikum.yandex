@@ -137,7 +137,7 @@ export const profileInfoComps: Component[] = [
           props: {
             tagName: TAG_NAMES.DIV,
             tagClasses: '',
-            href: 'profileData.html',
+            href: 'profileData',
             label: 'Изменить данные',
             classes: 'profile-info__link profile-info__link_blue',
           },
@@ -147,7 +147,7 @@ export const profileInfoComps: Component[] = [
           props: {
             tagName: TAG_NAMES.DIV,
             tagClasses: '',
-            href: 'profilePassword.html',
+            href: 'profilePassword',
             label: 'Изменить пароль',
             classes: 'profile-info__link profile-info__link_blue',
           },
@@ -157,7 +157,7 @@ export const profileInfoComps: Component[] = [
           props: {
             tagName: TAG_NAMES.DIV,
             tagClasses: '',
-            href: 'signin.html',
+            href: 'signin',
             label: 'Выйти',
             classes: 'profile-info__link profile-info__link_red',
           },

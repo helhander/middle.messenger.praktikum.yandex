@@ -35,7 +35,9 @@ class Router {
   }
 
   start() {
+    console.log('111sdsdsdsds');
     window.onpopstate = ((event:Event) => {
+      console.log('sdsdsdsds');
       this._onRoute((event.currentTarget as Window).location.pathname);
     });
 

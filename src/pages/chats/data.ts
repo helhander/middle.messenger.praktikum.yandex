@@ -6,7 +6,7 @@ export const sidebarComps: Component[] = [
     props: {
       tagName: TAG_NAMES.DIV,
       tagClasses: '',
-      href: 'profile.html',
+      href: 'profile',
       label: 'Профиль >',
       classes: 'sidebar__link',
     },

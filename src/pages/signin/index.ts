@@ -5,5 +5,5 @@ import comps from './data';
 const router = new Router('.app');
 
 router
-  .use('/signin.html', Form, { props: { name: 'Вход', comps }, rootQuery: '.app' })
+  .use('/#!/signin', Form, { props: { name: 'Вход', comps }, rootQuery: '.app' })
   .start();

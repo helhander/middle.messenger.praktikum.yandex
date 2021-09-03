@@ -22,7 +22,7 @@ export default [
     props: {
       tagName: TAG_NAMES.DIV,
       tagClasses: '',
-      href: 'chats.html',
+      href: 'chats',
       label: 'Назад к чатам',
       classes: 'error__link',
     },

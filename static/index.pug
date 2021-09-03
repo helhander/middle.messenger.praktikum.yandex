@@ -1,15 +1,5 @@
 extends ../src/pages/base
 block title
-	| Оглавление
+	| Чат
 block main
-	script(src="../src/pages/signin/index.ts")
-	div(style="display: grid;padding: 100px 0px 0px 100px;")
-		a(href="signin.pug") Логин
-		a(href="signup.pug") Регистрация
-		a(href="chats.pug") Чаты
-		a(href="chatSettings.pug") Настройка чата 
-		a(href="profile.pug") Профиль
-		a(href="profileData.pug") Изменение профиля
-		a(href="profilePassword.pug") Изменение пароля профиля
-		a(href="error404.pug") Ошибка 404
-		a(href="error500.pug") Ошибка 500
+	script(src="../src/pages/index.ts")

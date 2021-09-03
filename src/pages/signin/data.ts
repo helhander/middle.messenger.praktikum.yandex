@@ -45,7 +45,7 @@ export default [
     props: {
       tagName: TAG_NAMES.DIV,
       tagClasses: '',
-      href: 'signup.html',
+      href: '/#!/signup',
       label: 'Нет аккаунта?',
       classes: 'login-form__link',
     },
