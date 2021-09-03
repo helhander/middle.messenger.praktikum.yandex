@@ -115,7 +115,7 @@ export default [
     props: {
       tagName: TAG_NAMES.DIV,
       tagClasses: '',
-      href: '#!/signin',
+      href: '#signin',
       label: 'Войти',
       classes: 'login-form__link',
     },

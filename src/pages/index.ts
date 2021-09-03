@@ -11,8 +11,8 @@ const router = new Router('.app');
 
 router
   .use('', Form, { props: { name: 'Вход', comps: signinComps }, rootQuery: '.app' })
-  .use('#!/signin', Form, { props: { name: 'Вход', comps: signinComps }, rootQuery: '.app' })
-  .use('#!/signup', Form, { props: { name: 'Регистрация', comps: signupComps }, rootQuery: '.app' })
+  .use('#signin', Form, { props: { name: 'Вход', comps: signinComps }, rootQuery: '.app' })
+  .use('#signup', Form, { props: { name: 'Регистрация', comps: signupComps }, rootQuery: '.app' })
   .use('/profilePassword', Profile, { props: { sidebarComps: ppSidebarComps, profileInfoComps: ppProfileInfoComps }, rootQuery: '.app' })
   .use('/profileData', Profile, { props: { sidebarComps: pdSidebarComps, profileInfoComps: pdProfileInfoComps }, rootQuery: '.app' })
   .start();
